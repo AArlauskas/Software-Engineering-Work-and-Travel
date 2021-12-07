@@ -1,11 +1,15 @@
 package wt.backend.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import wt.backend.dtos.UserDto;
+import wt.backend.enums.UserRoles;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -21,15 +25,28 @@ public class User {
 
     @Getter
     @Setter
+    @Column(unique = true)
     private String email;
 
     @Getter
     @Setter
+    @JsonIgnore
     private String password;
+
+    @Getter
+    @Setter
+    private String role = UserRoles.BASIC.toString();
 
     @OneToMany(mappedBy = "user")
     @Getter
     @Setter
     private List<Task> tasks;
 
+    public User(UserDto dto)
+    {
+        email = dto.getEmail();
+        password = dto.getPassword();
+        role = dto.getRole();
+        tasks = new ArrayList<>();
+    }
 }

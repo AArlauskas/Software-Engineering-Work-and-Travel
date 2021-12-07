@@ -1,5 +1,7 @@
 package wt.backend.enums;
 
+import java.util.List;
+
 public enum UserRoles {
     BASIC("BASIC"),
     PRO("PRO"),
@@ -15,5 +17,15 @@ public enum UserRoles {
     @Override
     public String toString() {
         return role;
+    }
+
+    public boolean isRole(String value)
+    {
+        UserRoles[] roles = UserRoles.values();
+        for (var role : roles)
+        {
+            if(role.role.equals(value)) return true;
+        }
+        return false;
     }
 }
