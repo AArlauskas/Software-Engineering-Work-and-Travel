@@ -1,9 +1,9 @@
 package wt.backend.repositories;
 
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import wt.backend.models.User;
 
 @Repository
-public interface UsersRepository extends CrudRepository<User, Long> {
+public interface UsersRepository extends JpaRepository<User, Long> {
 }
