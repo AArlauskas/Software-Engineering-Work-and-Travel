@@ -38,6 +38,8 @@ public class Task {
     private User user;
 
     @ManyToMany
+    @Getter
+    @Setter
     @JoinTable(name = "task_company",
     joinColumns = @JoinColumn(name = "task_id"),
     inverseJoinColumns = @JoinColumn(name = "company_id"))
