@@ -3,7 +3,8 @@ const URI = {
     PRICING: "/pricing",
     LOGIN: "/login",
     REGISTER: "/register",
-    COMPANIES: "/companies"
+    COMPANIES: "/companies",
+    INSTRUCTIONS: "/instructions"
 }
 
 export default URI;

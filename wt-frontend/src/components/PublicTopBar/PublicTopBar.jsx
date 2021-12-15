@@ -57,6 +57,15 @@ const PublicTopBar = () => {
                 Companies
               </Typography>
             </Grid>
+            <Grid item>
+              <Typography
+                variant="subtitle1"
+                style={{ cursor: "pointer" }}
+                onClick={() => onNavigate(URI.INSTRUCTIONS)}
+              >
+                Instructions
+              </Typography>
+            </Grid>
           </Grid>
           <Grid container item xs={4} justifyContent="end">
             <Grid item>

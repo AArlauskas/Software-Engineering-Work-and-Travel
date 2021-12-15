@@ -10,7 +10,7 @@ import {
 import { useNavigate } from "react-router";
 import URI from "../../constants/URI";
 
-const LoginForm = () => {
+const RegisterForm = () => {
   const navigate = useNavigate();
 
   const onNavigate = (path) => {
@@ -28,8 +28,14 @@ const LoginForm = () => {
           >
             <Grid item xs={12}>
               <Typography align="center" variant="h5">
-                Login
+                Register
               </Typography>
+            </Grid>
+            <Grid item md={6} xs={12}>
+              <TextField fullWidth placeholder="First name" type="text" />
+            </Grid>
+            <Grid item md={6} xs={12}>
+              <TextField fullWidth placeholder="Last name" type="text" />
             </Grid>
             <Grid item xs={12}>
               <TextField fullWidth placeholder="email" type="email" />
@@ -40,14 +46,19 @@ const LoginForm = () => {
             <Grid item xs={12}>
               <Link
                 style={{ cursor: "pointer" }}
-                onClick={() => onNavigate(URI.REGISTER)}
+                onClick={() => onNavigate(URI.LOGIN)}
               >
-                Don't have an account yet? <strong>Register!</strong>
+                Already have an account? <strong>Login!</strong>
               </Link>
             </Grid>
-            <Grid item xs={12}>
-              <Button variant="contained" fullWidth color="secondary">
-                Login
+            <Grid item md={6} xs={12}>
+              <Button variant="outlined" fullWidth color="secondary">
+                Test email
+              </Button>
+            </Grid>
+            <Grid item md={6} xs={12}>
+              <Button variant="contained" fullWidth color="secondary" disabled>
+                Register
               </Button>
             </Grid>
           </Grid>
@@ -57,4 +68,4 @@ const LoginForm = () => {
   );
 };
 
-export default LoginForm;
+export default RegisterForm;

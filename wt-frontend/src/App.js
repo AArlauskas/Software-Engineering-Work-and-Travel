@@ -6,6 +6,7 @@ import LoginPage from "./containers/LoginPage/LoginPage";
 import theme from "./theme";
 import CssBaseline from '@mui/material/CssBaseline';
 import PricingPage from "./containers/PricingPage/PricingPage";
+import RegisterPage from "./containers/RegisterPage/RegisterPage";
 function App() {
   return (
     <Router>
@@ -14,6 +15,7 @@ function App() {
         <CssBaseline/>
         <Routes>
           <Route path={URI.LOGIN} element={<LoginPage />} />
+          <Route path={URI.REGISTER} element={<RegisterPage/>}></Route>
           <Route path={URI.PRICING} element={<PricingPage/>} />
         </Routes>
       </ThemeProvider>
