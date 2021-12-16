@@ -98,7 +98,6 @@ const PublicTopBar = () => {
                 <Button
                   variant="contained"
                   color="secondary"
-                  sx={{ color: "black" }}
                   style={{ alignSelf: "end" }}
                   onClick={() => onNavigate(URI.LOGIN)}
                 >
