@@ -26,6 +26,7 @@ const RegisterPage = () => {
           Check out the{" "}
           <Link
             style={{ cursor: "pointer" }}
+            color="secondary"
             onClick={() => onNavigate(URI.INSTRUCTIONS)}
           >
             Instructions

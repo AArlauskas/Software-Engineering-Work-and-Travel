@@ -1,4 +1,11 @@
 import {
+  HomeOutlined,
+  BusinessOutlined,
+  PaidOutlined,
+  IntegrationInstructionsOutlined,
+  MenuOutlined,
+} from "@mui/icons-material";
+import {
   AppBar,
   Button,
   Grid,
@@ -7,13 +14,14 @@ import {
   Toolbar,
   Typography,
 } from "@mui/material";
-import MenuIcon from "@mui/icons-material/Menu";
-import productLogo from "../../constants/ProductLogo.png";
-import { useNavigate } from "react-router-dom";
 import URI from "../../constants/URI";
-import { useState } from "react";
-import PublicNavDrawer from "../PublicNavDrawer/PublicNavDrawer";
-const PublicTopBar = () => {
+import productLogo from "../../constants/ProductLogo.png";
+import { useRef, useState } from "react";
+import NavDrawer from "../NavDrawer/NavDrawer";
+import { useNavigate } from "react-router";
+import "./styles.css";
+
+const TopBar = () => {
   const navigate = useNavigate();
   const [showNavDrawer, setShowNavDrawer] = useState(false);
 
@@ -24,12 +32,59 @@ const PublicTopBar = () => {
   const onNavigate = (page) => {
     navigate(page);
   };
+
+  const publicTabs = useRef(
+    new Map([
+      ["Home", { icon: <HomeOutlined />, href: URI.HOME }],
+      ["Companies", { icon: <BusinessOutlined />, href: URI.COMPANIES }],
+      ["Pricing", { icon: <PaidOutlined />, href: URI.PRICING }],
+      [
+        "Instructions",
+        { icon: <IntegrationInstructionsOutlined />, href: URI.INSTRUCTIONS },
+      ],
+    ])
+  );
+
+  const privateTabs = useRef(new Map([]));
+
+  const getTabs = () => {
+    return isAdmin() ? privateTabs : publicTabs;
+  };
+
+  const isAdmin = () => {
+    return false;
+  };
+
+  const renderTabs = () => {
+    const current = window.location.pathname;
+    const result = [];
+    getTabs().current.forEach((value, key) => {
+      result.push(
+        <Grid item>
+          <Typography
+            variant="subtitle1"
+            onClick={() => onNavigate(value.href)}
+            className={
+              current === value.href
+                ? "navigation-item-current"
+                : "navigation-item"
+            }
+          >
+            {key}
+          </Typography>
+        </Grid>
+      );
+    });
+    return result;
+  };
+
   return (
     <>
-      <PublicNavDrawer
+      <NavDrawer
+        tabs={getTabs()}
         open={showNavDrawer}
-        onClose={toggleNavDrawer}
         onOpen={toggleNavDrawer}
+        onClose={toggleNavDrawer}
       />
       <AppBar position="relative" elevation={1}>
         <Toolbar>
@@ -41,7 +96,7 @@ const PublicTopBar = () => {
                   edge="end"
                   onClick={toggleNavDrawer}
                 >
-                  <MenuIcon />
+                  <MenuOutlined />
                 </IconButton>
               </Hidden>
               <Hidden smDown>
@@ -55,42 +110,7 @@ const PublicTopBar = () => {
                     />
                   </IconButton>
                 </Grid>
-                <Grid item>
-                  <Typography
-                    variant="subtitle1"
-                    style={{ cursor: "pointer" }}
-                    onClick={() => onNavigate(URI.HOME)}
-                  >
-                    Home
-                  </Typography>
-                </Grid>
-                <Grid item>
-                  <Typography
-                    variant="subtitle1"
-                    style={{ cursor: "pointer" }}
-                    onClick={() => onNavigate(URI.PRICING)}
-                  >
-                    Pricing
-                  </Typography>
-                </Grid>
-                <Grid item>
-                  <Typography
-                    variant="subtitle1"
-                    style={{ cursor: "pointer" }}
-                    onClick={() => onNavigate(URI.COMPANIES)}
-                  >
-                    Companies
-                  </Typography>
-                </Grid>
-                <Grid item>
-                  <Typography
-                    variant="subtitle1"
-                    style={{ cursor: "pointer" }}
-                    onClick={() => onNavigate(URI.INSTRUCTIONS)}
-                  >
-                    Instructions
-                  </Typography>
-                </Grid>
+                {renderTabs()}
               </Hidden>
             </Grid>
             <Grid container item xs={4} justifyContent="end">
@@ -112,4 +132,4 @@ const PublicTopBar = () => {
   );
 };
 
-export default PublicTopBar;
+export default TopBar;

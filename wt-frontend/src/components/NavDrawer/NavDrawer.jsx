@@ -1,9 +1,4 @@
-import React, { useState, useRef } from "react";
-import URI from "../../constants/URI";
-import HomeIcon from "@mui/icons-material/Home";
-import BusinessIcon from "@mui/icons-material/Business";
-import PaidIcon from "@mui/icons-material/Paid";
-import IntegrationInstructionsIcon from "@mui/icons-material/IntegrationInstructions";
+import React, { useState } from "react";
 import { useNavigate } from "react-router";
 import {
   List,
@@ -13,20 +8,8 @@ import {
   SwipeableDrawer,
 } from "@mui/material";
 
-const PublicNavDrawer = ({ open, onOpen, onClose }) => {
+const NavDrawer = ({ open, onOpen, onClose, tabs }) => {
   const navigate = useNavigate();
-
-  const tabs = useRef(
-    new Map([
-      ["Home", { icon: <HomeIcon />, href: URI.HOME }],
-      ["Companies", { icon: <BusinessIcon />, href: URI.COMPANIES }],
-      ["Pricing", { icon: <PaidIcon />, href: URI.PRICING }],
-      [
-        "Instructions",
-        { icon: <IntegrationInstructionsIcon />, href: URI.INSTRUCTIONS },
-      ],
-    ])
-  );
 
   const getSelectedTabKey = () => {
     let selected = null;
@@ -78,4 +61,4 @@ const PublicNavDrawer = ({ open, onOpen, onClose }) => {
   );
 };
 
-export default PublicNavDrawer;
+export default NavDrawer;

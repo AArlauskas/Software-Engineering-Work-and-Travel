@@ -28,8 +28,11 @@ const CompanyRegisterForm = () => {
             <Grid item xs={12}>
               <TextField fullWidth placeholder="Companie's name" type="text" />
             </Grid>
-            <Grid item xs={12}>
+            <Grid item md={6} xs={12}>
               <TextField fullWidth placeholder="email" type="email" />
+            </Grid>
+            <Grid item md={6} xs={12}>
+              <TextField fullWidth placeholder="phone" type="tel" />
             </Grid>
             <Grid item md={6} xs={12}>
               <Autocomplete

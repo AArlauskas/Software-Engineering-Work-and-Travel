@@ -1,0 +1,14 @@
+.navigation-item {
+  cursor: pointer;
+  border-bottom: 2px solid #c0daff;
+}
+
+.navigation-item-current {
+  cursor: pointer;
+  border-bottom: 2px solid #e86d5e;
+}
+
+.navigation-item:hover {
+  border-bottom: 2px solid #e86d5e;
+  transition: border-bottom-color 0.3s ease-in;
+}

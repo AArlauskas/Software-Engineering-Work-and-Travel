@@ -1,6 +1,5 @@
 import { ThemeProvider } from "@emotion/react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import PublicTopBar from "./components/PublicTopBar/PublicTopBar";
 import URI from "./constants/URI";
 import LoginPage from "./containers/LoginPage/LoginPage";
 import theme from "./theme";
@@ -8,11 +7,12 @@ import CssBaseline from '@mui/material/CssBaseline';
 import PricingPage from "./containers/PricingPage/PricingPage";
 import RegisterPage from "./containers/RegisterPage/RegisterPage";
 import CompaniesPage from "./containers/CompaniesPage/CompaniesPage";
+import TopBar from "./components/TopBar/TopBar";
 function App() {
   return (
     <Router>
       <ThemeProvider theme={theme}>
-        {getCurrentAppbar()}
+        <TopBar/>
         <CssBaseline/>
         <Routes>
           <Route path={URI.LOGIN} element={<LoginPage />} />
@@ -23,10 +23,6 @@ function App() {
       </ThemeProvider>
     </Router>
   );
-}
-
-const getCurrentAppbar = () => {
-  return <PublicTopBar/>
 }
 
 export default App;

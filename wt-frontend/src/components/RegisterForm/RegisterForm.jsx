@@ -46,6 +46,7 @@ const RegisterForm = () => {
             <Grid item xs={12}>
               <Link
                 style={{ cursor: "pointer" }}
+                color="secondary"
                 onClick={() => onNavigate(URI.LOGIN)}
               >
                 Already have an account? <strong>Login!</strong>
