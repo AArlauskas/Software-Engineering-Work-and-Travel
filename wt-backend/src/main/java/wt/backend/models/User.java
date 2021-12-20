@@ -25,6 +25,14 @@ public class User {
 
     @Getter
     @Setter
+    private String firstname;
+
+    @Getter
+    @Setter
+    private String lastname;
+
+    @Getter
+    @Setter
     @Column(unique = true)
     private String email;
 
@@ -44,6 +52,8 @@ public class User {
 
     public User(UserDto dto)
     {
+        firstname = dto.getFirstname();
+        lastname = dto.getLastname();
         email = dto.getEmail();
         password = dto.getPassword();
         role = dto.getRole();

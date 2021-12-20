@@ -16,6 +16,14 @@ public class UserDto {
 
     @Getter
     @Setter
+    private String firstname;
+
+    @Getter
+    @Setter
+    private String lastname;
+
+    @Getter
+    @Setter
     private String email;
 
     @Getter
@@ -29,6 +37,8 @@ public class UserDto {
     public UserDto(User user)
     {
         id = user.getId();
+        firstname = user.getFirstname();
+        lastname = user.getLastname();
         email = user.getEmail();
         password = user.getPassword();
         role = user.getRole();
