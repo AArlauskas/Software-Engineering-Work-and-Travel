@@ -9,6 +9,7 @@ import RegisterPage from "./containers/RegisterPage/RegisterPage";
 import CompaniesPage from "./containers/CompaniesPage/CompaniesPage";
 import EmailerPage from "./containers/EmailerPage/EmailerPage";
 import TopBar from "./components/TopBar/TopBar";
+import LookupPage from "./containers/LookupPage/LookupPage";
 function App() {
   return (
     <Router>
@@ -21,6 +22,7 @@ function App() {
           <Route path={URI.PRICING} element={<PricingPage/>} />
           <Route path={URI.COMPANIES} element={<CompaniesPage/>}/>
           <Route path={URI.EMAILER} element={<EmailerPage/>}/>
+          <Route path={URI.LOOKUP} element={<LookupPage/>}/>
         </Routes>
       </ThemeProvider>
     </Router>

@@ -5,7 +5,8 @@ const URI = {
     REGISTER: "/register",
     COMPANIES: "/companies",
     INSTRUCTIONS: "/instructions",
-    EMAILER: "/emailer"
+    EMAILER: "/emailer",
+    LOOKUP: "/lookup"
 }
 
 export default URI;
