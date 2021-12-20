@@ -7,19 +7,28 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
+import { useState } from "react";
 import { useNavigate } from "react-router";
 import URI from "../../constants/URI";
 
-const LoginForm = () => {
+const LoginForm = ({ onLogin }) => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
   const navigate = useNavigate();
 
   const onNavigate = (path) => {
     navigate(path);
   };
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+    onLogin(email, password);
+  };
   return (
     <Paper elevation={4}>
       <CardContent>
-        <form>
+        <form onSubmit={onSubmit}>
           <Grid
             container
             justifyContent="center"
@@ -32,10 +41,22 @@ const LoginForm = () => {
               </Typography>
             </Grid>
             <Grid item xs={12}>
-              <TextField fullWidth placeholder="email" type="email" />
+              <TextField
+                fullWidth
+                placeholder="email"
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
             </Grid>
             <Grid item xs={12}>
-              <TextField fullWidth placeholder="App password" type="password" />
+              <TextField
+                fullWidth
+                placeholder="App password"
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
             </Grid>
             <Grid item xs={12}>
               <Link
@@ -47,7 +68,12 @@ const LoginForm = () => {
               </Link>
             </Grid>
             <Grid item xs={12}>
-              <Button variant="contained" fullWidth color="secondary">
+              <Button
+                variant="contained"
+                fullWidth
+                color="secondary"
+                type="submit"
+              >
                 Login
               </Button>
             </Grid>
