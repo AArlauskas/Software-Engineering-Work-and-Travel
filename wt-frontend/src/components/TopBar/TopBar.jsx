@@ -60,7 +60,7 @@ const TopBar = () => {
     const result = [];
     getTabs().current.forEach((value, key) => {
       result.push(
-        <Grid item>
+        <Grid item key={key}>
           <Typography
             variant="subtitle1"
             onClick={() => onNavigate(value.href)}

@@ -4,7 +4,8 @@ const URI = {
     LOGIN: "/login",
     REGISTER: "/register",
     COMPANIES: "/companies",
-    INSTRUCTIONS: "/instructions"
+    INSTRUCTIONS: "/instructions",
+    EMAILER: "/emailer"
 }
 
 export default URI;

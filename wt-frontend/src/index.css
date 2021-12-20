@@ -12,8 +12,14 @@ code {
     monospace;
 }
 
-.container {
+.container,
+.grow-container {
+  padding-top: 10px;
+  padding-bottom: 10px;
   padding-left: 5%;
   padding-right: 5%;
+}
+
+.container {
   height: 90vh;
 }
