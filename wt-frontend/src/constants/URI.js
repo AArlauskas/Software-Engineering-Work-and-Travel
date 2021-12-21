@@ -1,5 +1,5 @@
 const URI = {
-    HOME: "/home",
+    HOME: "/",
     PRICING: "/pricing",
     LOGIN: "/login",
     REGISTER: "/register",

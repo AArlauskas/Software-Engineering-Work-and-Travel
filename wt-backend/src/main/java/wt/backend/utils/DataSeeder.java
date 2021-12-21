@@ -32,9 +32,9 @@ public class DataSeeder implements CommandLineRunner {
     {
         if(usersRepository.count() > 0) return;
         List<User> users = new ArrayList<>();
-        users.add(new User("Aurimas", "Arlauskas", "auruxxas.ar@gmail.com", "password", UserRoles.ADMIN));
-        users.add(new User("Ana", "Atanasova", "ana@gmail.com", "password", UserRoles.PRO));
-        users.add(new User("Tanja", "Milososka", "tanja@gmail.com", "password", UserRoles.BASIC));
+        users.add(new User("Aurimas", "Arlauskas", "auruxxas.ar@gmail.com", "XXXX-XXXX-XXXX-XXXX", UserRoles.ADMIN));
+        users.add(new User("Ana", "Atanasova", "ana@gmail.com", "XXXX-XXXX-XXXX-XXXX", UserRoles.PRO));
+        users.add(new User("Tanja", "Milososka", "tanja@gmail.com", "XXXX-XXXX-XXXX-XXXX", UserRoles.BASIC));
         usersRepository.saveAll(users);
     }
 }

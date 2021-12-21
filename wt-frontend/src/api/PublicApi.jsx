@@ -9,3 +9,6 @@ const api = axios.create({
 
 export const login = (email, password) =>
   api.post("/users/authenticate", { email, password });
+
+export const getPersonalInfo = (token) =>
+  api.get("/users/personal", { headers: { Authorization: `Bearer ${token}` } });

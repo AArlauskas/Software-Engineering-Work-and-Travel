@@ -1,11 +1,31 @@
 import { Grid, Hidden } from "@mui/material";
-import { login } from "../../api/PublicApi";
+import { login, getPersonalInfo } from "../../api/PublicApi";
 import LoginForm from "../../components/LoginForm/LoginForm";
 import LoginImage from "../../assets/LoginImage.jpg";
+import { useState } from "react";
 
 const LoginPage = () => {
+  const [showLoginError, setShowLoginError] = useState(false);
+
   const onLogin = (email, password) => {
-    login(email, password).then((response) => console.log(response.data));
+    setShowLoginError(false);
+    login(email, password)
+      .then((response) => {
+        const { token } = response.data;
+        getPersonalInfo(token)
+          .then((response2) => {
+            const { data } = response2;
+            window.localStorage.setItem("token", token);
+            window.localStorage.setItem("firstname", data.firstname);
+            window.localStorage.setItem("lastname", data.lastname);
+            window.localStorage.setItem("email", data.email);
+            window.localStorage.setItem("role", data.role);
+            window.localStorage.setItem("id", data.id);
+            window.location.reload();
+          })
+          .catch(() => setShowLoginError(true));
+      })
+      .catch(() => setShowLoginError(true));
   };
 
   return (
@@ -25,7 +45,7 @@ const LoginPage = () => {
         </Grid>
       </Hidden>
       <Grid item container xs={11} sm={6}>
-        <LoginForm onLogin={onLogin} />
+        <LoginForm onLogin={onLogin} showLoginError={showLoginError} />
       </Grid>
     </Grid>
   );
