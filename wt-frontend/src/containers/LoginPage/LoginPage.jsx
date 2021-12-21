@@ -1,6 +1,6 @@
 import { Grid, Hidden } from "@mui/material";
 import LoginForm from "../../components/LoginForm/LoginForm";
-import LoginImage from "../../constants/LoginImage.jpg";
+import LoginImage from "../../assets/LoginImage.jpg";
 
 const LoginPage = () => {
   return (

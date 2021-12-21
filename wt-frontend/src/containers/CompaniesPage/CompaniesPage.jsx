@@ -1,6 +1,6 @@
 import { Grid, Typography } from "@mui/material";
 import CompanyRegisterForm from "../../components/CompanyRegisterForm/CompanyRegisterForm";
-import CompanyImage from "../../constants/CompanyImage.jpg";
+import CompanyImage from "../../assets/CompanyImage.jpg";
 
 const CompaniesPage = () => {
   return (
