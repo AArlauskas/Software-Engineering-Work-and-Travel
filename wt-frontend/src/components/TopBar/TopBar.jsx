@@ -15,7 +15,7 @@ import {
   Typography,
 } from "@mui/material";
 import URI from "../../constants/URI";
-import productLogo from "../../constants/ProductLogo.png";
+import productLogo from "../../assets/ProductLogo.png";
 import { useRef, useState } from "react";
 import NavDrawer from "../NavDrawer/NavDrawer";
 import { useNavigate } from "react-router";

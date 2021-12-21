@@ -23,3 +23,7 @@ code {
 .container {
   height: 90vh;
 }
+
+p {
+  text-align: justify;
+}

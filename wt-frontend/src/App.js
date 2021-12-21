@@ -10,6 +10,7 @@ import CompaniesPage from "./containers/CompaniesPage/CompaniesPage";
 import EmailerPage from "./containers/EmailerPage/EmailerPage";
 import TopBar from "./components/TopBar/TopBar";
 import LookupPage from "./containers/LookupPage/LookupPage";
+import HomePage from "./containers/HomePage/HomePage";
 function App() {
   return (
     <Router>
@@ -17,6 +18,7 @@ function App() {
         <CssBaseline/>
         <TopBar/>
         <Routes>
+          <Route path={URI.HOME} element={<HomePage />} />
           <Route path={URI.LOGIN} element={<LoginPage />} />
           <Route path={URI.REGISTER} element={<RegisterPage/>}/>
           <Route path={URI.PRICING} element={<PricingPage/>} />
