@@ -1,10 +1,17 @@
 import requests
-from tinydb import TinyDB
-db=TinyDB("/database.json")
+from tinydb import TinyDB, Query
+
+db=TinyDB("database.json")
 table=db.table("Companies")
 
-def addtoDB(company):
+def addCompany(company):
     table.insert(company)
 
-def getalldb():
+def getAllCompanies():
     return table.all()
+
+def isEmpty():
+    return len(getAllCompanies()) == 0
+
+def updateCompany(company):
+    table.update(company,Query().id == company["id"])
