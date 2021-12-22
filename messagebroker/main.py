@@ -8,6 +8,7 @@ from publisher import addCompanyToQueue
 
 def main():
     initDb()
+    time.sleep(15)
     companies = getAllCompanies()
     for company in companies:
         updatedCompany = generateInitialPricesAndRatings(company)
