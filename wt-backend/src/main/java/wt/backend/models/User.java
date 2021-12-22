@@ -25,6 +25,14 @@ public class User {
 
     @Getter
     @Setter
+    private String firstname;
+
+    @Getter
+    @Setter
+    private String lastname;
+
+    @Getter
+    @Setter
     @Column(unique = true)
     private String email;
 
@@ -44,9 +52,21 @@ public class User {
 
     public User(UserDto dto)
     {
+        firstname = dto.getFirstname();
+        lastname = dto.getLastname();
         email = dto.getEmail();
         password = dto.getPassword();
         role = dto.getRole();
         tasks = new ArrayList<>();
+    }
+
+    public User(String firstname, String lastname, String email, String password, UserRoles role)
+    {
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.email = email;
+        this.password = password;
+        this.role = UserRoles.BASIC.toString();
+        this.role = role.toString();
     }
 }

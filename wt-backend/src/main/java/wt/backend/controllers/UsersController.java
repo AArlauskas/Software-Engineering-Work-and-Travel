@@ -19,6 +19,7 @@ import wt.backend.models.User;
 import wt.backend.services.UsersService;
 
 @RestController
+@CrossOrigin
 @RequestMapping("/api/users")
 public class UsersController {
     @Autowired

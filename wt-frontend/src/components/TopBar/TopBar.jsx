@@ -4,6 +4,9 @@ import {
   PaidOutlined,
   IntegrationInstructionsOutlined,
   MenuOutlined,
+  EmailOutlined,
+  SearchOutlined,
+  ExitToAppOutlined,
 } from "@mui/icons-material";
 import {
   AppBar,
@@ -13,6 +16,7 @@ import {
   IconButton,
   Toolbar,
   Typography,
+  Avatar,
 } from "@mui/material";
 import URI from "../../constants/URI";
 import productLogo from "../../assets/ProductLogo.png";
@@ -20,6 +24,7 @@ import { useRef, useState } from "react";
 import NavDrawer from "../NavDrawer/NavDrawer";
 import { useNavigate } from "react-router";
 import "./styles.css";
+import UserRoles from "../../constants/UserRoles";
 
 const TopBar = () => {
   const navigate = useNavigate();
@@ -45,14 +50,38 @@ const TopBar = () => {
     ])
   );
 
-  const privateTabs = useRef(new Map([]));
+  const basicTabs = useRef(
+    new Map([["Emailer", { icon: <EmailOutlined />, href: URI.EMAILER }]])
+  );
+
+  const proTabs = useRef(
+    new Map([
+      ["Emailer", { icon: <EmailOutlined />, href: URI.EMAILER }],
+      ["Lookup", { icon: <SearchOutlined />, href: URI.LOOKUP }],
+    ])
+  );
 
   const getTabs = () => {
-    return isAdmin() ? privateTabs : publicTabs;
+    const role = window.localStorage.getItem("role");
+    if (role === UserRoles.PUBLIC) return publicTabs;
+    if (role === UserRoles.BASIC) return basicTabs;
+    if (role === UserRoles.PRO || UserRoles.ADMIN) return proTabs;
   };
 
-  const isAdmin = () => {
-    return false;
+  const isPublic = () => {
+    return window.localStorage.getItem("role") === null;
+  };
+
+  const onLogout = () => {
+    window.localStorage.clear();
+    window.location.reload();
+  };
+
+  const getCredentials = () => {
+    return (
+      window.localStorage.getItem("firstname")[0] +
+      window.localStorage.getItem("lastname")[0]
+    );
   };
 
   const renderTabs = () => {
@@ -114,16 +143,31 @@ const TopBar = () => {
               </Hidden>
             </Grid>
             <Grid container item xs={4} justifyContent="end">
-              <Grid item>
-                <Button
-                  variant="contained"
-                  color="secondary"
-                  style={{ alignSelf: "end" }}
-                  onClick={() => onNavigate(URI.LOGIN)}
-                >
-                  Login/Register
-                </Button>
-              </Grid>
+              {isPublic() ? (
+                <Grid item>
+                  <Button
+                    variant="contained"
+                    color="secondary"
+                    style={{ alignSelf: "end" }}
+                    onClick={() => onNavigate(URI.LOGIN)}
+                  >
+                    Login/Register
+                  </Button>
+                </Grid>
+              ) : (
+                <>
+                  <Grid item>
+                    <Avatar sx={{ bgcolor: "#E86D5E" }}>
+                      {getCredentials()}
+                    </Avatar>
+                  </Grid>
+                  <Grid item>
+                    <IconButton onClick={onLogout}>
+                      <ExitToAppOutlined />
+                    </IconButton>
+                  </Grid>
+                </>
+              )}
             </Grid>
           </Grid>
         </Toolbar>
