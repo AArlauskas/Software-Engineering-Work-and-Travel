@@ -8,7 +8,9 @@ from publisher import addCompanyToQueue
 
 def main():
     initDb()
-    time.sleep(15)
+    print("Database initialised. Waiting for 60s")
+    time.sleep(60)
+    print("Initial database queue started")
     companies = getAllCompanies()
     for company in companies:
         updatedCompany = generateInitialPricesAndRatings(company)
@@ -41,12 +43,13 @@ def initDb():
 def timer():
     companies = getAllCompanies()
     while True:
+        print("Company fetch in progress")
         for company in companies:
             result = updatePricesAndRatings(company)
             if (result[1]):
                 print("company changed!")
                 addCompanyToQueue(result[0])
                 updateCompany(result[0])
-        time.sleep(120)
+        time.sleep(1800)
 
 main()

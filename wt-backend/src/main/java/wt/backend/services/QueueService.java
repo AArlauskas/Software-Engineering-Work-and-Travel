@@ -8,22 +8,30 @@ import wt.backend.models.Company;
 
 import java.io.Console;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.util.concurrent.TimeoutException;
 
 @Service
 public class QueueService {
+
     @Autowired
     private CompaniesService companiesService;
+
     public void receiveCompaniesFromQueue() throws IOException, TimeoutException {
         ConnectionFactory factory = new ConnectionFactory();
         factory.setHost("localhost");
         Connection connection = factory.newConnection();
+
         Channel channel = connection.createChannel();
         channel.exchangeDeclare("logs", BuiltinExchangeType.FANOUT);
         channel.queueBind("companies","logs","");
+
         System.out.println(" [*] Waiting for messages. To exit press CTRL+C");
+
         DeliverCallback deliverCallback = (consumerTag, delivery) -> {
-            String message = new String(delivery.getBody(), "UTF-8");
+
+            String message = new String(delivery.getBody(), StandardCharsets.UTF_8);
+
             try {
                 Gson g = new Gson();
                 Company company=g.fromJson(message,Company.class);
@@ -36,6 +44,7 @@ public class QueueService {
                 System.out.println(company);
             }
         };
+
         channel.basicConsume("companies", true, deliverCallback, consumerTag -> {
         });
     }

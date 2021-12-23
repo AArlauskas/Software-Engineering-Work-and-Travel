@@ -1,7 +1,5 @@
 import random
 
-from dbcompanies import updateCompany
-
 def generateRating():
    return round(random.uniform(1.0,5.0),1)
 
@@ -30,8 +28,6 @@ def updatePricesAndRatings(company):
     if new_pricing != None:
         company["pricing"] = new_pricing
         changed = True
-    # print(initial_pricing, company["pricing"])
-    print(changed)
     return (company, changed)                                   
     
 

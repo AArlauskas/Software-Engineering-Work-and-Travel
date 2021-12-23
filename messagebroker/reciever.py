@@ -1,6 +1,7 @@
 import requests
 import pika
 
+#Example of a receiver
 connection = pika.BlockingConnection(
     pika.ConnectionParameters(host='localhost'))
 channel = connection.channel()
