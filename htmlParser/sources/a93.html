@@ -1,0 +1,1083 @@
+<!DOCTYPE html><html lang="en"><style type="text/css" id="dark-mode-custom-style"></style><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="MTcJTx8aPJtJT4B9MlJ7Ts13sYLpcrDypQv2Ly2d">
+
+    <title>Konektikutas | LWC-WT</title>
+    <link rel="icon" href="https://us.lwc-wt.lt/icon.gif">
+    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans&amp;display=swap" rel="stylesheet"> 
+
+    <!-- Styles -->
+    <link href="https://us.lwc-wt.lt/css/app.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://us.lwc-wt.lt/css/bootstrap-datepicker3.css">
+    <link rel="stylesheet" href="https://us.lwc-wt.lt/bootstrap-select-1.12.1/dist/css/bootstrap-select.min.css">
+    <link rel="stylesheet" href="https://us.lwc-wt.lt/fontawesome-5.1.0/css/all.css">
+    
+    <!-- Scripts -->
+    
+        
+    
+    
+    <!--<script src="/js/bootstrap3-typeahead.min.js"></script>-->
+    
+
+    
+
+<style type="text/css"></style></head>
+<body>
+    <div id="app">
+        <nav class="navbar navbar-default navbar-static-top">
+    <div class="container">
+        <div class="navbar-header">
+
+            <!-- Collapsed Hamburger -->
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
+                <span class="sr-only">Toggle Navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <!-- Branding Image -->
+            <a class="navbar-brand" href="https://us.lwc-wt.lt/">
+                LWC-WT
+            </a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="app-navbar-collapse">
+            <!-- Left Side Of Navbar -->
+            <ul class="nav navbar-nav">
+                &nbsp;
+
+                                    <li>
+                        <a href="https://us.lwc-wt.lt/" class="underline-hover">Pagrindinis</a>
+                    </li>
+                                            <li>
+                            <a href="https://us.lwc-wt.lt/information" class="underline-hover">Informacija</a>
+                        </li>
+                                                                <li>
+                            <a href="https://us.lwc-wt.lt/companies" class="underline-hover">Firmų sąrašas</a>
+                        </li>
+                                     
+            </ul>
+
+            <!-- Right Side Of Navbar -->
+            <ul class="nav navbar-nav navbar-right">
+                <!-- Authentication Links -->
+                                    <li class="dropdown">
+                        <a href="https://us.lwc-wt.lt/companies/3/ct#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" style="padding-left:40px">
+                            <i class="fas fa-user-circle fa-2x" style="position: absolute;top: 10px;left: 7px;"></i>
+                            Aurimas Arlauskas <span class="caret"></span>
+                        </a>
+
+                        <ul class="dropdown-menu" role="menu">
+                            <li>
+                                <a href="https://us.lwc-wt.lt/logout">
+                                    Atsijungti
+                                </a>
+
+                                <form id="logout-form" action="https://us.lwc-wt.lt/logout" method="POST" style="display: none;">
+                                    
+                                </form>
+                            </li>
+                        </ul>
+                    </li>
+                                                    <li class="uppercase active">
+                        <a href="https://us.lwc-wt.lt/lang/change/lt">lt</a>
+                    </li> 
+                                    <li class="uppercase ">
+                        <a href="https://us.lwc-wt.lt/lang/change/en">en</a>
+                    </li> 
+                            </ul>
+        </div>
+    </div>
+</nav>
+                
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3>
+                            <div class="row">
+                                <div class="col-md-7">
+                                    Konektikutas (Didelis firmų sąrašas)
+                                </div>
+                                <div class="col-md-5">
+                                                                    </div>
+                            </div>
+                        </h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="tmp-success-message" style="display: none;">
+                                                    </div>
+
+                        
+                        <form action="https://us.lwc-wt.lt/companies/3/ct" id="search_form" class="form-horizontal" method="post">
+    
+
+    <div class="input-group" style="padding-bottom: 10px; padding-top: 10px;">
+        <input id="searchString" name="searchString" value="" type="text" class="form-control" placeholder="Paieška" autofocus="">
+        <span class="input-group-addon">
+            <span class="clickable"><i class="fas fa-search"></i></span>
+        </span>
+    </div>
+    
+</form>
+                        <div class="companies-container">
+                                                            
+                                <ul class="list-group">
+                                    <li class="list-group-item company-list-header">
+                                        <div class="row">
+                                            <div class="col-sm-4">
+                                                <strong>Firmos pavadinimas</strong>
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <strong>Miestas</strong>
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <div>
+                                                <strong>Puslapis&nbsp;&nbsp;</strong>
+                                                </div>
+                                            </div>
+                                                                                        
+
+                                        </div>
+                                    </li>
+                                                                            <li class="list-group-item clickable">
+                                            <div class="row">
+                                                <div class="col-sm-4">
+                                                    <div>
+                                                        <strong>Blue Lobster</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <div>
+                                                        <strong>Berlin</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4" style="overflow: hidden;">
+                                                                                                            <a href="http:" target="_blank"></a>&nbsp;
+                                                                                                    </div>
+                                                                                                    <div class="col-sm-1">
+                                                        <div class="pull-right list-actions">
+        
+    
+    </div>                                                    </div> 
+                                                                                            </div>
+                                            <div class="clearfix"></div>
+                                            <div id="details-0" style="padding-top: 10px; display: none">
+                                                                                                    <div>
+                                                        Adresas:&nbsp;
+                                                        <strong>376 Berlin Turnpike</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        Zip kodas:&nbsp;
+                                                        <strong>6037</strong>
+                                                    </div>
+                                                                                                                                                                                                                                                    <div>
+                                                        Telefono nr.:&nbsp;
+                                                        <strong>860-828-5833</strong>
+                                                    </div>
+                                                                                                                                                                                                                                                                                                                                            </div>
+                                        </li>
+                                                                            <li class="list-group-item clickable">
+                                            <div class="row">
+                                                <div class="col-sm-4">
+                                                    <div>
+                                                        <strong>Caffe Social</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <div>
+                                                        <strong>Norwalk</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4" style="overflow: hidden;">
+                                                                                                            <a href="http://www.caffesocial.com/" target="_blank">www.caffesocial.com</a>&nbsp;
+                                                                                                    </div>
+                                                                                                    <div class="col-sm-1">
+                                                        <div class="pull-right list-actions">
+        
+    
+    </div>                                                    </div> 
+                                                                                            </div>
+                                            <div class="clearfix"></div>
+                                            <div id="details-1" style="padding-top: 10px; display: none">
+                                                                                                    <div>
+                                                        Adresas:&nbsp;
+                                                        <strong>73 North Main St.</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        Zip kodas:&nbsp;
+                                                        <strong>6854</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        El. paštas:&nbsp;
+                                                        <a href="mailto:caffesocial373@gmail.com">caffesocial373@gmail.com</a>
+                                                    </div>
+                                                                                                                                                                                                    <div>
+                                                        Telefono nr.:&nbsp;
+                                                        <strong>203-939-9523</strong>
+                                                    </div>
+                                                                                                                                                                                                    <div>
+                                                        Puslapis2:&nbsp;
+                                                                                                                    <a href="https://www.facebook.com/caffesocial73/" target="_blank">https://www.facebook.com/caffesocial73/</a>&nbsp;
+                                                        
+                                                    </div>
+                                                                                                                                                                                                                                            </div>
+                                        </li>
+                                                                            <li class="list-group-item clickable">
+                                            <div class="row">
+                                                <div class="col-sm-4">
+                                                    <div>
+                                                        <strong>Chip's Family Restaurant</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <div>
+                                                        <strong>Orange</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4" style="overflow: hidden;">
+                                                                                                            <a href="https://chipsrestaurants.com/" target="_blank">https://chipsrestaurants.com/</a>&nbsp;
+                                                                                                    </div>
+                                                                                                    <div class="col-sm-1">
+                                                        <div class="pull-right list-actions">
+        
+    
+    </div>                                                    </div> 
+                                                                                            </div>
+                                            <div class="clearfix"></div>
+                                            <div id="details-2" style="padding-top: 10px; display: none">
+                                                                                                    <div>
+                                                        Adresas:&nbsp;
+                                                        <strong>321 Boston Post Rd</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        Zip kodas:&nbsp;
+                                                        <strong>6477</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        El. paštas:&nbsp;
+                                                        <a href="mailto:george.chips@gmail.com">george.chips@gmail.com</a>
+                                                    </div>
+                                                                                                                                                                                                    <div>
+                                                        Telefono nr.:&nbsp;
+                                                        <strong>203-795-5065</strong>
+                                                    </div>
+                                                                                                                                                                                                    <div>
+                                                        Puslapis2:&nbsp;
+                                                                                                                    <a href="https://chipsrestaurants.com/careers/" target="_blank">https://chipsrestaurants.com/careers/</a>&nbsp;
+                                                        
+                                                    </div>
+                                                                                                                                                                                                                                            </div>
+                                        </li>
+                                                                            <li class="list-group-item clickable">
+                                            <div class="row">
+                                                <div class="col-sm-4">
+                                                    <div>
+                                                        <strong>Crow's Nest Gourmet Deli</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <div>
+                                                        <strong>Essex</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4" style="overflow: hidden;">
+                                                                                                            <a href="https://www.facebook.com/pages/biz/american_restaurant-essex/Crows-Nest-Gourmet-Deli-115241431836017/" target="_blank">https://www.facebook.com/pages/biz/american_restaurant-essex/Crows-Nest-Gourmet-Deli-115241431836017/</a>&nbsp;
+                                                                                                    </div>
+                                                                                                    <div class="col-sm-1">
+                                                        <div class="pull-right list-actions">
+        
+    
+    </div>                                                    </div> 
+                                                                                            </div>
+                                            <div class="clearfix"></div>
+                                            <div id="details-3" style="padding-top: 10px; display: none">
+                                                                                                    <div>
+                                                        Adresas:&nbsp;
+                                                        <strong>35 Pratt Street</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        Zip kodas:&nbsp;
+                                                        <strong>6476</strong>
+                                                    </div>
+                                                                                                                                                                                                                                                    <div>
+                                                        Telefono nr.:&nbsp;
+                                                        <strong>860-767-3288</strong>
+                                                    </div>
+                                                                                                                                                                                                                                                                                                                                            </div>
+                                        </li>
+                                                                            <li class="list-group-item clickable">
+                                            <div class="row">
+                                                <div class="col-sm-4">
+                                                    <div>
+                                                        <strong>Fairview Country Club</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <div>
+                                                        <strong>Greenwich</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4" style="overflow: hidden;">
+                                                                                                            <a href="http://www.fairviewcountryclub.org/" target="_blank">www.fairviewcountryclub.org</a>&nbsp;
+                                                                                                    </div>
+                                                                                                    <div class="col-sm-1">
+                                                        <div class="pull-right list-actions">
+        
+    
+    </div>                                                    </div> 
+                                                                                            </div>
+                                            <div class="clearfix"></div>
+                                            <div id="details-4" style="padding-top: 10px; display: none">
+                                                                                                    <div>
+                                                        Adresas:&nbsp;
+                                                        <strong>1241 King St.</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        Zip kodas:&nbsp;
+                                                        <strong>6831</strong>
+                                                    </div>
+                                                                                                                                                                                                                                                    <div>
+                                                        Telefono nr.:&nbsp;
+                                                        <strong>203-531-6200</strong>
+                                                    </div>
+                                                                                                                                                                                                                                                                                                                                            </div>
+                                        </li>
+                                                                            <li class="list-group-item clickable">
+                                            <div class="row">
+                                                <div class="col-sm-4">
+                                                    <div>
+                                                        <strong>Greenwich Country Club</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <div>
+                                                        <strong>Greenwich</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4" style="overflow: hidden;">
+                                                                                                            <a href="https://www.greenwichcountryclub.org/" target="_blank">https://www.greenwichcountryclub.org/</a>&nbsp;
+                                                                                                    </div>
+                                                                                                    <div class="col-sm-1">
+                                                        <div class="pull-right list-actions">
+        
+    
+    </div>                                                    </div> 
+                                                                                            </div>
+                                            <div class="clearfix"></div>
+                                            <div id="details-5" style="padding-top: 10px; display: none">
+                                                                                                    <div>
+                                                        Adresas:&nbsp;
+                                                        <strong>19 Doubling Rd</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        Zip kodas:&nbsp;
+                                                        <strong>06830</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        El. paštas:&nbsp;
+                                                        <a href="mailto:info@greenwichcountryclub.org">info@greenwichcountryclub.org</a>
+                                                    </div>
+                                                                                                                                                                                                    <div>
+                                                        Telefono nr.:&nbsp;
+                                                        <strong>203-869-1000</strong>
+                                                    </div>
+                                                                                                                                                                                                    <div>
+                                                        Puslapis2:&nbsp;
+                                                                                                                    <a href="https://www.greenwichcountryclub.org/Default.aspx?p=DynamicModule&amp;pageid=397012&amp;ssid=319709&amp;vnf=1" target="_blank">https://www.greenwichcountryclub.org/Default.aspx?p=DynamicModule&amp;pageid=397012&amp;ssid=319709&amp;vnf=1</a>&nbsp;
+                                                        
+                                                    </div>
+                                                                                                                                                                                                                                            </div>
+                                        </li>
+                                                                            <li class="list-group-item clickable">
+                                            <div class="row">
+                                                <div class="col-sm-4">
+                                                    <div>
+                                                        <strong>Madison Beach Club</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <div>
+                                                        <strong>Madison</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4" style="overflow: hidden;">
+                                                                                                            <a href="http://madisonbeachclub.com/" target="_blank">http://madisonbeachclub.com/</a>&nbsp;
+                                                                                                    </div>
+                                                                                                    <div class="col-sm-1">
+                                                        <div class="pull-right list-actions">
+        
+    
+    </div>                                                    </div> 
+                                                                                            </div>
+                                            <div class="clearfix"></div>
+                                            <div id="details-6" style="padding-top: 10px; display: none">
+                                                                                                    <div>
+                                                        Adresas:&nbsp;
+                                                        <strong>128 Island Ave</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        Zip kodas:&nbsp;
+                                                        <strong>6443</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        El. paštas:&nbsp;
+                                                        <a href="mailto:shellymbc@gmail.com">shellymbc@gmail.com</a>
+                                                    </div>
+                                                                                                                                                                                                    <div>
+                                                        Telefono nr.:&nbsp;
+                                                        <strong>860-550-2009</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        Kontaktinis asmuo:&nbsp;
+                                                        <strong>Shelly Kenneson</strong>
+                                                    </div>
+                                                                                                                                                                                                                                                                                            </div>
+                                        </li>
+                                                                            <li class="list-group-item clickable">
+                                            <div class="row">
+                                                <div class="col-sm-4">
+                                                    <div>
+                                                        <strong>McDonald's</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <div>
+                                                        <strong>Cheshire</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4" style="overflow: hidden;">
+                                                                                                            <a href="http://www.mcdonalds.com/us/en/home.html" target="_blank">http://www.mcdonalds.com/us/en/home.html</a>&nbsp;
+                                                                                                    </div>
+                                                                                                    <div class="col-sm-1">
+                                                        <div class="pull-right list-actions">
+        
+    
+    </div>                                                    </div> 
+                                                                                            </div>
+                                            <div class="clearfix"></div>
+                                            <div id="details-7" style="padding-top: 10px; display: none">
+                                                                                                    <div>
+                                                        Adresas:&nbsp;
+                                                        <strong>850 S Main St.</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        Zip kodas:&nbsp;
+                                                        <strong>6410</strong>
+                                                    </div>
+                                                                                                                                                                                                                                                    <div>
+                                                        Telefono nr.:&nbsp;
+                                                        <strong>203-272-9002</strong>
+                                                    </div>
+                                                                                                                                                                                                    <div>
+                                                        Puslapis2:&nbsp;
+                                                                                                                    <a href="https://restaurantjobs.mcdonalds.com/" target="_blank">https://restaurantjobs.mcdonalds.com/</a>&nbsp;
+                                                        
+                                                    </div>
+                                                                                                                                                                                                                                            </div>
+                                        </li>
+                                                                            <li class="list-group-item clickable">
+                                            <div class="row">
+                                                <div class="col-sm-4">
+                                                    <div>
+                                                        <strong>McDonald's / Rand K Sperro</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <div>
+                                                        <strong>Clinton</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4" style="overflow: hidden;">
+                                                                                                            <a href="http://www.mcdonalds.com/us/en/home.html" target="_blank">http://www.mcdonalds.com/us/en/home.html</a>&nbsp;
+                                                                                                    </div>
+                                                                                                    <div class="col-sm-1">
+                                                        <div class="pull-right list-actions">
+        
+    
+    </div>                                                    </div> 
+                                                                                            </div>
+                                            <div class="clearfix"></div>
+                                            <div id="details-8" style="padding-top: 10px; display: none">
+                                                                                                    <div>
+                                                        Adresas:&nbsp;
+                                                        <strong>108 Main St.</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        Zip kodas:&nbsp;
+                                                        <strong>6413</strong>
+                                                    </div>
+                                                                                                                                                                                                                                                    <div>
+                                                        Telefono nr.:&nbsp;
+                                                        <strong>860-669-1005</strong>
+                                                    </div>
+                                                                                                                                                                                                    <div>
+                                                        Puslapis2:&nbsp;
+                                                                                                                    <a href="https://restaurantjobs.mcdonalds.com/" target="_blank">https://restaurantjobs.mcdonalds.com/</a>&nbsp;
+                                                        
+                                                    </div>
+                                                                                                                                                                                                                                            </div>
+                                        </li>
+                                                                            <li class="list-group-item clickable">
+                                            <div class="row">
+                                                <div class="col-sm-4">
+                                                    <div>
+                                                        <strong>McDonald's of Glastonbury</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <div>
+                                                        <strong>Glastonbury</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4" style="overflow: hidden;">
+                                                                                                            <a href="http://www.mcdonalds.com/us/en/home.html" target="_blank">http://www.mcdonalds.com/us/en/home.html</a>&nbsp;
+                                                                                                    </div>
+                                                                                                    <div class="col-sm-1">
+                                                        <div class="pull-right list-actions">
+        
+    
+    </div>                                                    </div> 
+                                                                                            </div>
+                                            <div class="clearfix"></div>
+                                            <div id="details-9" style="padding-top: 10px; display: none">
+                                                                                                    <div>
+                                                        Adresas:&nbsp;
+                                                        <strong>2915 Main Street</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        Zip kodas:&nbsp;
+                                                        <strong>6033</strong>
+                                                    </div>
+                                                                                                                                                                                                                                                    <div>
+                                                        Telefono nr.:&nbsp;
+                                                        <strong>860-633-1731</strong>
+                                                    </div>
+                                                                                                                                                                                                    <div>
+                                                        Puslapis2:&nbsp;
+                                                                                                                    <a href="https://restaurantjobs.mcdonalds.com/" target="_blank">https://restaurantjobs.mcdonalds.com/</a>&nbsp;
+                                                        
+                                                    </div>
+                                                                                                                                                                                                                                            </div>
+                                        </li>
+                                                                            <li class="list-group-item clickable">
+                                            <div class="row">
+                                                <div class="col-sm-4">
+                                                    <div>
+                                                        <strong>Millennium Harvest House Boulder</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <div>
+                                                        <strong>Boulder</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4" style="overflow: hidden;">
+                                                                                                            <a href="https://www.millenniumhotels.com/en/boulder/millennium-harvest-house-boulder/?utm_source=local-directories&amp;utm_medium=organic&amp;utm_campaign=localconnect-boulder&amp;cid=localconnect_boulder" target="_blank">https://www.millenniumhotels.com/en/boulder/millennium-harvest-house-boulder/?utm_source=local-directories&amp;utm_medium=organic&amp;utm_campaign=localconnect-boulder&amp;cid=localconnect_boulder</a>&nbsp;
+                                                                                                    </div>
+                                                                                                    <div class="col-sm-1">
+                                                        <div class="pull-right list-actions">
+        
+    
+    </div>                                                    </div> 
+                                                                                            </div>
+                                            <div class="clearfix"></div>
+                                            <div id="details-10" style="padding-top: 10px; display: none">
+                                                                                                    <div>
+                                                        Adresas:&nbsp;
+                                                        <strong>1345 28th Street</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        Zip kodas:&nbsp;
+                                                        <strong>80302</strong>
+                                                    </div>
+                                                                                                                                                                                                                                                    <div>
+                                                        Telefono nr.:&nbsp;
+                                                        <strong>303-443-3850</strong>
+                                                    </div>
+                                                                                                                                                                                                    <div>
+                                                        Puslapis2:&nbsp;
+                                                                                                                    <a href="https://www.millenniumhotels.com/en/careers/" target="_blank">https://www.millenniumhotels.com/en/careers/</a>&nbsp;
+                                                        
+                                                    </div>
+                                                                                                                                                                                                                                            </div>
+                                        </li>
+                                                                            <li class="list-group-item clickable">
+                                            <div class="row">
+                                                <div class="col-sm-4">
+                                                    <div>
+                                                        <strong>New Haven Hotel</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <div>
+                                                        <strong>New Haven</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4" style="overflow: hidden;">
+                                                                                                            <a href="https://www.newhavenhotel.com/" target="_blank">https://www.newhavenhotel.com/</a>&nbsp;
+                                                                                                    </div>
+                                                                                                    <div class="col-sm-1">
+                                                        <div class="pull-right list-actions">
+        
+    
+    </div>                                                    </div> 
+                                                                                            </div>
+                                            <div class="clearfix"></div>
+                                            <div id="details-11" style="padding-top: 10px; display: none">
+                                                                                                    <div>
+                                                        Adresas:&nbsp;
+                                                        <strong>229 George St.</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        Zip kodas:&nbsp;
+                                                        <strong>6510</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        El. paštas:&nbsp;
+                                                        <a href="mailto:info@newhavenhotel.com">info@newhavenhotel.com</a>
+                                                    </div>
+                                                                                                                                                                                                    <div>
+                                                        Telefono nr.:&nbsp;
+                                                        <strong>203-498-3100</strong>
+                                                    </div>
+                                                                                                                                                                                                                                                                                                                                            </div>
+                                        </li>
+                                                                            <li class="list-group-item clickable">
+                                            <div class="row">
+                                                <div class="col-sm-4">
+                                                    <div>
+                                                        <strong>Nike Factory Store</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <div>
+                                                        <strong>Clinton</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4" style="overflow: hidden;">
+                                                                                                            <a href="https://www.nike.com/us/en_us/retail/en/nike-factory-store-clinton" target="_blank">https://www.nike.com/us/en_us/retail/en/nike-factory-store-clinton</a>&nbsp;
+                                                                                                    </div>
+                                                                                                    <div class="col-sm-1">
+                                                        <div class="pull-right list-actions">
+        
+    
+    </div>                                                    </div> 
+                                                                                            </div>
+                                            <div class="clearfix"></div>
+                                            <div id="details-12" style="padding-top: 10px; display: none">
+                                                                                                    <div>
+                                                        Adresas:&nbsp;
+                                                        <strong>20-A Killingsworth Turnpike Suite 155</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        Zip kodas:&nbsp;
+                                                        <strong>6413</strong>
+                                                    </div>
+                                                                                                                                                                                                                                                    <div>
+                                                        Telefono nr.:&nbsp;
+                                                        <strong>860-669-4410</strong>
+                                                    </div>
+                                                                                                                                                                                                                                                                                                                                            </div>
+                                        </li>
+                                                                            <li class="list-group-item clickable">
+                                            <div class="row">
+                                                <div class="col-sm-4">
+                                                    <div>
+                                                        <strong>Olsay Inc. dba Old Saybrook Diner</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <div>
+                                                        <strong>Old Saybrook</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4" style="overflow: hidden;">
+                                                                                                            <a href="http://parthenondiner.com/" target="_blank">http://parthenondiner.com/</a>&nbsp;
+                                                                                                    </div>
+                                                                                                    <div class="col-sm-1">
+                                                        <div class="pull-right list-actions">
+        
+    
+    </div>                                                    </div> 
+                                                                                            </div>
+                                            <div class="clearfix"></div>
+                                            <div id="details-13" style="padding-top: 10px; display: none">
+                                                                                                    <div>
+                                                        Adresas:&nbsp;
+                                                        <strong>809 Boston Post Rd</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        Zip kodas:&nbsp;
+                                                        <strong>6475</strong>
+                                                    </div>
+                                                                                                                                                                                                                                                    <div>
+                                                        Telefono nr.:&nbsp;
+                                                        <strong>(860) 395-5111</strong>
+                                                    </div>
+                                                                                                                                                                                                                                                                                                                                            </div>
+                                        </li>
+                                                                            <li class="list-group-item clickable">
+                                            <div class="row">
+                                                <div class="col-sm-4">
+                                                    <div>
+                                                        <strong>Quassy Amusement &amp; Waterpark</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <div>
+                                                        <strong>Middlebury</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4" style="overflow: hidden;">
+                                                                                                            <a href="http://www.quassy.com/" target="_blank">http://www.quassy.com/</a>&nbsp;
+                                                                                                    </div>
+                                                                                                    <div class="col-sm-1">
+                                                        <div class="pull-right list-actions">
+        
+    
+    </div>                                                    </div> 
+                                                                                            </div>
+                                            <div class="clearfix"></div>
+                                            <div id="details-14" style="padding-top: 10px; display: none">
+                                                                                                    <div>
+                                                        Adresas:&nbsp;
+                                                        <strong>2132 Middlebury Rd</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        Zip kodas:&nbsp;
+                                                        <strong>6762</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        El. paštas:&nbsp;
+                                                        <a href="mailto:info@quassy.com">info@quassy.com</a>
+                                                    </div>
+                                                                                                                                                                                                    <div>
+                                                        Telefono nr.:&nbsp;
+                                                        <strong>203-758-2913</strong>
+                                                    </div>
+                                                                                                                                                                                                                                                                                                                                            </div>
+                                        </li>
+                                                                            <li class="list-group-item clickable">
+                                            <div class="row">
+                                                <div class="col-sm-4">
+                                                    <div>
+                                                        <strong>Riverside Yacht Club</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <div>
+                                                        <strong>Riverside</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4" style="overflow: hidden;">
+                                                                                                            <a href="https://www.riversideyc.org/homepage" target="_blank">https://www.riversideyc.org/homepage</a>&nbsp;
+                                                                                                    </div>
+                                                                                                    <div class="col-sm-1">
+                                                        <div class="pull-right list-actions">
+        
+    
+    </div>                                                    </div> 
+                                                                                            </div>
+                                            <div class="clearfix"></div>
+                                            <div id="details-15" style="padding-top: 10px; display: none">
+                                                                                                    <div>
+                                                        Adresas:&nbsp;
+                                                        <strong>102 Club Road</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        Zip kodas:&nbsp;
+                                                        <strong>6878</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        El. paštas:&nbsp;
+                                                        <a href="mailto:webmaster@riversideyc.org">webmaster@riversideyc.org</a>
+                                                    </div>
+                                                                                                                                                                                                    <div>
+                                                        Telefono nr.:&nbsp;
+                                                        <strong>203-637-1706</strong>
+                                                    </div>
+                                                                                                                                                                                                                                                                                                                                            </div>
+                                        </li>
+                                                                            <li class="list-group-item clickable">
+                                            <div class="row">
+                                                <div class="col-sm-4">
+                                                    <div>
+                                                        <strong>Sea View Snack Bar</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <div>
+                                                        <strong>Mystic</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4" style="overflow: hidden;">
+                                                                                                            <a href="http://www.snackbarmystic.com/" target="_blank">www.snackbarmystic.com/</a>&nbsp;
+                                                                                                    </div>
+                                                                                                    <div class="col-sm-1">
+                                                        <div class="pull-right list-actions">
+        
+    
+    </div>                                                    </div> 
+                                                                                            </div>
+                                            <div class="clearfix"></div>
+                                            <div id="details-16" style="padding-top: 10px; display: none">
+                                                                                                    <div>
+                                                        Adresas:&nbsp;
+                                                        <strong>145 Greenmanville Ave</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        Zip kodas:&nbsp;
+                                                        <strong>6355</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        El. paštas:&nbsp;
+                                                        <a href="mailto:svsb145@outlook.com">svsb145@outlook.com</a>
+                                                    </div>
+                                                                                                                                                                                                    <div>
+                                                        Telefono nr.:&nbsp;
+                                                        <strong>860-572-0096, 860-269-4638</strong>
+                                                    </div>
+                                                                                                                                                                                                                                                                                                                                            </div>
+                                        </li>
+                                                                            <li class="list-group-item clickable">
+                                            <div class="row">
+                                                <div class="col-sm-4">
+                                                    <div>
+                                                        <strong>Stanton House Inn</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <div>
+                                                        <strong>Greenwich</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4" style="overflow: hidden;">
+                                                                                                            <a href="https://stantonhouseinn.com/" target="_blank">https://stantonhouseinn.com/</a>&nbsp;
+                                                                                                    </div>
+                                                                                                    <div class="col-sm-1">
+                                                        <div class="pull-right list-actions">
+        
+    
+    </div>                                                    </div> 
+                                                                                            </div>
+                                            <div class="clearfix"></div>
+                                            <div id="details-17" style="padding-top: 10px; display: none">
+                                                                                                    <div>
+                                                        Adresas:&nbsp;
+                                                        <strong>76 Maple Ave</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        Zip kodas:&nbsp;
+                                                        <strong>6830</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        El. paštas:&nbsp;
+                                                        <a href="mailto:info@stantonhouseinn.com">info@stantonhouseinn.com</a>
+                                                    </div>
+                                                                                                                                                                                                    <div>
+                                                        Telefono nr.:&nbsp;
+                                                        <strong>203-869-2110</strong>
+                                                    </div>
+                                                                                                                                                                                                                                                                                                                                            </div>
+                                        </li>
+                                                                            <li class="list-group-item clickable">
+                                            <div class="row">
+                                                <div class="col-sm-4">
+                                                    <div>
+                                                        <strong>Water's Edge Resort and Spa</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <div>
+                                                        <strong>Westbrook</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4" style="overflow: hidden;">
+                                                                                                            <a href="https://watersedgeresortandspa.com/" target="_blank">https://watersedgeresortandspa.com/</a>&nbsp;
+                                                                                                    </div>
+                                                                                                    <div class="col-sm-1">
+                                                        <div class="pull-right list-actions">
+        
+    
+    </div>                                                    </div> 
+                                                                                            </div>
+                                            <div class="clearfix"></div>
+                                            <div id="details-18" style="padding-top: 10px; display: none">
+                                                                                                    <div>
+                                                        Adresas:&nbsp;
+                                                        <strong>1525 Boston Post Rd.</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        Zip kodas:&nbsp;
+                                                        <strong>6498</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        El. paštas:&nbsp;
+                                                        <a href="mailto:mdattilo@watersedgeresortandspa.com">mdattilo@watersedgeresortandspa.com</a>
+                                                    </div>
+                                                                                                                                                                                                    <div>
+                                                        Telefono nr.:&nbsp;
+                                                        <strong>860-399-5901</strong>
+                                                    </div>
+                                                                                                                                                                                                    <div>
+                                                        Puslapis2:&nbsp;
+                                                                                                                    <a href="https://watersedgeresortandspa.com/careers/" target="_blank">https://watersedgeresortandspa.com/careers/</a>&nbsp;
+                                                        
+                                                    </div>
+                                                                                                                                                                                                                                            </div>
+                                        </li>
+                                                                    </ul>
+                                
+                                <div class="row">
+                                    <div class="col-sm-9">
+                                        <div></div>
+                                        <div style="padding-top: 15px;"><a href="https://us.lwc-wt.lt/companies/3">Grįžti</a></div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <div class="pull-right">
+                                            <span class="text-muted" style="font-size:13px;">Rodyti</span>
+<div style="display:inline-block; width:80px; padding:3px 6px">
+<div class="btn-group bootstrap-select form-control"><button type="button" class="btn dropdown-toggle btn-default" data-toggle="dropdown" role="button" data-id="pageSizeClone" title="20"><span class="filter-option pull-left">20</span>&nbsp;<span class="bs-caret"><span class="caret"></span></span></button><div class="dropdown-menu open" role="combobox"><ul class="dropdown-menu inner" role="listbox" aria-expanded="false"><li data-original-index="0"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">10</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="1" class="selected"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="true"><span class="text">20</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="2"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">40</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="3"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">60</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="4"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">80</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="5"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">100</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li></ul></div><select id="pageSizeClone" class="form-control selectpicker" tabindex="-98">
+            <option value="10">10</option>
+            <option value="20" selected="">20</option>
+            <option value="40">40</option>
+            <option value="60">60</option>
+            <option value="80">80</option>
+            <option value="100">100</option>
+    </select></div> 
+</div>
+<span class="text-muted" style="font-size:13px;">iš 19</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                                    </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    
+    </div>
+
+    <footer class="footer text-center">
+        <hr style="margin-bottom:8px">
+        © 2019 LWC-WT. All rights reserved.
+    </footer>
+    <div id="common_modal" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg">
+
+        <!-- Modal content-->
+        <div id="common_modal_content" class="modal-content">
+            <div id="common_modal_header" class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span class="glyphicon glyphicon-remove" style="margin-top:8px; font-size:16px"></span></button>
+                <h3 id="common_modal_title" class="modal-title"></h3>
+            </div>
+            <div id="common_modal_body" class="modal-body"></div>
+            <div id="common_modal_footer" class="modal-footer">
+                <button id="common_modal_dismiss_btn" type="button" class="btn btn-default" data-dismiss="modal">Uždaryti</button>
+            </div>
+        </div>
+    </div>
+</div>    <div id="selection_modal" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg">
+
+        <!-- Modal content-->
+        <div id="selection_modal_content" class="modal-content">
+            <div id="selection_modal_header" class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span class="glyphicon glyphicon-remove" style="margin-top:8px; font-size:16px"></span></button>
+                <h3 id="selection_modal_title" class="modal-title">Pasirinkite iš sąrašo</h3>
+            </div>
+            <div id="selection_modal_body" class="modal-body"></div>
+            <div id="selection_modal_footer" class="modal-footer">
+                <button id="selection_modal_submit_btn" type="button" class="btn btn-primary" data-dismiss="modal">Pasirinkti</button>
+                <button id="selection_modal_dismiss_btn" type="button" class="btn btn-default" data-dismiss="modal">Uždaryti</button>
+            </div>
+        </div>
+    </div>
+</div>    <div id="yes_no_modal" class="modal fade" role="dialog" style="z-index:1500">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div id="yes_no_modal_content" class="modal-content">
+            <div id="yes_no_modal_header" class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span class="glyphicon glyphicon-remove" style="margin-top:8px; font-size:16px"></span></button>
+                <h3 id="yes_no_modal_title" class="modal-title">Patvirtinti</h3>
+            </div>
+            <div id="yes_no_modal_body" class="modal-body">
+            </div>
+            <div id="yes_no_modal_footer" class="modal-footer">
+                <button id="yes_no_modal_yes_btn" type="button" class="btn btn-primary" data-dismiss="modal">Taip</button>
+                <button id="yes_no_modal_no_btn" type="button" class="btn btn-default" data-dismiss="modal">Ne</button>
+            </div>
+        </div>
+    </div>
+</div>    <div id="remove_modal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div id="remove_modal_content" class="modal-content">
+            <div id="remove_modal_header" class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span class="glyphicon glyphicon-remove" style="margin-top:5px; font-size:16px"></span></button>
+                <h3 id="remove_modal_title" class="modal-title">Pašalinti</h3>
+            </div>
+            <div id="remove_modal_body" class="modal-body">
+            </div>
+            <div id="remove_modal_footer" class="modal-footer">
+                <button id="remove_modal_yes_btn" type="button" class="btn btn-primary" data-dismiss="modal">Taip</button>
+                <button id="remove_modal_no_btn" type="button" class="btn btn-default" data-dismiss="modal">Ne</button>
+            </div>
+        </div>
+    </div>
+</div>    <div id="remove_student_modal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div id="remove_student_modal_content" class="modal-content">
+            <div id="remove_student_modal_header" class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span class="glyphicon glyphicon-remove" style="margin-top:5px; font-size:16px"></span></button>
+                <h3 id="remove_student_modal_title" class="modal-title">Pašalinti</h3>
+            </div>
+            <div id="remove_student_modal_body" class="modal-body">
+            </div>
+            <div id="remove_modal_student_footer" class="modal-footer">
+                <button id="remove_student_modal_yes_btn" type="button" class="btn btn-primary" data-dismiss="modal">Šių metų anketą</button>
+                <button id="remove_student_modal_all_yes_btn" type="button" class="btn btn-danger" data-dismiss="modal">Visas anketas</button>
+                                <button id="remove_student_modal_no_btn" type="button" class="btn btn-default" data-dismiss="modal">Ne</button>
+            </div>
+        </div>
+    </div>
+</div>    <div id="error_modal" class="modal fade" role="dialog" style="z-index:1600">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div id="error_modal_content" class="modal-content">
+            <div id="error_modal_header" class="modal-header" style="background-color:#6c757d;color:white">
+                <button type="button" class="close" data-dismiss="modal"><span class="glyphicon glyphicon-remove" style="margin-top:5px; font-size:16px"></span></button>
+                <h3 id="error_modal_title" class="modal-title">Pranešimas</h3>
+            </div>
+            <div id="error_modal_body" class="modal-body">
+            </div>
+            <div id="error_modal_footer" class="modal-footer">
+                <button id="error_modal_no_btn" type="button" class="btn btn-default" data-dismiss="modal">Uždaryti</button>
+            </div>
+        </div>
+    </div>
+</div>    <div id="ajax_loader" style="display:none;"></div>
+
+    
+
+
+
+</body></html>

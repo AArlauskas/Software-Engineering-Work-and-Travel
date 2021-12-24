@@ -1,0 +1,1180 @@
+<!DOCTYPE html><html lang="en"><style type="text/css" id="dark-mode-custom-style"></style><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="oQ2VTrWTrt9U7pMo7aRga5CUe0R2AKx70H6xNAfU">
+
+    <title>Kalifornija | LWC-WT</title>
+    <link rel="icon" href="https://us.lwc-wt.lt/icon.gif">
+    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans&amp;display=swap" rel="stylesheet"> 
+
+    <!-- Styles -->
+    <link href="https://us.lwc-wt.lt/css/app.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://us.lwc-wt.lt/css/bootstrap-datepicker3.css">
+    <link rel="stylesheet" href="https://us.lwc-wt.lt/bootstrap-select-1.12.1/dist/css/bootstrap-select.min.css">
+    <link rel="stylesheet" href="https://us.lwc-wt.lt/fontawesome-5.1.0/css/all.css">
+    
+    <!-- Scripts -->
+    
+        
+    
+    
+    <!--<script src="/js/bootstrap3-typeahead.min.js"></script>-->
+    
+
+    
+
+<style type="text/css"></style></head>
+<body>
+    <div id="app">
+        <nav class="navbar navbar-default navbar-static-top">
+    <div class="container">
+        <div class="navbar-header">
+
+            <!-- Collapsed Hamburger -->
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
+                <span class="sr-only">Toggle Navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <!-- Branding Image -->
+            <a class="navbar-brand" href="https://us.lwc-wt.lt/">
+                LWC-WT
+            </a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="app-navbar-collapse">
+            <!-- Left Side Of Navbar -->
+            <ul class="nav navbar-nav">
+                &nbsp;
+
+                                    <li>
+                        <a href="https://us.lwc-wt.lt/" class="underline-hover">Pagrindinis</a>
+                    </li>
+                                            <li>
+                            <a href="https://us.lwc-wt.lt/information" class="underline-hover">Informacija</a>
+                        </li>
+                                                                <li>
+                            <a href="https://us.lwc-wt.lt/companies" class="underline-hover">Firmų sąrašas</a>
+                        </li>
+                                     
+            </ul>
+
+            <!-- Right Side Of Navbar -->
+            <ul class="nav navbar-nav navbar-right">
+                <!-- Authentication Links -->
+                                    <li class="dropdown">
+                        <a href="https://us.lwc-wt.lt/companies/2/ca#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" style="padding-left:40px">
+                            <i class="fas fa-user-circle fa-2x" style="position: absolute;top: 10px;left: 7px;"></i>
+                            Aurimas Arlauskas <span class="caret"></span>
+                        </a>
+
+                        <ul class="dropdown-menu" role="menu">
+                            <li>
+                                <a href="https://us.lwc-wt.lt/logout">
+                                    Atsijungti
+                                </a>
+
+                                <form id="logout-form" action="https://us.lwc-wt.lt/logout" method="POST" style="display: none;">
+                                    
+                                </form>
+                            </li>
+                        </ul>
+                    </li>
+                                                    <li class="uppercase active">
+                        <a href="https://us.lwc-wt.lt/lang/change/lt">lt</a>
+                    </li> 
+                                    <li class="uppercase ">
+                        <a href="https://us.lwc-wt.lt/lang/change/en">en</a>
+                    </li> 
+                            </ul>
+        </div>
+    </div>
+</nav>
+                
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3>
+                            <div class="row">
+                                <div class="col-md-7">
+                                    Kalifornija (TOP firmų sąrašas)
+                                </div>
+                                <div class="col-md-5">
+                                                                    </div>
+                            </div>
+                        </h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="tmp-success-message">
+                                                    </div>
+
+                        
+                        <form action="https://us.lwc-wt.lt/companies/2/ca" id="search_form" class="form-horizontal" method="post">
+    
+
+    <div class="input-group" style="padding-bottom: 10px; padding-top: 10px;">
+        <input id="searchString" name="searchString" value="" type="text" class="form-control" placeholder="Paieška" autofocus="">
+        <span class="input-group-addon">
+            <span class="clickable"><i class="fas fa-search"></i></span>
+        </span>
+    </div>
+    
+</form>
+                        <div class="companies-container">
+                                                            
+                                <ul class="list-group">
+                                    <li class="list-group-item company-list-header">
+                                        <div class="row">
+                                            <div class="col-sm-4">
+                                                <strong>Firmos pavadinimas</strong>
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <strong>Miestas</strong>
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <div>
+                                                <strong>Puslapis&nbsp;&nbsp;</strong>
+                                                </div>
+                                            </div>
+                                                                                        
+
+                                        </div>
+                                    </li>
+                                                                            <li class="list-group-item clickable">
+                                            <div class="row">
+                                                <div class="col-sm-4">
+                                                    <div>
+                                                        <strong>7 Even Beach Boutique (Pacific Mission Stores)</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <div>
+                                                        <strong>San Diego</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4" style="overflow: hidden;">
+                                                                                                            <a href="http://www.7evenbeachboutique.com/" target="_blank">www.7evenbeachboutique.com</a>&nbsp;
+                                                                                                    </div>
+                                                                                                    <div class="col-sm-1">
+                                                        <div class="pull-right list-actions">
+        
+    
+    </div>                                                    </div> 
+                                                                                            </div>
+                                            <div class="clearfix"></div>
+                                            <div id="details-0" style="padding-top: 10px; display: none">
+                                                                                                    <div>
+                                                        Adresas:&nbsp;
+                                                        <strong>734 Ventura Pl, Unit A, 728 Ventura Pl</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        Zip kodas:&nbsp;
+                                                        <strong>92109</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        El. paštas:&nbsp;
+                                                        <a href="mailto:7evenBoutique@gmail.com,">7evenBoutique@gmail.com, </a>
+                                                    </div>
+                                                                                                                                                                                                    <div>
+                                                        Telefono nr.:&nbsp;
+                                                        <strong>858-488-8967, 858-488-9979</strong>
+                                                    </div>
+                                                                                                                                                                                                                                                                                                                                                    <div>
+                                                        Komentarai:&nbsp;
+                                                        <strong>www.sandiegobikinishoppe.com/contact</strong>
+                                                    </div>
+                                                                                            </div>
+                                        </li>
+                                                                            <li class="list-group-item clickable">
+                                            <div class="row">
+                                                <div class="col-sm-4">
+                                                    <div>
+                                                        <strong>Ace High Saloon &amp; Smokehouse</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <div>
+                                                        <strong>South Lake Tahoe</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4" style="overflow: hidden;">
+                                                                                                            <a href="http://acehighsaloon-smokehouse.com/" target="_blank">http://acehighsaloon-smokehouse.com</a>&nbsp;
+                                                                                                    </div>
+                                                                                                    <div class="col-sm-1">
+                                                        <div class="pull-right list-actions">
+            <span class="review-icon text-primary" style="margin-right:5px">
+            <i class="far fa-comment-alt fa-lg" title="Atsiliepimai"></i>
+        </span>
+        
+    
+    </div>                                                    </div> 
+                                                                                            </div>
+                                            <div class="clearfix"></div>
+                                            <div id="details-1" style="padding-top: 10px; display: none">
+                                                                                                    <div>
+                                                        Adresas:&nbsp;
+                                                        <strong>4125 Lake Tahoe Blvd. Ste. K</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        Zip kodas:&nbsp;
+                                                        <strong>96150</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        El. paštas:&nbsp;
+                                                        <a href="mailto:acehighsmokehouse@mail.com">acehighsmokehouse@mail.com</a>
+                                                    </div>
+                                                                                                                                                                                                    <div>
+                                                        Telefono nr.:&nbsp;
+                                                        <strong>530-600-4060</strong>
+                                                    </div>
+                                                                                                                                                                                                                                                                                                                                            </div>
+                                        </li>
+                                                                            <li class="list-group-item clickable">
+                                            <div class="row">
+                                                <div class="col-sm-4">
+                                                    <div>
+                                                        <strong>Antelope Valley Fair Association</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <div>
+                                                        <strong>Lancaster</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4" style="overflow: hidden;">
+                                                                                                            <a href="https://www.avfair.com/" target="_blank">https://www.avfair.com/</a>&nbsp;
+                                                                                                    </div>
+                                                                                                    <div class="col-sm-1">
+                                                        <div class="pull-right list-actions">
+        
+    
+    </div>                                                    </div> 
+                                                                                            </div>
+                                            <div class="clearfix"></div>
+                                            <div id="details-2" style="padding-top: 10px; display: none">
+                                                                                                    <div>
+                                                        Adresas:&nbsp;
+                                                        <strong>2551 West Av. H, Suite 102</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        Zip kodas:&nbsp;
+                                                        <strong>93536</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        El. paštas:&nbsp;
+                                                        <a href="mailto:jacobs@avfair.com">jacobs@avfair.com</a>
+                                                    </div>
+                                                                                                                                                                                                    <div>
+                                                        Telefono nr.:&nbsp;
+                                                        <strong>661-948-6060</strong>
+                                                    </div>
+                                                                                                                                                                                                    <div>
+                                                        Puslapis2:&nbsp;
+                                                                                                                    <a href="http://www.avfair.com/employment/" target="_blank">http://www.avfair.com/employment/</a>&nbsp;
+                                                        
+                                                    </div>
+                                                                                                                                                                                                                                            </div>
+                                        </li>
+                                                                            <li class="list-group-item clickable">
+                                            <div class="row">
+                                                <div class="col-sm-4">
+                                                    <div>
+                                                        <strong>Azul Latin Kitchen</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <div>
+                                                        <strong>South Lake Tahoe</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4" style="overflow: hidden;">
+                                                                                                            <a href="http://azullatinkitchen.com/" target="_blank">http://azullatinkitchen.com/</a>&nbsp;
+                                                                                                    </div>
+                                                                                                    <div class="col-sm-1">
+                                                        <div class="pull-right list-actions">
+        
+    
+    </div>                                                    </div> 
+                                                                                            </div>
+                                            <div class="clearfix"></div>
+                                            <div id="details-3" style="padding-top: 10px; display: none">
+                                                                                                    <div>
+                                                        Adresas:&nbsp;
+                                                        <strong>1001 Heavenly Village Way #4</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        Zip kodas:&nbsp;
+                                                        <strong>96150</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        El. paštas:&nbsp;
+                                                        <a href="mailto:azultahoe@gmail.com">azultahoe@gmail.com</a>
+                                                    </div>
+                                                                                                                                                                                                    <div>
+                                                        Telefono nr.:&nbsp;
+                                                        <strong>530-541-2985</strong>
+                                                    </div>
+                                                                                                                                                                                                                                                                                                                                            </div>
+                                        </li>
+                                                                            <li class="list-group-item clickable">
+                                            <div class="row">
+                                                <div class="col-sm-4">
+                                                    <div>
+                                                        <strong>Base Camp Pizza Co.</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <div>
+                                                        <strong>South Lake Tahoe</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4" style="overflow: hidden;">
+                                                                                                            <a href="https://basecamppizzaco.com/" target="_blank">https://basecamppizzaco.com/</a>&nbsp;
+                                                                                                    </div>
+                                                                                                    <div class="col-sm-1">
+                                                        <div class="pull-right list-actions">
+            <span class="review-icon text-primary" style="margin-right:5px">
+            <i class="far fa-comment-alt fa-lg" title="Atsiliepimai"></i>
+        </span>
+        
+    
+    </div>                                                    </div> 
+                                                                                            </div>
+                                            <div class="clearfix"></div>
+                                            <div id="details-4" style="padding-top: 10px; display: none">
+                                                                                                    <div>
+                                                        Adresas:&nbsp;
+                                                        <strong>1001 Heavenly Village Way, Suite 25a</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        Zip kodas:&nbsp;
+                                                        <strong>96150</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        El. paštas:&nbsp;
+                                                        <a href="mailto:basecamppizzaco@gmail.com">basecamppizzaco@gmail.com</a>
+                                                    </div>
+                                                                                                                                                                                                    <div>
+                                                        Telefono nr.:&nbsp;
+                                                        <strong>530-544-2273</strong>
+                                                    </div>
+                                                                                                                                                                                                                                                                                                                                            </div>
+                                        </li>
+                                                                            <li class="list-group-item clickable">
+                                            <div class="row">
+                                                <div class="col-sm-4">
+                                                    <div>
+                                                        <strong>Bel Air Bay Club</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <div>
+                                                        <strong>Pacific Palisades</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4" style="overflow: hidden;">
+                                                                                                            <a href="http://www.belairbayclub.com/" target="_blank">www.belairbayclub.com</a>&nbsp;
+                                                                                                    </div>
+                                                                                                    <div class="col-sm-1">
+                                                        <div class="pull-right list-actions">
+            <span class="review-icon text-primary" style="margin-right:5px">
+            <i class="far fa-comment-alt fa-lg" title="Atsiliepimai"></i>
+        </span>
+        
+    
+    </div>                                                    </div> 
+                                                                                            </div>
+                                            <div class="clearfix"></div>
+                                            <div id="details-5" style="padding-top: 10px; display: none">
+                                                                                                    <div>
+                                                        Adresas:&nbsp;
+                                                        <strong>16801 Pacific Coast Highway</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        Zip kodas:&nbsp;
+                                                        <strong>90272</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        El. paštas:&nbsp;
+                                                        <a href="mailto:mcunes@belairbayclub.com">mcunes@belairbayclub.com</a>
+                                                    </div>
+                                                                                                                                                                                                    <div>
+                                                        Telefono nr.:&nbsp;
+                                                        <strong>310-230-4761</strong>
+                                                    </div>
+                                                                                                                                                                                                                                                                                                                                            </div>
+                                        </li>
+                                                                            <li class="list-group-item clickable">
+                                            <div class="row">
+                                                <div class="col-sm-4">
+                                                    <div>
+                                                        <strong>Bobboi Natural Gelato</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <div>
+                                                        <strong>La Jolla</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4" style="overflow: hidden;">
+                                                                                                            <a href="http://www.bobboi.com/" target="_blank">www.bobboi.com</a>&nbsp;
+                                                                                                    </div>
+                                                                                                    <div class="col-sm-1">
+                                                        <div class="pull-right list-actions">
+        
+    
+    </div>                                                    </div> 
+                                                                                            </div>
+                                            <div class="clearfix"></div>
+                                            <div id="details-6" style="padding-top: 10px; display: none">
+                                                                                                    <div>
+                                                        Adresas:&nbsp;
+                                                        <strong>8008 Girard Ave Ste 150</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        Zip kodas:&nbsp;
+                                                        <strong>92037</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        El. paštas:&nbsp;
+                                                        <a href="mailto:d.william.moore1@gmail.com">d.william.moore1@gmail.com</a>
+                                                    </div>
+                                                                                                                                                                                                    <div>
+                                                        Telefono nr.:&nbsp;
+                                                        <strong>(858) 255 8693</strong>
+                                                    </div>
+                                                                                                                                                                                                                                                                                                                                            </div>
+                                        </li>
+                                                                            <li class="list-group-item clickable">
+                                            <div class="row">
+                                                <div class="col-sm-4">
+                                                    <div>
+                                                        <strong>California Pasta</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <div>
+                                                        <strong>Santa Barbara</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4" style="overflow: hidden;">
+                                                                                                            <a href="http://www.californiapastasb.com/" target="_blank">http://www.californiapastasb.com</a>&nbsp;
+                                                                                                    </div>
+                                                                                                    <div class="col-sm-1">
+                                                        <div class="pull-right list-actions">
+        
+    
+    </div>                                                    </div> 
+                                                                                            </div>
+                                            <div class="clearfix"></div>
+                                            <div id="details-7" style="padding-top: 10px; display: none">
+                                                                                                    <div>
+                                                        Adresas:&nbsp;
+                                                        <strong>811 State Street Unit B</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        Zip kodas:&nbsp;
+                                                        <strong>93101</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        El. paštas:&nbsp;
+                                                        <a href="mailto:aland1710@gmail.com">aland1710@gmail.com</a>
+                                                    </div>
+                                                                                                                                                                                                    <div>
+                                                        Telefono nr.:&nbsp;
+                                                        <strong>805) 455-2212</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        Kontaktinis asmuo:&nbsp;
+                                                        <strong>Alan Deroo</strong>
+                                                    </div>
+                                                                                                                                                                                                                                                                                            </div>
+                                        </li>
+                                                                            <li class="list-group-item clickable">
+                                            <div class="row">
+                                                <div class="col-sm-4">
+                                                    <div>
+                                                        <strong>Casa Ado</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <div>
+                                                        <strong>Marina Del Rey</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4" style="overflow: hidden;">
+                                                                                                            <a href="http://www.casaado.com/" target="_blank">www.casaado.com</a>&nbsp;
+                                                                                                    </div>
+                                                                                                    <div class="col-sm-1">
+                                                        <div class="pull-right list-actions">
+        
+    
+    </div>                                                    </div> 
+                                                                                            </div>
+                                            <div class="clearfix"></div>
+                                            <div id="details-8" style="padding-top: 10px; display: none">
+                                                                                                    <div>
+                                                        Adresas:&nbsp;
+                                                        <strong>12 Washington Blvd</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        Zip kodas:&nbsp;
+                                                        <strong>90292</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        El. paštas:&nbsp;
+                                                        <a href="mailto:manuelsimo@msn.com">manuelsimo@msn.com</a>
+                                                    </div>
+                                                                                                                                                                                                    <div>
+                                                        Telefono nr.:&nbsp;
+                                                        <strong>(310) 577-2589</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        Kontaktinis asmuo:&nbsp;
+                                                        <strong>Manuel Giusti</strong>
+                                                    </div>
+                                                                                                                                                                                                                                                                                            </div>
+                                        </li>
+                                                                            <li class="list-group-item clickable">
+                                            <div class="row">
+                                                <div class="col-sm-4">
+                                                    <div>
+                                                        <strong>Cold Stone Creamery (All Profit Enterprises LLC)</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <div>
+                                                        <strong>Marina Del Rey</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4" style="overflow: hidden;">
+                                                                                                            <a href="https://www.coldstonecreamery.com/" target="_blank">https://www.coldstonecreamery.com/</a>&nbsp;
+                                                                                                    </div>
+                                                                                                    <div class="col-sm-1">
+                                                        <div class="pull-right list-actions">
+        
+    
+    </div>                                                    </div> 
+                                                                                            </div>
+                                            <div class="clearfix"></div>
+                                            <div id="details-9" style="padding-top: 10px; display: none">
+                                                                                                    <div>
+                                                        Adresas:&nbsp;
+                                                        <strong>36 Washington Blvd.</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        Zip kodas:&nbsp;
+                                                        <strong>90292</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        El. paštas:&nbsp;
+                                                        <a href="mailto:wesleyk99@gmail.com,%20https://www.facebook.com/pg/coldstonecreamery/about/?ref=page_internal">wesleyk99@gmail.com, https://www.facebook.com/pg/coldstonecreamery/about/?ref=page_internal</a>
+                                                    </div>
+                                                                                                                                                                                                    <div>
+                                                        Telefono nr.:&nbsp;
+                                                        <strong>480-362-4800</strong>
+                                                    </div>
+                                                                                                                                                                                                                                                                                                                                            </div>
+                                        </li>
+                                                                            <li class="list-group-item clickable">
+                                            <div class="row">
+                                                <div class="col-sm-4">
+                                                    <div>
+                                                        <strong>D and D Retail Enterprises, Inc. (Cable Car Store)</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <div>
+                                                        <strong>San Francisco</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4" style="overflow: hidden;">
+                                                                                                            <a href="https://www.cablecarstore.com/" target="_blank">https://www.cablecarstore.com/</a>&nbsp;
+                                                                                                    </div>
+                                                                                                    <div class="col-sm-1">
+                                                        <div class="pull-right list-actions">
+        
+    
+    </div>                                                    </div> 
+                                                                                            </div>
+                                            <div class="clearfix"></div>
+                                            <div id="details-10" style="padding-top: 10px; display: none">
+                                                                                                    <div>
+                                                        Adresas:&nbsp;
+                                                        <strong>Pier 39, Space#231</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        Zip kodas:&nbsp;
+                                                        <strong>94133</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        El. paštas:&nbsp;
+                                                        <a href="mailto:orders@cablecarstore.com,%20Website@CableCarStore.com">orders@cablecarstore.com, Website@CableCarStore.com</a>
+                                                    </div>
+                                                                                                                                                                                                    <div>
+                                                        Telefono nr.:&nbsp;
+                                                        <strong>415-788-0792, 415-989-2040</strong>
+                                                    </div>
+                                                                                                                                                                                                                                                                                                                                            </div>
+                                        </li>
+                                                                            <li class="list-group-item clickable">
+                                            <div class="row">
+                                                <div class="col-sm-4">
+                                                    <div>
+                                                        <strong>Ernie`s Coffee Shop</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <div>
+                                                        <strong>South Lake Tahoe</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4" style="overflow: hidden;">
+                                                                                                            <a href="http://www.erniescoffeeshop.com/" target="_blank">www.erniescoffeeshop.com</a>&nbsp;
+                                                                                                    </div>
+                                                                                                    <div class="col-sm-1">
+                                                        <div class="pull-right list-actions">
+        
+    
+    </div>                                                    </div> 
+                                                                                            </div>
+                                            <div class="clearfix"></div>
+                                            <div id="details-11" style="padding-top: 10px; display: none">
+                                                                                                    <div>
+                                                        Adresas:&nbsp;
+                                                        <strong>1207 Emerald Bay Rd.</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        Zip kodas:&nbsp;
+                                                        <strong>96150</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        El. paštas:&nbsp;
+                                                        <a href="mailto:erniescoffeeshop@gmail.com">erniescoffeeshop@gmail.com</a>
+                                                    </div>
+                                                                                                                                                                                                    <div>
+                                                        Telefono nr.:&nbsp;
+                                                        <strong>(530) 541 2161</strong>
+                                                    </div>
+                                                                                                                                                                                                                                                                                                                                            </div>
+                                        </li>
+                                                                            <li class="list-group-item clickable">
+                                            <div class="row">
+                                                <div class="col-sm-4">
+                                                    <div>
+                                                        <strong>Fat Cat Bar &amp; Grill</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <div>
+                                                        <strong>Tahoe City</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4" style="overflow: hidden;">
+                                                                                                            <a href="http://www.tahoefatcat.com/" target="_blank">www.tahoefatcat.com</a>&nbsp;
+                                                                                                    </div>
+                                                                                                    <div class="col-sm-1">
+                                                        <div class="pull-right list-actions">
+            <span class="review-icon text-primary" style="margin-right:5px">
+            <i class="far fa-comment-alt fa-lg" title="Atsiliepimai"></i>
+        </span>
+        
+    
+    </div>                                                    </div> 
+                                                                                            </div>
+                                            <div class="clearfix"></div>
+                                            <div id="details-12" style="padding-top: 10px; display: none">
+                                                                                                    <div>
+                                                        Adresas:&nbsp;
+                                                        <strong>599. N. Lake Blvd.</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        Zip kodas:&nbsp;
+                                                        <strong>96145</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        El. paštas:&nbsp;
+                                                        <a href="mailto:clint@tahoefatcat.com">clint@tahoefatcat.com</a>
+                                                    </div>
+                                                                                                                                                                                                    <div>
+                                                        Telefono nr.:&nbsp;
+                                                        <strong>(530) 583-3355</strong>
+                                                    </div>
+                                                                                                                                                                                                                                                                                                                                            </div>
+                                        </li>
+                                                                            <li class="list-group-item clickable">
+                                            <div class="row">
+                                                <div class="col-sm-4">
+                                                    <div>
+                                                        <strong>Fisherman's Pizzeria Inc.</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <div>
+                                                        <strong>San Francisco</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4" style="overflow: hidden;">
+                                                                                                            <a href="http:" target="_blank"></a>&nbsp;
+                                                                                                    </div>
+                                                                                                    <div class="col-sm-1">
+                                                        <div class="pull-right list-actions">
+            <span class="review-icon text-primary" style="margin-right:5px">
+            <i class="far fa-comment-alt fa-lg" title="Atsiliepimai"></i>
+        </span>
+        
+    
+    </div>                                                    </div> 
+                                                                                            </div>
+                                            <div class="clearfix"></div>
+                                            <div id="details-13" style="padding-top: 10px; display: none">
+                                                                                                    <div>
+                                                        Adresas:&nbsp;
+                                                        <strong>2800Leavenworth #50</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        Zip kodas:&nbsp;
+                                                        <strong>94133</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        El. paštas:&nbsp;
+                                                        <a href="mailto:brstinson@yahoo.com">brstinson@yahoo.com</a>
+                                                    </div>
+                                                                                                                                                                                                    <div>
+                                                        Telefono nr.:&nbsp;
+                                                        <strong>415-928-2998</strong>
+                                                    </div>
+                                                                                                                                                                                                                                                                                                                                            </div>
+                                        </li>
+                                                                            <li class="list-group-item clickable">
+                                            <div class="row">
+                                                <div class="col-sm-4">
+                                                    <div>
+                                                        <strong>Gar Woods Grill and Pier</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <div>
+                                                        <strong>Carnelian Bay</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4" style="overflow: hidden;">
+                                                                                                            <a href="http://www.garwoods.com/" target="_blank">www.garwoods.com</a>&nbsp;
+                                                                                                    </div>
+                                                                                                    <div class="col-sm-1">
+                                                        <div class="pull-right list-actions">
+            <span class="review-icon text-primary" style="margin-right:5px">
+            <i class="far fa-comment-alt fa-lg" title="Atsiliepimai"></i>
+        </span>
+        
+    
+    </div>                                                    </div> 
+                                                                                            </div>
+                                            <div class="clearfix"></div>
+                                            <div id="details-14" style="padding-top: 10px; display: none">
+                                                                                                    <div>
+                                                        Adresas:&nbsp;
+                                                        <strong>5000 North Lake Blvd.</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        Zip kodas:&nbsp;
+                                                        <strong>96140</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        El. paštas:&nbsp;
+                                                        <a href="mailto:joe@garwoods.com">joe@garwoods.com</a>
+                                                    </div>
+                                                                                                                                                                                                    <div>
+                                                        Telefono nr.:&nbsp;
+                                                        <strong>530-546-3366</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        Kontaktinis asmuo:&nbsp;
+                                                        <strong>Joseph Glasgow</strong>
+                                                    </div>
+                                                                                                                                                                                                                                                                                            </div>
+                                        </li>
+                                                                            <li class="list-group-item clickable">
+                                            <div class="row">
+                                                <div class="col-sm-4">
+                                                    <div>
+                                                        <strong>Granlibakken Resort</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <div>
+                                                        <strong>Tahoe City</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4" style="overflow: hidden;">
+                                                                                                            <a href="http://www.granlibakken.com/" target="_blank">www.granlibakken.com</a>&nbsp;
+                                                                                                    </div>
+                                                                                                    <div class="col-sm-1">
+                                                        <div class="pull-right list-actions">
+            <span class="review-icon text-primary" style="margin-right:5px">
+            <i class="far fa-comment-alt fa-lg" title="Atsiliepimai"></i>
+        </span>
+        
+    
+    </div>                                                    </div> 
+                                                                                            </div>
+                                            <div class="clearfix"></div>
+                                            <div id="details-15" style="padding-top: 10px; display: none">
+                                                                                                    <div>
+                                                        Adresas:&nbsp;
+                                                        <strong>725 Granlibakken Rd</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        Zip kodas:&nbsp;
+                                                        <strong>96145</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        El. paštas:&nbsp;
+                                                        <a href="mailto:istvanbelafalvi@granlibakken.com,%20kelseyschroeder@granlibakken.com">istvanbelafalvi@granlibakken.com, kelseyschroeder@granlibakken.com</a>
+                                                    </div>
+                                                                                                                                                                                                    <div>
+                                                        Telefono nr.:&nbsp;
+                                                        <strong>530-583-4242, 530-581-7560</strong>
+                                                    </div>
+                                                                                                                                                                                                    <div>
+                                                        Puslapis2:&nbsp;
+                                                                                                                    <a href="http://granlibakken.com/employment/" target="_blank">http://granlibakken.com/employment/</a>&nbsp;
+                                                        
+                                                    </div>
+                                                                                                                                                                                                                                            </div>
+                                        </li>
+                                                                            <li class="list-group-item clickable">
+                                            <div class="row">
+                                                <div class="col-sm-4">
+                                                    <div>
+                                                        <strong>Holiday Inn Express HIEX SLT LLC</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <div>
+                                                        <strong>South Lake Tahoe</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4" style="overflow: hidden;">
+                                                                                                            <a href="https://www.ihg.com/holidayinnexpress/hotels/us/en/south-lake-tahoe/tvlso/hoteldetail" target="_blank">https://www.ihg.com/holidayinnexpress/hotels/us/en/south-lake-tahoe/tvlso/hoteldetail</a>&nbsp;
+                                                                                                    </div>
+                                                                                                    <div class="col-sm-1">
+                                                        <div class="pull-right list-actions">
+            <span class="review-icon text-primary" style="margin-right:5px">
+            <i class="far fa-comment-alt fa-lg" title="Atsiliepimai"></i>
+        </span>
+        
+    
+    </div>                                                    </div> 
+                                                                                            </div>
+                                            <div class="clearfix"></div>
+                                            <div id="details-16" style="padding-top: 10px; display: none">
+                                                                                                    <div>
+                                                        Adresas:&nbsp;
+                                                        <strong>3961 Lake Tahoe Blvd</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        Zip kodas:&nbsp;
+                                                        <strong>96150</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        El. paštas:&nbsp;
+                                                        <a href="mailto:kmason.hieslt@gmail.com">kmason.hieslt@gmail.com</a>
+                                                    </div>
+                                                                                                                                                                                                    <div>
+                                                        Telefono nr.:&nbsp;
+                                                        <strong>530-544-5900</strong>
+                                                    </div>
+                                                                                                                                                                                                                                                                                                                                            </div>
+                                        </li>
+                                                                            <li class="list-group-item clickable">
+                                            <div class="row">
+                                                <div class="col-sm-4">
+                                                    <div>
+                                                        <strong>Kit Carson Lodge (Kit Karson, CA)</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <div>
+                                                        <strong>Kit Carson</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4" style="overflow: hidden;">
+                                                                                                            <a href="https://www.kitcarsonlodge.com/" target="_blank">https://www.kitcarsonlodge.com/</a>&nbsp;
+                                                                                                    </div>
+                                                                                                    <div class="col-sm-1">
+                                                        <div class="pull-right list-actions">
+        
+    
+    </div>                                                    </div> 
+                                                                                            </div>
+                                            <div class="clearfix"></div>
+                                            <div id="details-17" style="padding-top: 10px; display: none">
+                                                                                                    <div>
+                                                        Adresas:&nbsp;
+                                                        <strong>32161 Kit Carson Road</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        Zip kodas:&nbsp;
+                                                        <strong>95644</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        El. paštas:&nbsp;
+                                                        <a href="mailto:stay@kitcarsonlodge.com">stay@kitcarsonlodge.com</a>
+                                                    </div>
+                                                                                                                                                                                                    <div>
+                                                        Telefono nr.:&nbsp;
+                                                        <strong>209-258-8500</strong>
+                                                    </div>
+                                                                                                                                                                                                                                                                                                                                            </div>
+                                        </li>
+                                                                            <li class="list-group-item clickable">
+                                            <div class="row">
+                                                <div class="col-sm-4">
+                                                    <div>
+                                                        <strong>Lemon Tree Inn dba Paradise Hotels Inc.</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <div>
+                                                        <strong>Santa Barbara</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4" style="overflow: hidden;">
+                                                                                                            <a href="http://www.treeinns.com/" target="_blank">www.treeinns.com</a>&nbsp;
+                                                                                                    </div>
+                                                                                                    <div class="col-sm-1">
+                                                        <div class="pull-right list-actions">
+        
+    
+    </div>                                                    </div> 
+                                                                                            </div>
+                                            <div class="clearfix"></div>
+                                            <div id="details-18" style="padding-top: 10px; display: none">
+                                                                                                    <div>
+                                                        Adresas:&nbsp;
+                                                        <strong>2819 State Street</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        Zip kodas:&nbsp;
+                                                        <strong>93105</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        El. paštas:&nbsp;
+                                                        <a href="mailto:treeinns@gmail.com">treeinns@gmail.com</a>
+                                                    </div>
+                                                                                                                                                                                                    <div>
+                                                        Telefono nr.:&nbsp;
+                                                        <strong>805-687-6444</strong>
+                                                    </div>
+                                                                                                                                                                                                                                                                                                                                            </div>
+                                        </li>
+                                                                            <li class="list-group-item clickable">
+                                            <div class="row">
+                                                <div class="col-sm-4">
+                                                    <div>
+                                                        <strong>Manzanita Lake Service Store</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <div>
+                                                        <strong>Shingletown</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4" style="overflow: hidden;">
+                                                                                                            <a href="http://www.lassenrecreation.com/" target="_blank">www.lassenrecreation.com </a>&nbsp;
+                                                                                                    </div>
+                                                                                                    <div class="col-sm-1">
+                                                        <div class="pull-right list-actions">
+        
+    
+    </div>                                                    </div> 
+                                                                                            </div>
+                                            <div class="clearfix"></div>
+                                            <div id="details-19" style="padding-top: 10px; display: none">
+                                                                                                    <div>
+                                                        Adresas:&nbsp;
+                                                        <strong>North Entrance Lassen Volcanic National Park</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        Zip kodas:&nbsp;
+                                                        <strong>96088</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        El. paštas:&nbsp;
+                                                        <a href="mailto:kturner@calparksco.com,%20ManzanitaLake@CalParksCo.com">kturner@calparksco.com, ManzanitaLake@CalParksCo.com</a>
+                                                    </div>
+                                                                                                                                                                                                    <div>
+                                                        Telefono nr.:&nbsp;
+                                                        <strong>530-275-8113</strong>
+                                                    </div>
+                                                                                                                                                                                                                                                                                                                                            </div>
+                                        </li>
+                                                                    </ul>
+                                
+                                <div class="row">
+                                    <div class="col-sm-9">
+                                        <div><ul class="pagination">
+        
+                    <li class="disabled"><span>«</span></li>
+        
+        
+                    
+            
+            
+                                                                        <li class="active"><span>1</span></li>
+                                                                                <li><a href="https://us.lwc-wt.lt/companies/2/ca?page=2">2</a></li>
+                                                        
+        
+                    <li><a href="https://us.lwc-wt.lt/companies/2/ca?page=2" rel="next">»</a></li>
+            </ul>
+</div>
+                                        <div style="padding-top: 15px;"><a href="https://us.lwc-wt.lt/companies/2">Grįžti</a></div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <div class="pull-right">
+                                            <span class="text-muted" style="font-size:13px;">Rodyti</span>
+<div style="display:inline-block; width:80px; padding:3px 6px">
+<div class="btn-group bootstrap-select form-control"><button type="button" class="btn dropdown-toggle btn-default" data-toggle="dropdown" role="button" data-id="pageSizeClone" title="20"><span class="filter-option pull-left">20</span>&nbsp;<span class="bs-caret"><span class="caret"></span></span></button><div class="dropdown-menu open" role="combobox"><ul class="dropdown-menu inner" role="listbox" aria-expanded="false"><li data-original-index="0"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">10</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="1" class="selected"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="true"><span class="text">20</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="2"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">40</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="3"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">60</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="4"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">80</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="5"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">100</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li></ul></div><select id="pageSizeClone" class="form-control selectpicker" tabindex="-98">
+            <option value="10">10</option>
+            <option value="20" selected="">20</option>
+            <option value="40">40</option>
+            <option value="60">60</option>
+            <option value="80">80</option>
+            <option value="100">100</option>
+    </select></div> 
+</div>
+<span class="text-muted" style="font-size:13px;">iš 30</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                                    </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    
+    </div>
+
+    <footer class="footer text-center">
+        <hr style="margin-bottom:8px">
+        © 2019 LWC-WT. All rights reserved.
+    </footer>
+    <div id="common_modal" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg">
+
+        <!-- Modal content-->
+        <div id="common_modal_content" class="modal-content">
+            <div id="common_modal_header" class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span class="glyphicon glyphicon-remove" style="margin-top:8px; font-size:16px"></span></button>
+                <h3 id="common_modal_title" class="modal-title"></h3>
+            </div>
+            <div id="common_modal_body" class="modal-body"></div>
+            <div id="common_modal_footer" class="modal-footer">
+                <button id="common_modal_dismiss_btn" type="button" class="btn btn-default" data-dismiss="modal">Uždaryti</button>
+            </div>
+        </div>
+    </div>
+</div>    <div id="selection_modal" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg">
+
+        <!-- Modal content-->
+        <div id="selection_modal_content" class="modal-content">
+            <div id="selection_modal_header" class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span class="glyphicon glyphicon-remove" style="margin-top:8px; font-size:16px"></span></button>
+                <h3 id="selection_modal_title" class="modal-title">Pasirinkite iš sąrašo</h3>
+            </div>
+            <div id="selection_modal_body" class="modal-body"></div>
+            <div id="selection_modal_footer" class="modal-footer">
+                <button id="selection_modal_submit_btn" type="button" class="btn btn-primary" data-dismiss="modal">Pasirinkti</button>
+                <button id="selection_modal_dismiss_btn" type="button" class="btn btn-default" data-dismiss="modal">Uždaryti</button>
+            </div>
+        </div>
+    </div>
+</div>    <div id="yes_no_modal" class="modal fade" role="dialog" style="z-index:1500">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div id="yes_no_modal_content" class="modal-content">
+            <div id="yes_no_modal_header" class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span class="glyphicon glyphicon-remove" style="margin-top:8px; font-size:16px"></span></button>
+                <h3 id="yes_no_modal_title" class="modal-title">Patvirtinti</h3>
+            </div>
+            <div id="yes_no_modal_body" class="modal-body">
+            </div>
+            <div id="yes_no_modal_footer" class="modal-footer">
+                <button id="yes_no_modal_yes_btn" type="button" class="btn btn-primary" data-dismiss="modal">Taip</button>
+                <button id="yes_no_modal_no_btn" type="button" class="btn btn-default" data-dismiss="modal">Ne</button>
+            </div>
+        </div>
+    </div>
+</div>    <div id="remove_modal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div id="remove_modal_content" class="modal-content">
+            <div id="remove_modal_header" class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span class="glyphicon glyphicon-remove" style="margin-top:5px; font-size:16px"></span></button>
+                <h3 id="remove_modal_title" class="modal-title">Pašalinti</h3>
+            </div>
+            <div id="remove_modal_body" class="modal-body">
+            </div>
+            <div id="remove_modal_footer" class="modal-footer">
+                <button id="remove_modal_yes_btn" type="button" class="btn btn-primary" data-dismiss="modal">Taip</button>
+                <button id="remove_modal_no_btn" type="button" class="btn btn-default" data-dismiss="modal">Ne</button>
+            </div>
+        </div>
+    </div>
+</div>    <div id="remove_student_modal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div id="remove_student_modal_content" class="modal-content">
+            <div id="remove_student_modal_header" class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span class="glyphicon glyphicon-remove" style="margin-top:5px; font-size:16px"></span></button>
+                <h3 id="remove_student_modal_title" class="modal-title">Pašalinti</h3>
+            </div>
+            <div id="remove_student_modal_body" class="modal-body">
+            </div>
+            <div id="remove_modal_student_footer" class="modal-footer">
+                <button id="remove_student_modal_yes_btn" type="button" class="btn btn-primary" data-dismiss="modal">Šių metų anketą</button>
+                <button id="remove_student_modal_all_yes_btn" type="button" class="btn btn-danger" data-dismiss="modal">Visas anketas</button>
+                                <button id="remove_student_modal_no_btn" type="button" class="btn btn-default" data-dismiss="modal">Ne</button>
+            </div>
+        </div>
+    </div>
+</div>    <div id="error_modal" class="modal fade" role="dialog" style="z-index:1600">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div id="error_modal_content" class="modal-content">
+            <div id="error_modal_header" class="modal-header" style="background-color:#6c757d;color:white">
+                <button type="button" class="close" data-dismiss="modal"><span class="glyphicon glyphicon-remove" style="margin-top:5px; font-size:16px"></span></button>
+                <h3 id="error_modal_title" class="modal-title">Pranešimas</h3>
+            </div>
+            <div id="error_modal_body" class="modal-body">
+            </div>
+            <div id="error_modal_footer" class="modal-footer">
+                <button id="error_modal_no_btn" type="button" class="btn btn-default" data-dismiss="modal">Uždaryti</button>
+            </div>
+        </div>
+    </div>
+</div>    <div id="ajax_loader" style="display:none;"></div>
+
+    
+
+
+
+</body></html>

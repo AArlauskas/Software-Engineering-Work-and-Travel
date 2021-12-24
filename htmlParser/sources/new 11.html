@@ -1,0 +1,1211 @@
+<!DOCTYPE html><html lang="en"><style type="text/css" id="dark-mode-custom-style"></style><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="oQ2VTrWTrt9U7pMo7aRga5CUe0R2AKx70H6xNAfU">
+
+    <title>Aliaska | LWC-WT</title>
+    <link rel="icon" href="https://us.lwc-wt.lt/icon.gif">
+    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans&amp;display=swap" rel="stylesheet"> 
+
+    <!-- Styles -->
+    <link href="https://us.lwc-wt.lt/css/app.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://us.lwc-wt.lt/css/bootstrap-datepicker3.css">
+    <link rel="stylesheet" href="https://us.lwc-wt.lt/bootstrap-select-1.12.1/dist/css/bootstrap-select.min.css">
+    <link rel="stylesheet" href="https://us.lwc-wt.lt/fontawesome-5.1.0/css/all.css">
+    
+    <!-- Scripts -->
+    
+        
+    
+    
+    <!--<script src="/js/bootstrap3-typeahead.min.js"></script>-->
+    
+
+    
+
+<style type="text/css"></style></head>
+<body>
+    <div id="app">
+        <nav class="navbar navbar-default navbar-static-top">
+    <div class="container">
+        <div class="navbar-header">
+
+            <!-- Collapsed Hamburger -->
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
+                <span class="sr-only">Toggle Navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <!-- Branding Image -->
+            <a class="navbar-brand" href="https://us.lwc-wt.lt/">
+                LWC-WT
+            </a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="app-navbar-collapse">
+            <!-- Left Side Of Navbar -->
+            <ul class="nav navbar-nav">
+                &nbsp;
+
+                                    <li>
+                        <a href="https://us.lwc-wt.lt/" class="underline-hover">Pagrindinis</a>
+                    </li>
+                                            <li>
+                            <a href="https://us.lwc-wt.lt/information" class="underline-hover">Informacija</a>
+                        </li>
+                                                                <li>
+                            <a href="https://us.lwc-wt.lt/companies" class="underline-hover">Firmų sąrašas</a>
+                        </li>
+                                     
+            </ul>
+
+            <!-- Right Side Of Navbar -->
+            <ul class="nav navbar-nav navbar-right">
+                <!-- Authentication Links -->
+                                    <li class="dropdown">
+                        <a href="https://us.lwc-wt.lt/companies/2/ak#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" style="padding-left:40px">
+                            <i class="fas fa-user-circle fa-2x" style="position: absolute;top: 10px;left: 7px;"></i>
+                            Aurimas Arlauskas <span class="caret"></span>
+                        </a>
+
+                        <ul class="dropdown-menu" role="menu">
+                            <li>
+                                <a href="https://us.lwc-wt.lt/logout">
+                                    Atsijungti
+                                </a>
+
+                                <form id="logout-form" action="https://us.lwc-wt.lt/logout" method="POST" style="display: none;">
+                                    
+                                </form>
+                            </li>
+                        </ul>
+                    </li>
+                                                    <li class="uppercase active">
+                        <a href="https://us.lwc-wt.lt/lang/change/lt">lt</a>
+                    </li> 
+                                    <li class="uppercase ">
+                        <a href="https://us.lwc-wt.lt/lang/change/en">en</a>
+                    </li> 
+                            </ul>
+        </div>
+    </div>
+</nav>
+                
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3>
+                            <div class="row">
+                                <div class="col-md-7">
+                                    Aliaska (TOP firmų sąrašas)
+                                </div>
+                                <div class="col-md-5">
+                                                                    </div>
+                            </div>
+                        </h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="tmp-success-message">
+                                                    </div>
+
+                        
+                        <form action="https://us.lwc-wt.lt/companies/2/ak" id="search_form" class="form-horizontal" method="post">
+    
+
+    <div class="input-group" style="padding-bottom: 10px; padding-top: 10px;">
+        <input id="searchString" name="searchString" value="" type="text" class="form-control" placeholder="Paieška" autofocus="">
+        <span class="input-group-addon">
+            <span class="clickable"><i class="fas fa-search"></i></span>
+        </span>
+    </div>
+    
+</form>
+                        <div class="companies-container">
+                                                            
+                                <ul class="list-group">
+                                    <li class="list-group-item company-list-header">
+                                        <div class="row">
+                                            <div class="col-sm-4">
+                                                <strong>Firmos pavadinimas</strong>
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <strong>Miestas</strong>
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <div>
+                                                <strong>Puslapis&nbsp;&nbsp;</strong>
+                                                </div>
+                                            </div>
+                                                                                        
+
+                                        </div>
+                                    </li>
+                                                                            <li class="list-group-item clickable">
+                                            <div class="row">
+                                                <div class="col-sm-4">
+                                                    <div>
+                                                        <strong>Alaska 360 / Klondike Gold Fields</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <div>
+                                                        <strong>Skagway</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4" style="overflow: hidden;">
+                                                                                                            <a href="https://alaska3sixty.com/home" target="_blank">https://alaska3sixty.com/home </a>&nbsp;
+                                                                                                    </div>
+                                                                                                    <div class="col-sm-1">
+                                                        <div class="pull-right list-actions">
+        
+    
+    </div>                                                    </div> 
+                                                                                            </div>
+                                            <div class="clearfix"></div>
+                                            <div id="details-0" style="padding-top: 10px; display: none">
+                                                                                                    <div>
+                                                        Adresas:&nbsp;
+                                                        <strong>1.7 Mile Klondike Hghw</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        Zip kodas:&nbsp;
+                                                        <strong>99840</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        El. paštas:&nbsp;
+                                                        <a href="mailto:deborah@alaska3sixty.com">deborah@alaska3sixty.com</a>
+                                                    </div>
+                                                                                                                                                                                                    <div>
+                                                        Telefono nr.:&nbsp;
+                                                        <strong>907-9833175</strong>
+                                                    </div>
+                                                                                                                                                                                                    <div>
+                                                        Puslapis2:&nbsp;
+                                                                                                                    <a href="https://alaska3sixty.com/contact" target="_blank">https://alaska3sixty.com/contact </a>&nbsp;
+                                                        
+                                                    </div>
+                                                                                                                                                                                                                                                    <div>
+                                                        Komentarai:&nbsp;
+                                                        <strong>The work here requires a very high level of English and the ability to work as a tour guide. Single applicants strongly preferred. Not more than 2 friends.</strong>
+                                                    </div>
+                                                                                            </div>
+                                        </li>
+                                                                            <li class="list-group-item clickable">
+                                            <div class="row">
+                                                <div class="col-sm-4">
+                                                    <div>
+                                                        <strong>Alyeska Resort &amp; The Hotel Alyeska</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <div>
+                                                        <strong>Girdwood</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4" style="overflow: hidden;">
+                                                                                                            <a href="http://www.alyeskaresort.com/" target="_blank">www.alyeskaresort.com</a>&nbsp;
+                                                                                                    </div>
+                                                                                                    <div class="col-sm-1">
+                                                        <div class="pull-right list-actions">
+            <span class="review-icon text-primary" style="margin-right:5px">
+            <i class="far fa-comment-alt fa-lg" title="Atsiliepimai"></i>
+        </span>
+        
+    
+    </div>                                                    </div> 
+                                                                                            </div>
+                                            <div class="clearfix"></div>
+                                            <div id="details-1" style="padding-top: 10px; display: none">
+                                                                                                    <div>
+                                                        Adresas:&nbsp;
+                                                        <strong>1000 Arlberg Avenue</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        Zip kodas:&nbsp;
+                                                        <strong>99587</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        El. paštas:&nbsp;
+                                                        <a href="mailto:shondel@alyeskaresort.com">shondel@alyeskaresort.com</a>
+                                                    </div>
+                                                                                                                                                                                                    <div>
+                                                        Telefono nr.:&nbsp;
+                                                        <strong>907-754-1111</strong>
+                                                    </div>
+                                                                                                                                                                                                                                                                                                                                            </div>
+                                        </li>
+                                                                            <li class="list-group-item clickable">
+                                            <div class="row">
+                                                <div class="col-sm-4">
+                                                    <div>
+                                                        <strong>Bites on Broadway</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <div>
+                                                        <strong>Skagway</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4" style="overflow: hidden;">
+                                                                                                            <a href="http://bitesonbroadway.com/" target="_blank">bitesonbroadway.com</a>&nbsp;
+                                                                                                    </div>
+                                                                                                    <div class="col-sm-1">
+                                                        <div class="pull-right list-actions">
+            <span class="review-icon text-primary" style="margin-right:5px">
+            <i class="far fa-comment-alt fa-lg" title="Atsiliepimai"></i>
+        </span>
+        
+    
+    </div>                                                    </div> 
+                                                                                            </div>
+                                            <div class="clearfix"></div>
+                                            <div id="details-2" style="padding-top: 10px; display: none">
+                                                                                                    <div>
+                                                        Adresas:&nbsp;
+                                                        <strong>PO BOX 1345</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        Zip kodas:&nbsp;
+                                                        <strong>99840</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        El. paštas:&nbsp;
+                                                        <a href="mailto:bitesonbroadway@hotmail.com">bitesonbroadway@hotmail.com</a>
+                                                    </div>
+                                                                                                                                                                                                    <div>
+                                                        Telefono nr.:&nbsp;
+                                                        <strong>907-983-2166</strong>
+                                                    </div>
+                                                                                                                                                                                                                                                                                                                                            </div>
+                                        </li>
+                                                                            <li class="list-group-item clickable">
+                                            <div class="row">
+                                                <div class="col-sm-4">
+                                                    <div>
+                                                        <strong>Black Diamond Resort</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <div>
+                                                        <strong>Healy</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4" style="overflow: hidden;">
+                                                                                                            <a href="http://www.blackdiamondtourco.com/" target="_blank">www.blackdiamondtourco.com</a>&nbsp;
+                                                                                                    </div>
+                                                                                                    <div class="col-sm-1">
+                                                        <div class="pull-right list-actions">
+            <span class="review-icon text-primary" style="margin-right:5px">
+            <i class="far fa-comment-alt fa-lg" title="Atsiliepimai"></i>
+        </span>
+        
+    
+    </div>                                                    </div> 
+                                                                                            </div>
+                                            <div class="clearfix"></div>
+                                            <div id="details-3" style="padding-top: 10px; display: none">
+                                                                                                    <div>
+                                                        Adresas:&nbsp;
+                                                        <strong>One Mile Otto Lake Road</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        Zip kodas:&nbsp;
+                                                        <strong>99743</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        El. paštas:&nbsp;
+                                                        <a href="mailto:marilynusibelli@gmail.com,%20blackdiamondresortco@gmail.com">marilynusibelli@gmail.com, blackdiamondresortco@gmail.com</a>
+                                                    </div>
+                                                                                                                                                                                                    <div>
+                                                        Telefono nr.:&nbsp;
+                                                        <strong>907-683-4653, 907-683-4500</strong>
+                                                    </div>
+                                                                                                                                                                                                                                                                                                                                            </div>
+                                        </li>
+                                                                            <li class="list-group-item clickable">
+                                            <div class="row">
+                                                <div class="col-sm-4">
+                                                    <div>
+                                                        <strong>Chilkoot Trail Outpost</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <div>
+                                                        <strong>Skagway</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4" style="overflow: hidden;">
+                                                                                                            <a href="http://chilkoottrailoutpost.com/" target="_blank">chilkoottrailoutpost.com</a>&nbsp;
+                                                                                                    </div>
+                                                                                                    <div class="col-sm-1">
+                                                        <div class="pull-right list-actions">
+            <span class="review-icon text-primary" style="margin-right:5px">
+            <i class="far fa-comment-alt fa-lg" title="Atsiliepimai"></i>
+        </span>
+        
+    
+    </div>                                                    </div> 
+                                                                                            </div>
+                                            <div class="clearfix"></div>
+                                            <div id="details-4" style="padding-top: 10px; display: none">
+                                                                                                    <div>
+                                                        Adresas:&nbsp;
+                                                        <strong>7 Mile Dyea Rd.</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        Zip kodas:&nbsp;
+                                                        <strong>99840</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        El. paštas:&nbsp;
+                                                        <a href="mailto:kkhosford@hotmail.com,%20info@chilkoottrailoutpost.com">kkhosford@hotmail.com, info@chilkoottrailoutpost.com</a>
+                                                    </div>
+                                                                                                                                                                                                    <div>
+                                                        Telefono nr.:&nbsp;
+                                                        <strong>907-983-3799</strong>
+                                                    </div>
+                                                                                                                                                                                                                                                                                                                                            </div>
+                                        </li>
+                                                                            <li class="list-group-item clickable">
+                                            <div class="row">
+                                                <div class="col-sm-4">
+                                                    <div>
+                                                        <strong>Chinook Shores Inc.</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <div>
+                                                        <strong>Ketchikan</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4" style="overflow: hidden;">
+                                                                                                            <a href="http://chinookshores.com/" target="_blank">http://chinookshores.com/</a>&nbsp;
+                                                                                                    </div>
+                                                                                                    <div class="col-sm-1">
+                                                        <div class="pull-right list-actions">
+        
+    
+    </div>                                                    </div> 
+                                                                                            </div>
+                                            <div class="clearfix"></div>
+                                            <div id="details-5" style="padding-top: 10px; display: none">
+                                                                                                    <div>
+                                                        Adresas:&nbsp;
+                                                        <strong>119 Potter Road</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        Zip kodas:&nbsp;
+                                                        <strong>99901</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        El. paštas:&nbsp;
+                                                        <a href="mailto:jobs@chinookshores.com,%20info@chinookshores.com">jobs@chinookshores.com, info@chinookshores.com</a>
+                                                    </div>
+                                                                                                                                                                                                    <div>
+                                                        Telefono nr.:&nbsp;
+                                                        <strong>907-225-6700</strong>
+                                                    </div>
+                                                                                                                                                                                                    <div>
+                                                        Puslapis2:&nbsp;
+                                                                                                                    <a href="http://chinookshores.com/jobs/" target="_blank">http://chinookshores.com/jobs/</a>&nbsp;
+                                                        
+                                                    </div>
+                                                                                                                                                                                                                                            </div>
+                                        </li>
+                                                                            <li class="list-group-item clickable">
+                                            <div class="row">
+                                                <div class="col-sm-4">
+                                                    <div>
+                                                        <strong>Christmas in Alaska</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <div>
+                                                        <strong>Ketchican</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4" style="overflow: hidden;">
+                                                                                                            <a href="http:" target="_blank"></a>&nbsp;
+                                                                                                    </div>
+                                                                                                    <div class="col-sm-1">
+                                                        <div class="pull-right list-actions">
+            <span class="review-icon text-primary" style="margin-right:5px">
+            <i class="far fa-comment-alt fa-lg" title="Atsiliepimai"></i>
+        </span>
+        
+    
+    </div>                                                    </div> 
+                                                                                            </div>
+                                            <div class="clearfix"></div>
+                                            <div id="details-6" style="padding-top: 10px; display: none">
+                                                                                                    <div>
+                                                        Adresas:&nbsp;
+                                                        <strong>300 Spruce Mill Way</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        Zip kodas:&nbsp;
+                                                        <strong>99901</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        El. paštas:&nbsp;
+                                                        <a href="mailto:hannah.ktn@gmail.com">hannah.ktn@gmail.com</a>
+                                                    </div>
+                                                                                                                                                                                                    <div>
+                                                        Telefono nr.:&nbsp;
+                                                        <strong>907-225-2856</strong>
+                                                    </div>
+                                                                                                                                                                                                                                                                                                                                            </div>
+                                        </li>
+                                                                            <li class="list-group-item clickable">
+                                            <div class="row">
+                                                <div class="col-sm-4">
+                                                    <div>
+                                                        <strong>Denali Gift Company</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <div>
+                                                        <strong>Denali National Park</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4" style="overflow: hidden;">
+                                                                                                            <a href="http://www.denalipark.com/" target="_blank">www.denalipark.com</a>&nbsp;
+                                                                                                    </div>
+                                                                                                    <div class="col-sm-1">
+                                                        <div class="pull-right list-actions">
+            <span class="review-icon text-primary" style="margin-right:5px">
+            <i class="far fa-comment-alt fa-lg" title="Atsiliepimai"></i>
+        </span>
+        
+    
+    </div>                                                    </div> 
+                                                                                            </div>
+                                            <div class="clearfix"></div>
+                                            <div id="details-7" style="padding-top: 10px; display: none">
+                                                                                                    <div>
+                                                        Adresas:&nbsp;
+                                                        <strong>Mile 238 1/2 Parks Highway</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        Zip kodas:&nbsp;
+                                                        <strong>99755</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        El. paštas:&nbsp;
+                                                        <a href="mailto:Baker.Garret@gmail.com,%20info@alaskacollection.com">Baker.Garret@gmail.com, info@alaskacollection.com</a>
+                                                    </div>
+                                                                                                                                                                                                    <div>
+                                                        Telefono nr.:&nbsp;
+                                                        <strong>907-683-7200</strong>
+                                                    </div>
+                                                                                                                                                                                                                                                                                                                                            </div>
+                                        </li>
+                                                                            <li class="list-group-item clickable">
+                                            <div class="row">
+                                                <div class="col-sm-4">
+                                                    <div>
+                                                        <strong>Fish Pirates Gifts</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <div>
+                                                        <strong>Ketchikan</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4" style="overflow: hidden;">
+                                                                                                            <a href="http:" target="_blank"></a>&nbsp;
+                                                                                                    </div>
+                                                                                                    <div class="col-sm-1">
+                                                        <div class="pull-right list-actions">
+            <span class="review-icon text-primary" style="margin-right:5px">
+            <i class="far fa-comment-alt fa-lg" title="Atsiliepimai"></i>
+        </span>
+        
+    
+    </div>                                                    </div> 
+                                                                                            </div>
+                                            <div class="clearfix"></div>
+                                            <div id="details-8" style="padding-top: 10px; display: none">
+                                                                                                    <div>
+                                                        Adresas:&nbsp;
+                                                        <strong>76 Front Street</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        Zip kodas:&nbsp;
+                                                        <strong>99901</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        El. paštas:&nbsp;
+                                                        <a href="mailto:hannah.ktn@gmail.com">hannah.ktn@gmail.com</a>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        El. paštas2:&nbsp;
+                                                        <a href="mailto:hm.patisserie@gmail.com">hm.patisserie@gmail.com</a>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        Telefono nr.:&nbsp;
+                                                        <strong>907-225-2856</strong>
+                                                    </div>
+                                                                                                                                                                                                                                                                                                                                            </div>
+                                        </li>
+                                                                            <li class="list-group-item clickable">
+                                            <div class="row">
+                                                <div class="col-sm-4">
+                                                    <div>
+                                                        <strong>Go North RV Camper Rental, LLC</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <div>
+                                                        <strong>Anchorage</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4" style="overflow: hidden;">
+                                                                                                            <a href="http:" target="_blank"></a>&nbsp;
+                                                                                                    </div>
+                                                                                                    <div class="col-sm-1">
+                                                        <div class="pull-right list-actions">
+            <span class="review-icon text-primary" style="margin-right:5px">
+            <i class="far fa-comment-alt fa-lg" title="Atsiliepimai"></i>
+        </span>
+        
+    
+    </div>                                                    </div> 
+                                                                                            </div>
+                                            <div class="clearfix"></div>
+                                            <div id="details-9" style="padding-top: 10px; display: none">
+                                                                                                    <div>
+                                                        Adresas:&nbsp;
+                                                        <strong>5011 Spenard Rd</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        Zip kodas:&nbsp;
+                                                        <strong>99517</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        El. paštas:&nbsp;
+                                                        <a href="mailto:accounting@gonorth-alaska.com">accounting@gonorth-alaska.com</a>
+                                                    </div>
+                                                                                                                                                                                                    <div>
+                                                        Telefono nr.:&nbsp;
+                                                        <strong>9 072 450 182</strong>
+                                                    </div>
+                                                                                                                                                                                                                                                                                                                                                    <div>
+                                                        Komentarai:&nbsp;
+                                                        <strong>Interested in students who also speak German. (Most our guests are from German speaking countries.)</strong>
+                                                    </div>
+                                                                                            </div>
+                                        </li>
+                                                                            <li class="list-group-item clickable">
+                                            <div class="row">
+                                                <div class="col-sm-4">
+                                                    <div>
+                                                        <strong>Good coffee company LLC dba New York Cafe</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <div>
+                                                        <strong>Ketchikan</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4" style="overflow: hidden;">
+                                                                                                            <a href="http://www.newyorkcafe.net/" target="_blank">www.newyorkcafe.net</a>&nbsp;
+                                                                                                    </div>
+                                                                                                    <div class="col-sm-1">
+                                                        <div class="pull-right list-actions">
+        
+    
+    </div>                                                    </div> 
+                                                                                            </div>
+                                            <div class="clearfix"></div>
+                                            <div id="details-10" style="padding-top: 10px; display: none">
+                                                                                                    <div>
+                                                        Adresas:&nbsp;
+                                                        <strong>207-211 Stedman Street</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        Zip kodas:&nbsp;
+                                                        <strong>99901</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        El. paštas:&nbsp;
+                                                        <a href="mailto:raffy@newyorkcafe.net">raffy@newyorkcafe.net</a>
+                                                    </div>
+                                                                                                                                                                                                    <div>
+                                                        Telefono nr.:&nbsp;
+                                                        <strong>907-247-2326</strong>
+                                                    </div>
+                                                                                                                                                                                                                                                                                                                                            </div>
+                                        </li>
+                                                                            <li class="list-group-item clickable">
+                                            <div class="row">
+                                                <div class="col-sm-4">
+                                                    <div>
+                                                        <strong>Grand View Cafe &amp; RV Park</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <div>
+                                                        <strong>Sutton</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4" style="overflow: hidden;">
+                                                                                                            <a href="http://www.grandviewrv.com/" target="_blank">www.grandviewrv.com</a>&nbsp;
+                                                                                                    </div>
+                                                                                                    <div class="col-sm-1">
+                                                        <div class="pull-right list-actions">
+            <span class="review-icon text-primary" style="margin-right:5px">
+            <i class="far fa-comment-alt fa-lg" title="Atsiliepimai"></i>
+        </span>
+        
+    
+    </div>                                                    </div> 
+                                                                                            </div>
+                                            <div class="clearfix"></div>
+                                            <div id="details-11" style="padding-top: 10px; display: none">
+                                                                                                    <div>
+                                                        Adresas:&nbsp;
+                                                        <strong>22518 W Glenn Hwy</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        Zip kodas:&nbsp;
+                                                        <strong>99674</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        El. paštas:&nbsp;
+                                                        <a href="mailto:info@grandviewrv.com">info@grandviewrv.com</a>
+                                                    </div>
+                                                                                                                                                                                                    <div>
+                                                        Telefono nr.:&nbsp;
+                                                        <strong>907-746-4480, 907-982-2615</strong>
+                                                    </div>
+                                                                                                                                                                                                                                                                                                                                                    <div>
+                                                        Komentarai:&nbsp;
+                                                        <strong>Business is for sale (https://www.grandviewrv.com/forsale). Bet dalyviu WT-2019 nori.</strong>
+                                                    </div>
+                                                                                            </div>
+                                        </li>
+                                                                            <li class="list-group-item clickable">
+                                            <div class="row">
+                                                <div class="col-sm-4">
+                                                    <div>
+                                                        <strong>Historic Skagway Inn</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <div>
+                                                        <strong>Skagway</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4" style="overflow: hidden;">
+                                                                                                            <a href="http://www.skagwayinn.com/" target="_blank">www.skagwayinn.com </a>&nbsp;
+                                                                                                    </div>
+                                                                                                    <div class="col-sm-1">
+                                                        <div class="pull-right list-actions">
+        
+    
+    </div>                                                    </div> 
+                                                                                            </div>
+                                            <div class="clearfix"></div>
+                                            <div id="details-12" style="padding-top: 10px; display: none">
+                                                                                                    <div>
+                                                        Adresas:&nbsp;
+                                                        <strong>655 Broadway</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        Zip kodas:&nbsp;
+                                                        <strong>99840</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        El. paštas:&nbsp;
+                                                        <a href="mailto:owner@skagwayinn.com,%20reservations@skagwayinn.com">owner@skagwayinn.com, reservations@skagwayinn.com </a>
+                                                    </div>
+                                                                                                                                                                                                    <div>
+                                                        Telefono nr.:&nbsp;
+                                                        <strong>907-983-2289</strong>
+                                                    </div>
+                                                                                                                                                                                                                                                                                                                                            </div>
+                                        </li>
+                                                                            <li class="list-group-item clickable">
+                                            <div class="row">
+                                                <div class="col-sm-4">
+                                                    <div>
+                                                        <strong>K &amp; S Holdings, Inc - West Rib Pub</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <div>
+                                                        <strong>Talkeetna</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4" style="overflow: hidden;">
+                                                                                                            <a href="http://www.westribpubandgrill.com/" target="_blank">www.westribpubandgrill.com</a>&nbsp;
+                                                                                                    </div>
+                                                                                                    <div class="col-sm-1">
+                                                        <div class="pull-right list-actions">
+        
+    
+    </div>                                                    </div> 
+                                                                                            </div>
+                                            <div class="clearfix"></div>
+                                            <div id="details-13" style="padding-top: 10px; display: none">
+                                                                                                    <div>
+                                                        Adresas:&nbsp;
+                                                        <strong>13650 Main Street</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        Zip kodas:&nbsp;
+                                                        <strong>99676</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        El. paštas:&nbsp;
+                                                        <a href="mailto:steph.l.enders@gmail.com">steph.l.enders@gmail.com </a>
+                                                    </div>
+                                                                                                                                                                                                    <div>
+                                                        Telefono nr.:&nbsp;
+                                                        <strong>907-602-0712, 907-733-3354</strong>
+                                                    </div>
+                                                                                                                                                                                                    <div>
+                                                        Puslapis2:&nbsp;
+                                                                                                                    <a href="http://www.westribpubandgrill.com/find-us.html" target="_blank">http://www.westribpubandgrill.com/find-us.html</a>&nbsp;
+                                                        
+                                                    </div>
+                                                                                                                                                                                                                                            </div>
+                                        </li>
+                                                                            <li class="list-group-item clickable">
+                                            <div class="row">
+                                                <div class="col-sm-4">
+                                                    <div>
+                                                        <strong>Kennicott Glacier Lodge</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <div>
+                                                        <strong>Glennallen</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4" style="overflow: hidden;">
+                                                                                                            <a href="http://www.kennicottlodge.com/" target="_blank">www.Kennicottlodge.com</a>&nbsp;
+                                                                                                    </div>
+                                                                                                    <div class="col-sm-1">
+                                                        <div class="pull-right list-actions">
+            <span class="review-icon text-primary" style="margin-right:5px">
+            <i class="far fa-comment-alt fa-lg" title="Atsiliepimai"></i>
+        </span>
+        
+    
+    </div>                                                    </div> 
+                                                                                            </div>
+                                            <div class="clearfix"></div>
+                                            <div id="details-14" style="padding-top: 10px; display: none">
+                                                                                                    <div>
+                                                        Adresas:&nbsp;
+                                                        <strong>15 Kennicott Millsite</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        Zip kodas:&nbsp;
+                                                        <strong>99588</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        El. paštas:&nbsp;
+                                                        <a href="mailto:summerjobs@kennicottlodge.com,%20info@kennicottlodge.com,">summerjobs@kennicottlodge.com, info@kennicottlodge.com,</a>
+                                                    </div>
+                                                                                                                                                                                                    <div>
+                                                        Telefono nr.:&nbsp;
+                                                        <strong>907-258-2350</strong>
+                                                    </div>
+                                                                                                                                                                                                                                                                                                                                            </div>
+                                        </li>
+                                                                            <li class="list-group-item clickable">
+                                            <div class="row">
+                                                <div class="col-sm-4">
+                                                    <div>
+                                                        <strong>Ketchikan Mining Company</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <div>
+                                                        <strong>Ketchikan</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4" style="overflow: hidden;">
+                                                                                                            <a href="http://www.akports.com/ketchikanmining/" target="_blank">http://www.akports.com/ketchikanmining/</a>&nbsp;
+                                                                                                    </div>
+                                                                                                    <div class="col-sm-1">
+                                                        <div class="pull-right list-actions">
+            <span class="review-icon text-primary" style="margin-right:5px">
+            <i class="far fa-comment-alt fa-lg" title="Atsiliepimai"></i>
+        </span>
+        
+    
+    </div>                                                    </div> 
+                                                                                            </div>
+                                            <div class="clearfix"></div>
+                                            <div id="details-15" style="padding-top: 10px; display: none">
+                                                                                                    <div>
+                                                        Adresas:&nbsp;
+                                                        <strong>30 Front Street</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        Zip kodas:&nbsp;
+                                                        <strong>99901</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        El. paštas:&nbsp;
+                                                        <a href="mailto:mining@kpunet.net">mining@kpunet.net</a>
+                                                    </div>
+                                                                                                                                                                                                    <div>
+                                                        Telefono nr.:&nbsp;
+                                                        <strong>907-247-3444</strong>
+                                                    </div>
+                                                                                                                                                                                                                                                                                                                                            </div>
+                                        </li>
+                                                                            <li class="list-group-item clickable">
+                                            <div class="row">
+                                                <div class="col-sm-4">
+                                                    <div>
+                                                        <strong>McKinley Creekside Cabins &amp; Cafe</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <div>
+                                                        <strong>Denali</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4" style="overflow: hidden;">
+                                                                                                            <a href="https://www.mckinleycabins.com/" target="_blank">https://www.mckinleycabins.com/</a>&nbsp;
+                                                                                                    </div>
+                                                                                                    <div class="col-sm-1">
+                                                        <div class="pull-right list-actions">
+        
+    
+    </div>                                                    </div> 
+                                                                                            </div>
+                                            <div class="clearfix"></div>
+                                            <div id="details-16" style="padding-top: 10px; display: none">
+                                                                                                    <div>
+                                                        Adresas:&nbsp;
+                                                        <strong>Mile 224 George Parks Hwy</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        Zip kodas:&nbsp;
+                                                        <strong>99755</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        El. paštas:&nbsp;
+                                                        <a href="mailto:info@mckinleycabins.com">info@mckinleycabins.com</a>
+                                                    </div>
+                                                                                                                                                                                                    <div>
+                                                        Telefono nr.:&nbsp;
+                                                        <strong>907-683-2277</strong>
+                                                    </div>
+                                                                                                                                                                                                    <div>
+                                                        Puslapis2:&nbsp;
+                                                                                                                    <a href="https://www.mckinleycabins.com/en-us/jobs" target="_blank">https://www.mckinleycabins.com/en-us/jobs</a>&nbsp;
+                                                        
+                                                    </div>
+                                                                                                                                                                                                                                            </div>
+                                        </li>
+                                                                            <li class="list-group-item clickable">
+                                            <div class="row">
+                                                <div class="col-sm-4">
+                                                    <div>
+                                                        <strong>Mooses Tooth Pub &amp; Pizzeria / Fresh Ale Pubs</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <div>
+                                                        <strong>Anchorage</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4" style="overflow: hidden;">
+                                                                                                            <a href="http://www.moosestooth.net/" target="_blank">http://www.moosestooth.net</a>&nbsp;
+                                                                                                    </div>
+                                                                                                    <div class="col-sm-1">
+                                                        <div class="pull-right list-actions">
+            <span class="review-icon text-primary" style="margin-right:5px">
+            <i class="far fa-comment-alt fa-lg" title="Atsiliepimai"></i>
+        </span>
+        
+    
+    </div>                                                    </div> 
+                                                                                            </div>
+                                            <div class="clearfix"></div>
+                                            <div id="details-17" style="padding-top: 10px; display: none">
+                                                                                                    <div>
+                                                        Adresas:&nbsp;
+                                                        <strong>3300 Old Seward Highway</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        Zip kodas:&nbsp;
+                                                        <strong>99503</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        El. paštas:&nbsp;
+                                                        <a href="mailto:jdwilliamson2@gmail.com">jdwilliamson2@gmail.com</a>
+                                                    </div>
+                                                                                                                                                                                                    <div>
+                                                        Telefono nr.:&nbsp;
+                                                        <strong>907-258-2537</strong>
+                                                    </div>
+                                                                                                                                                                                                                                                                                                                                            </div>
+                                        </li>
+                                                                            <li class="list-group-item clickable">
+                                            <div class="row">
+                                                <div class="col-sm-4">
+                                                    <div>
+                                                        <strong>Orca Adventure Lodge</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <div>
+                                                        <strong>Cordova</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4" style="overflow: hidden;">
+                                                                                                            <a href="http://www.orcaadventurelodge.com/" target="_blank">http://www.orcaadventurelodge.com/</a>&nbsp;
+                                                                                                    </div>
+                                                                                                    <div class="col-sm-1">
+                                                        <div class="pull-right list-actions">
+        
+    
+    </div>                                                    </div> 
+                                                                                            </div>
+                                            <div class="clearfix"></div>
+                                            <div id="details-18" style="padding-top: 10px; display: none">
+                                                                                                    <div>
+                                                        Adresas:&nbsp;
+                                                        <strong>2500 Orca Road</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        Zip kodas:&nbsp;
+                                                        <strong>99574</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        El. paštas:&nbsp;
+                                                        <a href="mailto:orcaadventurelodge@gmail.com">orcaadventurelodge@gmail.com</a>
+                                                    </div>
+                                                                                                                                                                                                    <div>
+                                                        Telefono nr.:&nbsp;
+                                                        <strong>(907) 424-7249; (907) 429-6688</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        Kontaktinis asmuo:&nbsp;
+                                                        <strong>Steve Ranney</strong>
+                                                    </div>
+                                                                                                                                                                                                                                                                                            </div>
+                                        </li>
+                                                                            <li class="list-group-item clickable">
+                                            <div class="row">
+                                                <div class="col-sm-4">
+                                                    <div>
+                                                        <strong>Sgt. Preston's Lodge</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <div>
+                                                        <strong>Skagway</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4" style="overflow: hidden;">
+                                                                                                            <a href="http://www.sgtprestonslodge.com/" target="_blank">www.sgtprestonslodge.com</a>&nbsp;
+                                                                                                    </div>
+                                                                                                    <div class="col-sm-1">
+                                                        <div class="pull-right list-actions">
+        
+    
+    </div>                                                    </div> 
+                                                                                            </div>
+                                            <div class="clearfix"></div>
+                                            <div id="details-19" style="padding-top: 10px; display: none">
+                                                                                                    <div>
+                                                        Adresas:&nbsp;
+                                                        <strong>370 6th Ave</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        Zip kodas:&nbsp;
+                                                        <strong>99840</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        El. paštas:&nbsp;
+                                                        <a href="mailto:info@sgtprestonslodge.com">info@sgtprestonslodge.com</a>
+                                                    </div>
+                                                                                                                                                                                                    <div>
+                                                        Telefono nr.:&nbsp;
+                                                        <strong>907-983-2521</strong>
+                                                    </div>
+                                                                                                                                                                                                    <div>
+                                                        Puslapis2:&nbsp;
+                                                                                                                    <a href="http://www.sgtprestonslodge.com/contact.php?id=employ" target="_blank">http://www.sgtprestonslodge.com/contact.php?id=employ</a>&nbsp;
+                                                        
+                                                    </div>
+                                                                                                                                                                                                                                            </div>
+                                        </li>
+                                                                    </ul>
+                                
+                                <div class="row">
+                                    <div class="col-sm-9">
+                                        <div><ul class="pagination">
+        
+                    <li class="disabled"><span>«</span></li>
+        
+        
+                    
+            
+            
+                                                                        <li class="active"><span>1</span></li>
+                                                                                <li><a href="https://us.lwc-wt.lt/companies/2/ak?page=2">2</a></li>
+                                                        
+        
+                    <li><a href="https://us.lwc-wt.lt/companies/2/ak?page=2" rel="next">»</a></li>
+            </ul>
+</div>
+                                        <div style="padding-top: 15px;"><a href="https://us.lwc-wt.lt/companies/2">Grįžti</a></div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <div class="pull-right">
+                                            <span class="text-muted" style="font-size:13px;">Rodyti</span>
+<div style="display:inline-block; width:80px; padding:3px 6px">
+<div class="btn-group bootstrap-select form-control"><button type="button" class="btn dropdown-toggle btn-default" data-toggle="dropdown" role="button" data-id="pageSizeClone" title="20"><span class="filter-option pull-left">20</span>&nbsp;<span class="bs-caret"><span class="caret"></span></span></button><div class="dropdown-menu open" role="combobox"><ul class="dropdown-menu inner" role="listbox" aria-expanded="false"><li data-original-index="0"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">10</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="1" class="selected"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="true"><span class="text">20</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="2"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">40</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="3"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">60</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="4"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">80</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="5"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">100</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li></ul></div><select id="pageSizeClone" class="form-control selectpicker" tabindex="-98">
+            <option value="10">10</option>
+            <option value="20" selected="">20</option>
+            <option value="40">40</option>
+            <option value="60">60</option>
+            <option value="80">80</option>
+            <option value="100">100</option>
+    </select></div> 
+</div>
+<span class="text-muted" style="font-size:13px;">iš 29</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                                    </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    
+    </div>
+
+    <footer class="footer text-center">
+        <hr style="margin-bottom:8px">
+        © 2019 LWC-WT. All rights reserved.
+    </footer>
+    <div id="common_modal" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg">
+
+        <!-- Modal content-->
+        <div id="common_modal_content" class="modal-content">
+            <div id="common_modal_header" class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span class="glyphicon glyphicon-remove" style="margin-top:8px; font-size:16px"></span></button>
+                <h3 id="common_modal_title" class="modal-title"></h3>
+            </div>
+            <div id="common_modal_body" class="modal-body"></div>
+            <div id="common_modal_footer" class="modal-footer">
+                <button id="common_modal_dismiss_btn" type="button" class="btn btn-default" data-dismiss="modal">Uždaryti</button>
+            </div>
+        </div>
+    </div>
+</div>    <div id="selection_modal" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg">
+
+        <!-- Modal content-->
+        <div id="selection_modal_content" class="modal-content">
+            <div id="selection_modal_header" class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span class="glyphicon glyphicon-remove" style="margin-top:8px; font-size:16px"></span></button>
+                <h3 id="selection_modal_title" class="modal-title">Pasirinkite iš sąrašo</h3>
+            </div>
+            <div id="selection_modal_body" class="modal-body"></div>
+            <div id="selection_modal_footer" class="modal-footer">
+                <button id="selection_modal_submit_btn" type="button" class="btn btn-primary" data-dismiss="modal">Pasirinkti</button>
+                <button id="selection_modal_dismiss_btn" type="button" class="btn btn-default" data-dismiss="modal">Uždaryti</button>
+            </div>
+        </div>
+    </div>
+</div>    <div id="yes_no_modal" class="modal fade" role="dialog" style="z-index:1500">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div id="yes_no_modal_content" class="modal-content">
+            <div id="yes_no_modal_header" class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span class="glyphicon glyphicon-remove" style="margin-top:8px; font-size:16px"></span></button>
+                <h3 id="yes_no_modal_title" class="modal-title">Patvirtinti</h3>
+            </div>
+            <div id="yes_no_modal_body" class="modal-body">
+            </div>
+            <div id="yes_no_modal_footer" class="modal-footer">
+                <button id="yes_no_modal_yes_btn" type="button" class="btn btn-primary" data-dismiss="modal">Taip</button>
+                <button id="yes_no_modal_no_btn" type="button" class="btn btn-default" data-dismiss="modal">Ne</button>
+            </div>
+        </div>
+    </div>
+</div>    <div id="remove_modal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div id="remove_modal_content" class="modal-content">
+            <div id="remove_modal_header" class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span class="glyphicon glyphicon-remove" style="margin-top:5px; font-size:16px"></span></button>
+                <h3 id="remove_modal_title" class="modal-title">Pašalinti</h3>
+            </div>
+            <div id="remove_modal_body" class="modal-body">
+            </div>
+            <div id="remove_modal_footer" class="modal-footer">
+                <button id="remove_modal_yes_btn" type="button" class="btn btn-primary" data-dismiss="modal">Taip</button>
+                <button id="remove_modal_no_btn" type="button" class="btn btn-default" data-dismiss="modal">Ne</button>
+            </div>
+        </div>
+    </div>
+</div>    <div id="remove_student_modal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div id="remove_student_modal_content" class="modal-content">
+            <div id="remove_student_modal_header" class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span class="glyphicon glyphicon-remove" style="margin-top:5px; font-size:16px"></span></button>
+                <h3 id="remove_student_modal_title" class="modal-title">Pašalinti</h3>
+            </div>
+            <div id="remove_student_modal_body" class="modal-body">
+            </div>
+            <div id="remove_modal_student_footer" class="modal-footer">
+                <button id="remove_student_modal_yes_btn" type="button" class="btn btn-primary" data-dismiss="modal">Šių metų anketą</button>
+                <button id="remove_student_modal_all_yes_btn" type="button" class="btn btn-danger" data-dismiss="modal">Visas anketas</button>
+                                <button id="remove_student_modal_no_btn" type="button" class="btn btn-default" data-dismiss="modal">Ne</button>
+            </div>
+        </div>
+    </div>
+</div>    <div id="error_modal" class="modal fade" role="dialog" style="z-index:1600">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div id="error_modal_content" class="modal-content">
+            <div id="error_modal_header" class="modal-header" style="background-color:#6c757d;color:white">
+                <button type="button" class="close" data-dismiss="modal"><span class="glyphicon glyphicon-remove" style="margin-top:5px; font-size:16px"></span></button>
+                <h3 id="error_modal_title" class="modal-title">Pranešimas</h3>
+            </div>
+            <div id="error_modal_body" class="modal-body">
+            </div>
+            <div id="error_modal_footer" class="modal-footer">
+                <button id="error_modal_no_btn" type="button" class="btn btn-default" data-dismiss="modal">Uždaryti</button>
+            </div>
+        </div>
+    </div>
+</div>    <div id="ajax_loader" style="display:none;"></div>
+
+    
+
+
+
+</body></html>

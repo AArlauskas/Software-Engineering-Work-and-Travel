@@ -1,0 +1,1200 @@
+<!DOCTYPE html><html lang="en"><style type="text/css" id="dark-mode-custom-style"></style><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="oQ2VTrWTrt9U7pMo7aRga5CUe0R2AKx70H6xNAfU">
+
+    <title>Naujasis Džersis | LWC-WT</title>
+    <link rel="icon" href="https://us.lwc-wt.lt/icon.gif">
+    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans&amp;display=swap" rel="stylesheet"> 
+
+    <!-- Styles -->
+    <link href="https://us.lwc-wt.lt/css/app.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://us.lwc-wt.lt/css/bootstrap-datepicker3.css">
+    <link rel="stylesheet" href="https://us.lwc-wt.lt/bootstrap-select-1.12.1/dist/css/bootstrap-select.min.css">
+    <link rel="stylesheet" href="https://us.lwc-wt.lt/fontawesome-5.1.0/css/all.css">
+    
+    <!-- Scripts -->
+    
+        
+    
+    
+    <!--<script src="/js/bootstrap3-typeahead.min.js"></script>-->
+    
+
+    
+
+<style type="text/css"></style></head>
+<body>
+    <div id="app">
+        <nav class="navbar navbar-default navbar-static-top">
+    <div class="container">
+        <div class="navbar-header">
+
+            <!-- Collapsed Hamburger -->
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
+                <span class="sr-only">Toggle Navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <!-- Branding Image -->
+            <a class="navbar-brand" href="https://us.lwc-wt.lt/">
+                LWC-WT
+            </a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="app-navbar-collapse">
+            <!-- Left Side Of Navbar -->
+            <ul class="nav navbar-nav">
+                &nbsp;
+
+                                    <li>
+                        <a href="https://us.lwc-wt.lt/" class="underline-hover">Pagrindinis</a>
+                    </li>
+                                            <li>
+                            <a href="https://us.lwc-wt.lt/information" class="underline-hover">Informacija</a>
+                        </li>
+                                                                <li>
+                            <a href="https://us.lwc-wt.lt/companies" class="underline-hover">Firmų sąrašas</a>
+                        </li>
+                                     
+            </ul>
+
+            <!-- Right Side Of Navbar -->
+            <ul class="nav navbar-nav navbar-right">
+                <!-- Authentication Links -->
+                                    <li class="dropdown">
+                        <a href="https://us.lwc-wt.lt/companies/2/nj?page=2#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" style="padding-left:40px">
+                            <i class="fas fa-user-circle fa-2x" style="position: absolute;top: 10px;left: 7px;"></i>
+                            Aurimas Arlauskas <span class="caret"></span>
+                        </a>
+
+                        <ul class="dropdown-menu" role="menu">
+                            <li>
+                                <a href="https://us.lwc-wt.lt/logout">
+                                    Atsijungti
+                                </a>
+
+                                <form id="logout-form" action="https://us.lwc-wt.lt/logout" method="POST" style="display: none;">
+                                    
+                                </form>
+                            </li>
+                        </ul>
+                    </li>
+                                                    <li class="uppercase active">
+                        <a href="https://us.lwc-wt.lt/lang/change/lt">lt</a>
+                    </li> 
+                                    <li class="uppercase ">
+                        <a href="https://us.lwc-wt.lt/lang/change/en">en</a>
+                    </li> 
+                            </ul>
+        </div>
+    </div>
+</nav>
+                
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3>
+                            <div class="row">
+                                <div class="col-md-7">
+                                    Naujasis Džersis (TOP firmų sąrašas)
+                                </div>
+                                <div class="col-md-5">
+                                                                    </div>
+                            </div>
+                        </h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="tmp-success-message">
+                                                    </div>
+
+                        
+                        <form action="https://us.lwc-wt.lt/companies/2/nj" id="search_form" class="form-horizontal" method="post">
+    
+
+    <div class="input-group" style="padding-bottom: 10px; padding-top: 10px;">
+        <input id="searchString" name="searchString" value="" type="text" class="form-control" placeholder="Paieška" autofocus="">
+        <span class="input-group-addon">
+            <span class="clickable"><i class="fas fa-search"></i></span>
+        </span>
+    </div>
+    
+</form>
+                        <div class="companies-container">
+                                                            
+                                <ul class="list-group">
+                                    <li class="list-group-item company-list-header">
+                                        <div class="row">
+                                            <div class="col-sm-4">
+                                                <strong>Firmos pavadinimas</strong>
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <strong>Miestas</strong>
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <div>
+                                                <strong>Puslapis&nbsp;&nbsp;</strong>
+                                                </div>
+                                            </div>
+                                                                                        
+
+                                        </div>
+                                    </li>
+                                                                            <li class="list-group-item clickable">
+                                            <div class="row">
+                                                <div class="col-sm-4">
+                                                    <div>
+                                                        <strong>KDL ICES LLC Ritas Water Ice</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <div>
+                                                        <strong>Ocean City</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4" style="overflow: hidden;">
+                                                                                                            <a href="https://www.ritasfranchises.com/stores/store.cfm?store=3533" target="_blank">https://www.ritasfranchises.com/stores/store.cfm?store=3533</a>&nbsp;
+                                                                                                    </div>
+                                                                                                    <div class="col-sm-1">
+                                                        <div class="pull-right list-actions">
+            <span class="review-icon text-primary" style="margin-right:5px">
+            <i class="far fa-comment-alt fa-lg" title="Atsiliepimai"></i>
+        </span>
+        
+    
+    </div>                                                    </div> 
+                                                                                            </div>
+                                            <div class="clearfix"></div>
+                                            <div id="details-0" style="padding-top: 10px; display: none">
+                                                                                                    <div>
+                                                        Adresas:&nbsp;
+                                                        <strong>902 Boardwalk</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        Zip kodas:&nbsp;
+                                                        <strong>8226</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        El. paštas:&nbsp;
+                                                        <a href="mailto:dandoolin7659@gmail.com">dandoolin7659@gmail.com</a>
+                                                    </div>
+                                                                                                                                                                                                    <div>
+                                                        Telefono nr.:&nbsp;
+                                                        <strong>609-781-0473</strong>
+                                                    </div>
+                                                                                                                                                                                                                                                                                                                                            </div>
+                                        </li>
+                                                                            <li class="list-group-item clickable">
+                                            <div class="row">
+                                                <div class="col-sm-4">
+                                                    <div>
+                                                        <strong>Kett Ice Cream dba Sea Shell Ice Cream</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <div>
+                                                        <strong>Wildwood</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4" style="overflow: hidden;">
+                                                                                                            <a href="http://www.seashellicecream.com/" target="_blank">www.seashellicecream.com</a>&nbsp;
+                                                                                                    </div>
+                                                                                                    <div class="col-sm-1">
+                                                        <div class="pull-right list-actions">
+            <span class="review-icon text-primary" style="margin-right:5px">
+            <i class="far fa-comment-alt fa-lg" title="Atsiliepimai"></i>
+        </span>
+        
+    
+    </div>                                                    </div> 
+                                                                                            </div>
+                                            <div class="clearfix"></div>
+                                            <div id="details-1" style="padding-top: 10px; display: none">
+                                                                                                    <div>
+                                                        Adresas:&nbsp;
+                                                        <strong>300 E Rio Grande</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        Zip kodas:&nbsp;
+                                                        <strong>8260</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        El. paštas:&nbsp;
+                                                        <a href="mailto:n.cannuli@yahoo.com">n.cannuli@yahoo.com</a>
+                                                    </div>
+                                                                                                                                                                                                    <div>
+                                                        Telefono nr.:&nbsp;
+                                                        <strong>609-374-0505</strong>
+                                                    </div>
+                                                                                                                                                                                                                                                                                                                                            </div>
+                                        </li>
+                                                                            <li class="list-group-item clickable">
+                                            <div class="row">
+                                                <div class="col-sm-4">
+                                                    <div>
+                                                        <strong>Kohr Bros Frozen Custard</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <div>
+                                                        <strong>Ocean City</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4" style="overflow: hidden;">
+                                                                                                            <a href="http://www.kohrbros.com/" target="_blank">www.kohrbros.com</a>&nbsp;
+                                                                                                    </div>
+                                                                                                    <div class="col-sm-1">
+                                                        <div class="pull-right list-actions">
+        
+    
+    </div>                                                    </div> 
+                                                                                            </div>
+                                            <div class="clearfix"></div>
+                                            <div id="details-2" style="padding-top: 10px; display: none">
+                                                                                                    <div>
+                                                        Adresas:&nbsp;
+                                                        <strong>820 Boardwalk</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        Zip kodas:&nbsp;
+                                                        <strong>8223</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        El. paštas:&nbsp;
+                                                        <a href="mailto:k9368@comcast.net">k9368@comcast.net</a>
+                                                    </div>
+                                                                                                                                                                                                    <div>
+                                                        Telefono nr.:&nbsp;
+                                                        <strong>609-399-8764</strong>
+                                                    </div>
+                                                                                                                                                                                                    <div>
+                                                        Puslapis2:&nbsp;
+                                                                                                                    <a href="http://www.kohrbros.com/locations.html" target="_blank">www.kohrbros.com/locations.html</a>&nbsp;
+                                                        
+                                                    </div>
+                                                                                                                                                                                                                                                    <div>
+                                                        Komentarai:&nbsp;
+                                                        <strong>http://www.kohrbros.com/custard.html </strong>
+                                                    </div>
+                                                                                            </div>
+                                        </li>
+                                                                            <li class="list-group-item clickable">
+                                            <div class="row">
+                                                <div class="col-sm-4">
+                                                    <div>
+                                                        <strong>Land of Make Believe</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <div>
+                                                        <strong>Hope</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4" style="overflow: hidden;">
+                                                                                                            <a href="http://www.lomb.com/" target="_blank">www.lomb.com</a>&nbsp;
+                                                                                                    </div>
+                                                                                                    <div class="col-sm-1">
+                                                        <div class="pull-right list-actions">
+            <span class="review-icon text-primary" style="margin-right:5px">
+            <i class="far fa-comment-alt fa-lg" title="Atsiliepimai"></i>
+        </span>
+        
+    
+    </div>                                                    </div> 
+                                                                                            </div>
+                                            <div class="clearfix"></div>
+                                            <div id="details-3" style="padding-top: 10px; display: none">
+                                                                                                    <div>
+                                                        Adresas:&nbsp;
+                                                        <strong>352 Cr 611</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        Zip kodas:&nbsp;
+                                                        <strong>7844</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        El. paštas:&nbsp;
+                                                        <a href="mailto:lombjobs@hotmail.com">lombjobs@hotmail.com</a>
+                                                    </div>
+                                                                                                                                                                                                    <div>
+                                                        Telefono nr.:&nbsp;
+                                                        <strong>908-459-5100, 908-459-9000 </strong>
+                                                    </div>
+                                                                                                                                                                                                                                                                                                                                            </div>
+                                        </li>
+                                                                            <li class="list-group-item clickable">
+                                            <div class="row">
+                                                <div class="col-sm-4">
+                                                    <div>
+                                                        <strong>LBI Recreation Center, Inc. Thundering Surf Waterpark</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <div>
+                                                        <strong>Beach Haven</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4" style="overflow: hidden;">
+                                                                                                            <a href="http://www.thunderingsurfwaterpark.com/" target="_blank">www.thunderingsurfwaterpark.com</a>&nbsp;
+                                                                                                    </div>
+                                                                                                    <div class="col-sm-1">
+                                                        <div class="pull-right list-actions">
+            <span class="review-icon text-primary" style="margin-right:5px">
+            <i class="far fa-comment-alt fa-lg" title="Atsiliepimai"></i>
+        </span>
+        
+    
+    </div>                                                    </div> 
+                                                                                            </div>
+                                            <div class="clearfix"></div>
+                                            <div id="details-4" style="padding-top: 10px; display: none">
+                                                                                                    <div>
+                                                        Adresas:&nbsp;
+                                                        <strong>300 Taylor Ave.</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        Zip kodas:&nbsp;
+                                                        <strong>08008</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        El. paštas:&nbsp;
+                                                        <a href="mailto:thunderingsurf.info@gmail.com">thunderingsurf.info@gmail.com</a>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        El. paštas2:&nbsp;
+                                                        <a href="mailto:jlmesanko@aol.com">jlmesanko@aol.com</a>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        Telefono nr.:&nbsp;
+                                                        <strong>609-492-0869; (732) 606-2367</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        Kontaktinis asmuo:&nbsp;
+                                                        <strong>Julie Mesanko</strong>
+                                                    </div>
+                                                                                                                                                                                                                                                                                            </div>
+                                        </li>
+                                                                            <li class="list-group-item clickable">
+                                            <div class="row">
+                                                <div class="col-sm-4">
+                                                    <div>
+                                                        <strong>McGlade's on the Pier</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <div>
+                                                        <strong>Cape May</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4" style="overflow: hidden;">
+                                                                                                            <a href="http://www.mcgladesonthepier.com/" target="_blank">www.mcgladesonthepier.com</a>&nbsp;
+                                                                                                    </div>
+                                                                                                    <div class="col-sm-1">
+                                                        <div class="pull-right list-actions">
+            <span class="review-icon text-primary" style="margin-right:5px">
+            <i class="far fa-comment-alt fa-lg" title="Atsiliepimai"></i>
+        </span>
+        
+    
+    </div>                                                    </div> 
+                                                                                            </div>
+                                            <div class="clearfix"></div>
+                                            <div id="details-5" style="padding-top: 10px; display: none">
+                                                                                                    <div>
+                                                        Adresas:&nbsp;
+                                                        <strong>722 Beach Ave</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        Zip kodas:&nbsp;
+                                                        <strong>8204</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        El. paštas:&nbsp;
+                                                        <a href="mailto:mcgladeroseanne@gmail.com">mcgladeroseanne@gmail.com</a>
+                                                    </div>
+                                                                                                                                                                                                    <div>
+                                                        Telefono nr.:&nbsp;
+                                                        <strong>609-884-2614</strong>
+                                                    </div>
+                                                                                                                                                                                                                                                                                                                                            </div>
+                                        </li>
+                                                                            <li class="list-group-item clickable">
+                                            <div class="row">
+                                                <div class="col-sm-4">
+                                                    <div>
+                                                        <strong>Ocean 7 Motel</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <div>
+                                                        <strong>Ocean City</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4" style="overflow: hidden;">
+                                                                                                            <a href="http://ocean7motel.com/" target="_blank">http://ocean7motel.com/</a>&nbsp;
+                                                                                                    </div>
+                                                                                                    <div class="col-sm-1">
+                                                        <div class="pull-right list-actions">
+        
+    
+    </div>                                                    </div> 
+                                                                                            </div>
+                                            <div class="clearfix"></div>
+                                            <div id="details-6" style="padding-top: 10px; display: none">
+                                                                                                    <div>
+                                                        Adresas:&nbsp;
+                                                        <strong>870 E 7th St</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        Zip kodas:&nbsp;
+                                                        <strong>8226</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        El. paštas:&nbsp;
+                                                        <a href="mailto:marke@omnibot.info">marke@omnibot.info</a>
+                                                    </div>
+                                                                                                                                                                                                    <div>
+                                                        Telefono nr.:&nbsp;
+                                                        <strong>609-398-2200</strong>
+                                                    </div>
+                                                                                                                                                                                                                                                                                                                                            </div>
+                                        </li>
+                                                                            <li class="list-group-item clickable">
+                                            <div class="row">
+                                                <div class="col-sm-4">
+                                                    <div>
+                                                        <strong>Ocean Breeze Hotel / Yellow Dog Resorts LLC</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <div>
+                                                        <strong>Ocean City</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4" style="overflow: hidden;">
+                                                                                                            <a href="http://www.obhoc.com/" target="_blank">www.obhoc.com</a>&nbsp;
+                                                                                                    </div>
+                                                                                                    <div class="col-sm-1">
+                                                        <div class="pull-right list-actions">
+            <span class="review-icon text-primary" style="margin-right:5px">
+            <i class="far fa-comment-alt fa-lg" title="Atsiliepimai"></i>
+        </span>
+        
+    
+    </div>                                                    </div> 
+                                                                                            </div>
+                                            <div class="clearfix"></div>
+                                            <div id="details-7" style="padding-top: 10px; display: none">
+                                                                                                    <div>
+                                                        Adresas:&nbsp;
+                                                        <strong>724 Ocean Ave.</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        Zip kodas:&nbsp;
+                                                        <strong>8226</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        El. paštas:&nbsp;
+                                                        <a href="mailto:nancy@obhoc.com">nancy@obhoc.com</a>
+                                                    </div>
+                                                                                                                                                                                                    <div>
+                                                        Telefono nr.:&nbsp;
+                                                        <strong>609-399-8744</strong>
+                                                    </div>
+                                                                                                                                                                                                                                                                                                                                            </div>
+                                        </li>
+                                                                            <li class="list-group-item clickable">
+                                            <div class="row">
+                                                <div class="col-sm-4">
+                                                    <div>
+                                                        <strong>Ocean Club Hotel CM LLC &amp; SeaSalt Restaurant CM LLC</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <div>
+                                                        <strong>Cape May</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4" style="overflow: hidden;">
+                                                                                                            <a href="https://www.capemayoceanclubhotel.com/" target="_blank">https://www.capemayoceanclubhotel.com</a>&nbsp;
+                                                                                                    </div>
+                                                                                                    <div class="col-sm-1">
+                                                        <div class="pull-right list-actions">
+        
+    
+    </div>                                                    </div> 
+                                                                                            </div>
+                                            <div class="clearfix"></div>
+                                            <div id="details-8" style="padding-top: 10px; display: none">
+                                                                                                    <div>
+                                                        Adresas:&nbsp;
+                                                        <strong>1035 Beach Ave</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        Zip kodas:&nbsp;
+                                                        <strong>8204</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        El. paštas:&nbsp;
+                                                        <a href="mailto:missamykao@gmail.com,%20info@oceanclubhotel.com">missamykao@gmail.com, info@oceanclubhotel.com </a>
+                                                    </div>
+                                                                                                                                                                                                    <div>
+                                                        Telefono nr.:&nbsp;
+                                                        <strong>609-884-7000</strong>
+                                                    </div>
+                                                                                                                                                                                                    <div>
+                                                        Puslapis2:&nbsp;
+                                                                                                                    <a href="https://www.capemayoceanclubhotel.com/seasalt.php" target="_blank">https://www.capemayoceanclubhotel.com/seasalt.php</a>&nbsp;
+                                                        
+                                                    </div>
+                                                                                                                                                                                                                                            </div>
+                                        </li>
+                                                                            <li class="list-group-item clickable">
+                                            <div class="row">
+                                                <div class="col-sm-4">
+                                                    <div>
+                                                        <strong>Olympic Flame Restaurant</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <div>
+                                                        <strong>Wildwood</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4" style="overflow: hidden;">
+                                                                                                            <a href="https://www.facebook.com/Olympic-Flame-Restaurant-121995667810615/" target="_blank">https://www.facebook.com/Olympic-Flame-Restaurant-121995667810615/</a>&nbsp;
+                                                                                                    </div>
+                                                                                                    <div class="col-sm-1">
+                                                        <div class="pull-right list-actions">
+        
+    
+    </div>                                                    </div> 
+                                                                                            </div>
+                                            <div class="clearfix"></div>
+                                            <div id="details-9" style="padding-top: 10px; display: none">
+                                                                                                    <div>
+                                                        Adresas:&nbsp;
+                                                        <strong>4100 Boardwalk</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        Zip kodas:&nbsp;
+                                                        <strong>8260</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        El. paštas:&nbsp;
+                                                        <a href="mailto:johnpapa@hotmail.com">johnpapa@hotmail.com</a>
+                                                    </div>
+                                                                                                                                                                                                    <div>
+                                                        Telefono nr.:&nbsp;
+                                                        <strong>609-522-2202</strong>
+                                                    </div>
+                                                                                                                                                                                                                                                                                                                                            </div>
+                                        </li>
+                                                                            <li class="list-group-item clickable">
+                                            <div class="row">
+                                                <div class="col-sm-4">
+                                                    <div>
+                                                        <strong>Original Fudge Kitchen, The</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <div>
+                                                        <strong>Wildwood</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4" style="overflow: hidden;">
+                                                                                                            <a href="http://www.fudgekitchens.com/" target="_blank">www.fudgekitchens.com</a>&nbsp;
+                                                                                                    </div>
+                                                                                                    <div class="col-sm-1">
+                                                        <div class="pull-right list-actions">
+            <span class="review-icon text-primary" style="margin-right:5px">
+            <i class="far fa-comment-alt fa-lg" title="Atsiliepimai"></i>
+        </span>
+        
+    
+    </div>                                                    </div> 
+                                                                                            </div>
+                                            <div class="clearfix"></div>
+                                            <div id="details-10" style="padding-top: 10px; display: none">
+                                                                                                    <div>
+                                                        Adresas:&nbsp;
+                                                        <strong>4120 Boardwalk</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        Zip kodas:&nbsp;
+                                                        <strong>08260</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        El. paštas:&nbsp;
+                                                        <a href="mailto:jquinn8399@comcast.net">jquinn8399@comcast.net</a>
+                                                    </div>
+                                                                                                                                                                                                    <div>
+                                                        Telefono nr.:&nbsp;
+                                                        <strong>609-602-6210</strong>
+                                                    </div>
+                                                                                                                                                                                                                                                                                                                                            </div>
+                                        </li>
+                                                                            <li class="list-group-item clickable">
+                                            <div class="row">
+                                                <div class="col-sm-4">
+                                                    <div>
+                                                        <strong>Pessano Variety, LLC</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <div>
+                                                        <strong>Ocean City</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4" style="overflow: hidden;">
+                                                                                                            <a href="http://www.pessanos.com/" target="_blank">www.pessanos.com</a>&nbsp;
+                                                                                                    </div>
+                                                                                                    <div class="col-sm-1">
+                                                        <div class="pull-right list-actions">
+        
+    
+    </div>                                                    </div> 
+                                                                                            </div>
+                                            <div class="clearfix"></div>
+                                            <div id="details-11" style="padding-top: 10px; display: none">
+                                                                                                    <div>
+                                                        Adresas:&nbsp;
+                                                        <strong>801 3rd Road St.</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        Zip kodas:&nbsp;
+                                                        <strong>8226</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        El. paštas:&nbsp;
+                                                        <a href="mailto:apessano@gmail.com">apessano@gmail.com</a>
+                                                    </div>
+                                                                                                                                                                                                    <div>
+                                                        Telefono nr.:&nbsp;
+                                                        <strong>609-399-1889</strong>
+                                                    </div>
+                                                                                                                                                                                                    <div>
+                                                        Puslapis2:&nbsp;
+                                                                                                                    <a href="http://www.pessanos.com/EMPLOYEES.html" target="_blank">www.pessanos.com/EMPLOYEES.html</a>&nbsp;
+                                                        
+                                                    </div>
+                                                                                                                                                                                                                                            </div>
+                                        </li>
+                                                                            <li class="list-group-item clickable">
+                                            <div class="row">
+                                                <div class="col-sm-4">
+                                                    <div>
+                                                        <strong>Philly Twist Soft Pretzel (Ocean City)</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <div>
+                                                        <strong>Ocean City</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4" style="overflow: hidden;">
+                                                                                                            <a href="http:" target="_blank"></a>&nbsp;
+                                                                                                    </div>
+                                                                                                    <div class="col-sm-1">
+                                                        <div class="pull-right list-actions">
+            <span class="review-icon text-primary" style="margin-right:5px">
+            <i class="far fa-comment-alt fa-lg" title="Atsiliepimai"></i>
+        </span>
+        
+    
+    </div>                                                    </div> 
+                                                                                            </div>
+                                            <div class="clearfix"></div>
+                                            <div id="details-12" style="padding-top: 10px; display: none">
+                                                                                                    <div>
+                                                        Adresas:&nbsp;
+                                                        <strong>728 Boardwalk</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        Zip kodas:&nbsp;
+                                                        <strong>8226</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        El. paštas:&nbsp;
+                                                        <a href="mailto:phillytwist@comcast.net">phillytwist@comcast.net</a>
+                                                    </div>
+                                                                                                                                                                                                    <div>
+                                                        Telefono nr.:&nbsp;
+                                                        <strong>609-408-3440</strong>
+                                                    </div>
+                                                                                                                                                                                                                                                                                                                                            </div>
+                                        </li>
+                                                                            <li class="list-group-item clickable">
+                                            <div class="row">
+                                                <div class="col-sm-4">
+                                                    <div>
+                                                        <strong>PND Motel LLC  DBA Wildwood Inn</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <div>
+                                                        <strong>Wildwood</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4" style="overflow: hidden;">
+                                                                                                            <a href="http://www.wildwoodinnnj.com/" target="_blank">www.wildwoodinnnj.com</a>&nbsp;
+                                                                                                    </div>
+                                                                                                    <div class="col-sm-1">
+                                                        <div class="pull-right list-actions">
+        
+    
+    </div>                                                    </div> 
+                                                                                            </div>
+                                            <div class="clearfix"></div>
+                                            <div id="details-13" style="padding-top: 10px; display: none">
+                                                                                                    <div>
+                                                        Adresas:&nbsp;
+                                                        <strong>210 E Montgomery Ave</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        Zip kodas:&nbsp;
+                                                        <strong>08260</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        El. paštas:&nbsp;
+                                                        <a href="mailto:wildwoodinnnj@gmail.com">wildwoodinnnj@gmail.com</a>
+                                                    </div>
+                                                                                                                                                                                                    <div>
+                                                        Telefono nr.:&nbsp;
+                                                        <strong>(609) 233 6378</strong>
+                                                    </div>
+                                                                                                                                                                                                                                                                                                                                            </div>
+                                        </li>
+                                                                            <li class="list-group-item clickable">
+                                            <div class="row">
+                                                <div class="col-sm-4">
+                                                    <div>
+                                                        <strong>Poppi's Brick Oven Pizza / Sciarra Restaurant</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <div>
+                                                        <strong>Wildwood</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4" style="overflow: hidden;">
+                                                                                                            <a href="http://www.poppisbrickoven.com/" target="_blank">www.poppisbrickoven.com</a>&nbsp;
+                                                                                                    </div>
+                                                                                                    <div class="col-sm-1">
+                                                        <div class="pull-right list-actions">
+            <span class="review-icon text-primary" style="margin-right:5px">
+            <i class="far fa-comment-alt fa-lg" title="Atsiliepimai"></i>
+        </span>
+        
+    
+    </div>                                                    </div> 
+                                                                                            </div>
+                                            <div class="clearfix"></div>
+                                            <div id="details-14" style="padding-top: 10px; display: none">
+                                                                                                    <div>
+                                                        Adresas:&nbsp;
+                                                        <strong>4709 New Jersey Ave</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        Zip kodas:&nbsp;
+                                                        <strong>8260</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        El. paštas:&nbsp;
+                                                        <a href="mailto:jennifer@poppisbrickoven.com,%20info@poppisbrickoven.com">jennifer@poppisbrickoven.com, info@poppisbrickoven.com</a>
+                                                    </div>
+                                                                                                                                                                                                    <div>
+                                                        Telefono nr.:&nbsp;
+                                                        <strong>609-522-8383, 609-600-3964</strong>
+                                                    </div>
+                                                                                                                                                                                                                                                                                                                                            </div>
+                                        </li>
+                                                                            <li class="list-group-item clickable">
+                                            <div class="row">
+                                                <div class="col-sm-4">
+                                                    <div>
+                                                        <strong>Port-O-Call Hotel</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <div>
+                                                        <strong>Ocean City</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4" style="overflow: hidden;">
+                                                                                                            <a href="http://www.portocallhotel.com/" target="_blank">www.portocallhotel.com</a>&nbsp;
+                                                                                                    </div>
+                                                                                                    <div class="col-sm-1">
+                                                        <div class="pull-right list-actions">
+            <span class="review-icon text-primary" style="margin-right:5px">
+            <i class="far fa-comment-alt fa-lg" title="Atsiliepimai"></i>
+        </span>
+        
+    
+    </div>                                                    </div> 
+                                                                                            </div>
+                                            <div class="clearfix"></div>
+                                            <div id="details-15" style="padding-top: 10px; display: none">
+                                                                                                    <div>
+                                                        Adresas:&nbsp;
+                                                        <strong>1510 Boardwalk</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        Zip kodas:&nbsp;
+                                                        <strong>8226</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        El. paštas:&nbsp;
+                                                        <a href="mailto:bpruzinsky@portocallhotel.com,%20information@portocallhotel.com">bpruzinsky@portocallhotel.com, information@portocallhotel.com</a>
+                                                    </div>
+                                                                                                                                                                                                    <div>
+                                                        Telefono nr.:&nbsp;
+                                                        <strong>609-399-8812</strong>
+                                                    </div>
+                                                                                                                                                                                                                                                                                                                                            </div>
+                                        </li>
+                                                                            <li class="list-group-item clickable">
+                                            <div class="row">
+                                                <div class="col-sm-4">
+                                                    <div>
+                                                        <strong>Red's Jersey Mex Cafe dba Rojos Jersey Mex LLC</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <div>
+                                                        <strong>Ocean City</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4" style="overflow: hidden;">
+                                                                                                            <a href="http://rojosjerseymex.com/" target="_blank">http://rojosjerseymex.com/</a>&nbsp;
+                                                                                                    </div>
+                                                                                                    <div class="col-sm-1">
+                                                        <div class="pull-right list-actions">
+        
+    
+    </div>                                                    </div> 
+                                                                                            </div>
+                                            <div class="clearfix"></div>
+                                            <div id="details-16" style="padding-top: 10px; display: none">
+                                                                                                    <div>
+                                                        Adresas:&nbsp;
+                                                        <strong>206 11th Street</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        Zip kodas:&nbsp;
+                                                        <strong>8226</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        El. paštas:&nbsp;
+                                                        <a href="mailto:rojosjerseymex@yahoo.com">rojosjerseymex@yahoo.com</a>
+                                                    </div>
+                                                                                                                                                                                                    <div>
+                                                        Telefono nr.:&nbsp;
+                                                        <strong>609-399-2272</strong>
+                                                    </div>
+                                                                                                                                                                                                                                                                                                                                            </div>
+                                        </li>
+                                                                            <li class="list-group-item clickable">
+                                            <div class="row">
+                                                <div class="col-sm-4">
+                                                    <div>
+                                                        <strong>Scarborough Inn B&amp;B</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <div>
+                                                        <strong>Ocean City</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4" style="overflow: hidden;">
+                                                                                                            <a href="http://www.scarboroughinn.com/" target="_blank">www.scarboroughinn.com</a>&nbsp;
+                                                                                                    </div>
+                                                                                                    <div class="col-sm-1">
+                                                        <div class="pull-right list-actions">
+            <span class="review-icon text-primary" style="margin-right:5px">
+            <i class="far fa-comment-alt fa-lg" title="Atsiliepimai"></i>
+        </span>
+        
+    
+    </div>                                                    </div> 
+                                                                                            </div>
+                                            <div class="clearfix"></div>
+                                            <div id="details-17" style="padding-top: 10px; display: none">
+                                                                                                    <div>
+                                                        Adresas:&nbsp;
+                                                        <strong>720 Ocean Ave</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        Zip kodas:&nbsp;
+                                                        <strong>8226</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        El. paštas:&nbsp;
+                                                        <a href="mailto:info@scarboroughinn.com">info@scarboroughinn.com</a>
+                                                    </div>
+                                                                                                                                                                                                    <div>
+                                                        Telefono nr.:&nbsp;
+                                                        <strong>609-399-1558</strong>
+                                                    </div>
+                                                                                                                                                                                                                                                                                                                                            </div>
+                                        </li>
+                                                                            <li class="list-group-item clickable">
+                                            <div class="row">
+                                                <div class="col-sm-4">
+                                                    <div>
+                                                        <strong>Starfish Cafe</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <div>
+                                                        <strong>Ocean City</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4" style="overflow: hidden;">
+                                                                                                            <a href="http://www.starfish-cafe.com/" target="_blank">www.starfish-cafe.com</a>&nbsp;
+                                                                                                    </div>
+                                                                                                    <div class="col-sm-1">
+                                                        <div class="pull-right list-actions">
+        
+    
+    </div>                                                    </div> 
+                                                                                            </div>
+                                            <div class="clearfix"></div>
+                                            <div id="details-18" style="padding-top: 10px; display: none">
+                                                                                                    <div>
+                                                        Adresas:&nbsp;
+                                                        <strong>822 E 9th Street</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        Zip kodas:&nbsp;
+                                                        <strong>8226</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        El. paštas:&nbsp;
+                                                        <a href="mailto:info@starfish-cafe.com">info@starfish-cafe.com</a>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        El. paštas2:&nbsp;
+                                                        <a href="mailto:http://www.starfish-cafe.com/menu/starfish-cafe-menu-2018.pdf">http://www.starfish-cafe.com/menu/starfish-cafe-menu-2018.pdf</a>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        Telefono nr.:&nbsp;
+                                                        <strong>212-363-0384, 609-432-2686 </strong>
+                                                    </div>
+                                                                                                                                                                                                                                                                                                                                            </div>
+                                        </li>
+                                                                            <li class="list-group-item clickable">
+                                            <div class="row">
+                                                <div class="col-sm-4">
+                                                    <div>
+                                                        <strong>Steve's Grilled Cheese</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <div>
+                                                        <strong>Wildwood</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4" style="overflow: hidden;">
+                                                                                                            <a href="http://www.stevesgrilledcheese.com/" target="_blank">www.stevesgrilledcheese.com</a>&nbsp;
+                                                                                                    </div>
+                                                                                                    <div class="col-sm-1">
+                                                        <div class="pull-right list-actions">
+        
+    
+    </div>                                                    </div> 
+                                                                                            </div>
+                                            <div class="clearfix"></div>
+                                            <div id="details-19" style="padding-top: 10px; display: none">
+                                                                                                    <div>
+                                                        Adresas:&nbsp;
+                                                        <strong>2802 Broadwalk</strong>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        Zip kodas:&nbsp;
+                                                        <strong>8260</strong>
+                                                    </div>
+                                                                                                                                                                                                    <div>
+                                                        El. paštas2:&nbsp;
+                                                        <a href="mailto:http://www.stevesgrilledcheese.com/employement-opportunities/">http://www.stevesgrilledcheese.com/employement-opportunities/</a>
+                                                    </div>
+                                                                                                                                                    <div>
+                                                        Telefono nr.:&nbsp;
+                                                        <strong>609-231-9641</strong>
+                                                    </div>
+                                                                                                                                                                                                    <div>
+                                                        Puslapis2:&nbsp;
+                                                                                                                    <a href="http://www.stevesgrilledcheese.com/wildwood-employement/" target="_blank">http://www.stevesgrilledcheese.com/wildwood-employement/</a>&nbsp;
+                                                        
+                                                    </div>
+                                                                                                                                                                                                                                            </div>
+                                        </li>
+                                                                    </ul>
+                                
+                                <div class="row">
+                                    <div class="col-sm-9">
+                                        <div><ul class="pagination">
+        
+                    <li><a href="https://us.lwc-wt.lt/companies/2/nj?page=1" rel="prev">«</a></li>
+        
+        
+                    
+            
+            
+                                                                        <li><a href="https://us.lwc-wt.lt/companies/2/nj?page=1">1</a></li>
+                                                                                <li class="active"><span>2</span></li>
+                                                                                <li><a href="https://us.lwc-wt.lt/companies/2/nj?page=3">3</a></li>
+                                                        
+        
+                    <li><a href="https://us.lwc-wt.lt/companies/2/nj?page=3" rel="next">»</a></li>
+            </ul>
+</div>
+                                        <div style="padding-top: 15px;"><a href="https://us.lwc-wt.lt/companies/2">Grįžti</a></div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <div class="pull-right">
+                                            <span class="text-muted" style="font-size:13px;">Rodyti</span>
+<div style="display:inline-block; width:80px; padding:3px 6px">
+<div class="btn-group bootstrap-select form-control"><button type="button" class="btn dropdown-toggle btn-default" data-toggle="dropdown" role="button" data-id="pageSizeClone" title="20"><span class="filter-option pull-left">20</span>&nbsp;<span class="bs-caret"><span class="caret"></span></span></button><div class="dropdown-menu open" role="combobox"><ul class="dropdown-menu inner" role="listbox" aria-expanded="false"><li data-original-index="0"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">10</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="1" class="selected"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="true"><span class="text">20</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="2"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">40</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="3"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">60</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="4"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">80</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="5"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">100</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li></ul></div><select id="pageSizeClone" class="form-control selectpicker" tabindex="-98">
+            <option value="10">10</option>
+            <option value="20" selected="">20</option>
+            <option value="40">40</option>
+            <option value="60">60</option>
+            <option value="80">80</option>
+            <option value="100">100</option>
+    </select></div> 
+</div>
+<span class="text-muted" style="font-size:13px;">iš 50</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                                    </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    
+    </div>
+
+    <footer class="footer text-center">
+        <hr style="margin-bottom:8px">
+        © 2019 LWC-WT. All rights reserved.
+    </footer>
+    <div id="common_modal" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg">
+
+        <!-- Modal content-->
+        <div id="common_modal_content" class="modal-content">
+            <div id="common_modal_header" class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span class="glyphicon glyphicon-remove" style="margin-top:8px; font-size:16px"></span></button>
+                <h3 id="common_modal_title" class="modal-title"></h3>
+            </div>
+            <div id="common_modal_body" class="modal-body"></div>
+            <div id="common_modal_footer" class="modal-footer">
+                <button id="common_modal_dismiss_btn" type="button" class="btn btn-default" data-dismiss="modal">Uždaryti</button>
+            </div>
+        </div>
+    </div>
+</div>    <div id="selection_modal" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg">
+
+        <!-- Modal content-->
+        <div id="selection_modal_content" class="modal-content">
+            <div id="selection_modal_header" class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span class="glyphicon glyphicon-remove" style="margin-top:8px; font-size:16px"></span></button>
+                <h3 id="selection_modal_title" class="modal-title">Pasirinkite iš sąrašo</h3>
+            </div>
+            <div id="selection_modal_body" class="modal-body"></div>
+            <div id="selection_modal_footer" class="modal-footer">
+                <button id="selection_modal_submit_btn" type="button" class="btn btn-primary" data-dismiss="modal">Pasirinkti</button>
+                <button id="selection_modal_dismiss_btn" type="button" class="btn btn-default" data-dismiss="modal">Uždaryti</button>
+            </div>
+        </div>
+    </div>
+</div>    <div id="yes_no_modal" class="modal fade" role="dialog" style="z-index:1500">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div id="yes_no_modal_content" class="modal-content">
+            <div id="yes_no_modal_header" class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span class="glyphicon glyphicon-remove" style="margin-top:8px; font-size:16px"></span></button>
+                <h3 id="yes_no_modal_title" class="modal-title">Patvirtinti</h3>
+            </div>
+            <div id="yes_no_modal_body" class="modal-body">
+            </div>
+            <div id="yes_no_modal_footer" class="modal-footer">
+                <button id="yes_no_modal_yes_btn" type="button" class="btn btn-primary" data-dismiss="modal">Taip</button>
+                <button id="yes_no_modal_no_btn" type="button" class="btn btn-default" data-dismiss="modal">Ne</button>
+            </div>
+        </div>
+    </div>
+</div>    <div id="remove_modal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div id="remove_modal_content" class="modal-content">
+            <div id="remove_modal_header" class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span class="glyphicon glyphicon-remove" style="margin-top:5px; font-size:16px"></span></button>
+                <h3 id="remove_modal_title" class="modal-title">Pašalinti</h3>
+            </div>
+            <div id="remove_modal_body" class="modal-body">
+            </div>
+            <div id="remove_modal_footer" class="modal-footer">
+                <button id="remove_modal_yes_btn" type="button" class="btn btn-primary" data-dismiss="modal">Taip</button>
+                <button id="remove_modal_no_btn" type="button" class="btn btn-default" data-dismiss="modal">Ne</button>
+            </div>
+        </div>
+    </div>
+</div>    <div id="remove_student_modal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div id="remove_student_modal_content" class="modal-content">
+            <div id="remove_student_modal_header" class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span class="glyphicon glyphicon-remove" style="margin-top:5px; font-size:16px"></span></button>
+                <h3 id="remove_student_modal_title" class="modal-title">Pašalinti</h3>
+            </div>
+            <div id="remove_student_modal_body" class="modal-body">
+            </div>
+            <div id="remove_modal_student_footer" class="modal-footer">
+                <button id="remove_student_modal_yes_btn" type="button" class="btn btn-primary" data-dismiss="modal">Šių metų anketą</button>
+                <button id="remove_student_modal_all_yes_btn" type="button" class="btn btn-danger" data-dismiss="modal">Visas anketas</button>
+                                <button id="remove_student_modal_no_btn" type="button" class="btn btn-default" data-dismiss="modal">Ne</button>
+            </div>
+        </div>
+    </div>
+</div>    <div id="error_modal" class="modal fade" role="dialog" style="z-index:1600">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div id="error_modal_content" class="modal-content">
+            <div id="error_modal_header" class="modal-header" style="background-color:#6c757d;color:white">
+                <button type="button" class="close" data-dismiss="modal"><span class="glyphicon glyphicon-remove" style="margin-top:5px; font-size:16px"></span></button>
+                <h3 id="error_modal_title" class="modal-title">Pranešimas</h3>
+            </div>
+            <div id="error_modal_body" class="modal-body">
+            </div>
+            <div id="error_modal_footer" class="modal-footer">
+                <button id="error_modal_no_btn" type="button" class="btn btn-default" data-dismiss="modal">Uždaryti</button>
+            </div>
+        </div>
+    </div>
+</div>    <div id="ajax_loader" style="display:none;"></div>
+
+    
+
+
+
+</body></html>
