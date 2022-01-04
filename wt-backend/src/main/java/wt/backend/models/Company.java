@@ -24,11 +24,35 @@ public class Company {
 
     @Getter
     @Setter
-    private String email;
+    private String mail;
 
     @Getter
     @Setter
     private String name;
+
+    @Getter
+    @Setter
+    private String location;
+
+    @Getter
+    @Setter
+    private String zip;
+
+    @Getter
+    @Setter
+    private String website;
+
+    @Getter
+    @Setter
+    private double rating;
+
+    @Getter
+    @Setter
+    private int pricing;
+
+    @Getter
+    @Setter
+    private String phone;
     
     @Getter
     @Setter
