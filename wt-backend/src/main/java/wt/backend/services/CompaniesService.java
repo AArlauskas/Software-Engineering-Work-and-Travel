@@ -26,4 +26,9 @@ public class CompaniesService {
     {
         return companiesRepository.save(company);
     }
+
+    public Company getCompanyByEmailAddress(String mail)
+    {
+        return companiesRepository.findCompanyByMail(mail);
+    }
 }
