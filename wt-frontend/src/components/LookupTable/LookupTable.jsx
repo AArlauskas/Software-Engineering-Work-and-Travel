@@ -11,43 +11,14 @@ const LookupTable = ({ companies }) => {
       field: "mail",
       title: "Email",
     },
-    // {
-    //   field: "address",
-    //   title: "Address",
-    // },
     {
       field: "location",
       title: "Location",
     },
-
-    // {
-    //   field: "phone",
-    //   title: "Phone",
-    // },
-    // {
-    //   field: "pricing",
-    //   title: "Pricing",
-    // },
-    // {
-    //   field: "rating",
-    //   title: "Rating",
-    // },
     {
       field: "state",
       title: "State",
     },
-    // {
-    //   field: "website",
-    //   title: "Website",
-    // },
-    // {
-    //   field: "worktype",
-    //   title: "Work Type",
-    // },
-    // {
-    //   field: "zip",
-    //   title: "Zip",
-    // },
   ];
 
   const renderWebsites = (websiteString) => {
@@ -73,6 +44,9 @@ const LookupTable = ({ companies }) => {
       columns={columns}
       data={companies}
       title="Companies"
+      options={{
+        selection: true
+      }}
       detailPanel={({rowData}) => {
         return (
           <Grid style={{width: "100%", padding: 10}} container justifyContent="center" alignItems="center">
