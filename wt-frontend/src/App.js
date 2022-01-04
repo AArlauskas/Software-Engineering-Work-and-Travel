@@ -38,7 +38,7 @@ const getPublicRoutes = () => {
       <Route path={URI.HOME} element={<HomePage />} />
       <Route path={URI.LOGIN} element={<LoginPage />} />
       <Route path={URI.REGISTER} element={<RegisterPage />} />
-      <Route path={URI.PRICING} element={<PricingPage />} />
+      <Route path={URI.PRICING} element={<PricingPage isLoggedIn={false}/>} />
       <Route path={URI.COMPANIES} element={<CompaniesPage />} />
       <Route path="*" element={<Navigate to={URI.HOME}/>}/>
     </Routes>
@@ -49,6 +49,7 @@ const getBasicRoutes = () => {
   return (
     <Routes>
       <Route path={URI.EMAILER} element={<EmailerPage />} />
+      <Route path={URI.PRICING} element={<PricingPage isLoggedIn={true}/>} />
       <Route path="*" element={<Navigate to={URI.EMAILER}/>}/>
     </Routes>
   );

@@ -6,7 +6,7 @@ const URI = {
     COMPANIES: "/companies",
     INSTRUCTIONS: "/instructions",
     EMAILER: "/emailer",
-    LOOKUP: "/lookup"
+    LOOKUP: "/lookup",
 }
 
 export default URI;
