@@ -1,7 +1,17 @@
 import { Grid } from "@mui/material";
+import { useEffect, useState } from "react";
 import LookupTable from "../../components/LookupTable/LookupTable";
+import {getAllCompanies} from "../../api/Api";
 
 const LookupPage = () => {
+  const [companies, setCompanies] = useState([])
+
+  useEffect(() => {
+    getAllCompanies().then(response => {
+      setCompanies(response.data);
+    })
+  }, [])
+
   return (
     <Grid
       className="grow-container"
@@ -11,7 +21,7 @@ const LookupPage = () => {
       spacing={2}
     >
       <Grid item xs={12}>
-        <LookupTable />
+        <LookupTable companies={companies}/>
       </Grid>
     </Grid>
   );
