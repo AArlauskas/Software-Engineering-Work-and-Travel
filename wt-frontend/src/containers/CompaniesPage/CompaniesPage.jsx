@@ -1,8 +1,16 @@
 import { Grid, Typography } from "@mui/material";
 import CompanyRegisterForm from "../../components/CompanyRegisterForm/CompanyRegisterForm";
 import CompanyImage from "../../assets/CompanyImage.jpg";
+import { companySignUp } from "../../api/PublicApi";
 
 const CompaniesPage = () => {
+  const onCompanySignUp = (data) => {
+    companySignUp(data)
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => console.log(error));
+  };
   return (
     <Grid className="container" container spacing={2}>
       <Grid item xs={12} style={{ textAlign: "center" }}>
@@ -54,7 +62,7 @@ const CompaniesPage = () => {
         </Grid>
       </Grid>
       <Grid item xs={12}>
-        <CompanyRegisterForm />
+        <CompanyRegisterForm onSignUp={onCompanySignUp} />
       </Grid>
       <Grid item xs={12} />
     </Grid>

@@ -14,8 +14,9 @@ const CompanyRegisterForm = ({ onSignUp }) => {
   const [name, setName] = useState("");
   const [mail, setMail] = useState("");
   const [phone, setPhone] = useState("");
-  const [state, setState] = useState(states[0].name);
+  const [state, setState] = useState(states[0]);
   const [zip, setZip] = useState("");
+  const [website, setWebsite] = useState("");
   const [location, setLocation] = useState("");
   const [address, setAddress] = useState("");
 
@@ -24,6 +25,7 @@ const CompanyRegisterForm = ({ onSignUp }) => {
   const [showPhoneError, setShowPhoneError] = useState(false);
   const [showStateError, setShowStateError] = useState(false);
   const [showZipError, setShowZipError] = useState(false);
+  const [showWebsiteError, setShowWebsiteError] = useState(false);
   const [showLocationError, setShowLocationError] = useState(false);
   const [showAddressError, setShowAddressError] = useState(false);
 
@@ -56,6 +58,10 @@ const CompanyRegisterForm = ({ onSignUp }) => {
       setShowZipError(true);
       return;
     }
+    if (website.length < 5) {
+      setShowWebsiteError(true);
+      return;
+    }
     if (location.length < 3 || location.length > 30) {
       setShowLocationError(true);
       return;
@@ -64,6 +70,18 @@ const CompanyRegisterForm = ({ onSignUp }) => {
       setShowAddressError(true);
       return;
     }
+
+    const data = {
+      name,
+      mail,
+      phone,
+      zip,
+      location,
+      address,
+      website,
+      state: state.name,
+    };
+    onSignUp(data);
   };
 
   const resetErrors = () => {
@@ -72,6 +90,7 @@ const CompanyRegisterForm = ({ onSignUp }) => {
     setShowPhoneError(false);
     setShowStateError(false);
     setShowZipError(false);
+    setShowWebsiteError(false);
     setShowLocationError(false);
     setShowAddressError(false);
   };
@@ -154,6 +173,17 @@ const CompanyRegisterForm = ({ onSignUp }) => {
             <Grid item xs={12}>
               <TextField
                 fullWidth
+                placeholder="Website"
+                type="text"
+                value={website}
+                onChange={(e) => setWebsite(e.target.value)}
+                error={showWebsiteError}
+                helperText={showWebsiteError && "Invalid website address"}
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                fullWidth
                 placeholder="Location/City"
                 type="text"
                 value={location}
@@ -174,7 +204,12 @@ const CompanyRegisterForm = ({ onSignUp }) => {
               />
             </Grid>
             <Grid item xs={12}>
-              <Button variant="outlined" fullWidth color="secondary">
+              <Button
+                variant="outlined"
+                fullWidth
+                color="secondary"
+                type="submit"
+              >
                 Register your company
               </Button>
             </Grid>
