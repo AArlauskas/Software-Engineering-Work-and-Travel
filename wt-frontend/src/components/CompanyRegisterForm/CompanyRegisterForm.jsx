@@ -123,7 +123,7 @@ const CompanyRegisterForm = ({ onSignUp }) => {
             <Grid item md={6} xs={12}>
               <TextField
                 fullWidth
-                placeholder="email"
+                placeholder="Email"
                 type="email"
                 value={mail}
                 onChange={(e) => setMail(e.target.value)}
@@ -134,7 +134,7 @@ const CompanyRegisterForm = ({ onSignUp }) => {
             <Grid item md={6} xs={12}>
               <TextField
                 fullWidth
-                placeholder="phone"
+                placeholder="Phone"
                 type="tel"
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
@@ -152,7 +152,7 @@ const CompanyRegisterForm = ({ onSignUp }) => {
                 renderInput={(params) => (
                   <TextField
                     {...params}
-                    label="State"
+                    placeholder="State"
                     error={showStateError}
                     helperText={showStateError && "Invalid state choice"}
                   />
