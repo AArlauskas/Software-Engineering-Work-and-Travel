@@ -4,6 +4,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import wt.backend.models.Company;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 import wt.backend.services.CompaniesService;
 
 @RestController
@@ -14,6 +19,7 @@ public class CompaniesController {
     private CompaniesService companiesService;
 
     @GetMapping()
+    @PreAuthorize("hasAnyRole('ADMIN','PRO')")
     public ResponseEntity<?> getAllCompanies()
     {
         return ResponseEntity.ok(companiesService.getAllCompanies());
