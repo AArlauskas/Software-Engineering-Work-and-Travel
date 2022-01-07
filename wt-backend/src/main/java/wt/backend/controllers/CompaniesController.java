@@ -33,6 +33,7 @@ public class CompaniesController {
         if (company.getLocation().isBlank()) return ResponseEntity.badRequest().body("Location is blank");
         if (company.getMail().isBlank()) return ResponseEntity.badRequest().body("Email is blank");
         if (company.getState().isBlank()) return ResponseEntity.badRequest().body("State is blank");
+        if (company.getWorkType().isBlank()) return ResponseEntity.badRequest().body("Work type is blank");
 
         companiesService.saveOrUpdateCompany(company);
         return ResponseEntity.ok().build();

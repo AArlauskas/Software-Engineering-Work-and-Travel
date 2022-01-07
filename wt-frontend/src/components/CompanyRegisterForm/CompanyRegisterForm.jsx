@@ -19,6 +19,7 @@ const CompanyRegisterForm = ({ onSignUp }) => {
   const [website, setWebsite] = useState("");
   const [location, setLocation] = useState("");
   const [address, setAddress] = useState("");
+  const [workType, setWorkType] = useState("");
 
   const [showNameError, setShowNameError] = useState(false);
   const [showMailError, setShowMailError] = useState(false);
@@ -28,6 +29,7 @@ const CompanyRegisterForm = ({ onSignUp }) => {
   const [showWebsiteError, setShowWebsiteError] = useState(false);
   const [showLocationError, setShowLocationError] = useState(false);
   const [showAddressError, setShowAddressError] = useState(false);
+  const [showWorkTypeError, setShowWorkTypeError] = useState(false);
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -70,6 +72,11 @@ const CompanyRegisterForm = ({ onSignUp }) => {
       setShowAddressError(true);
       return;
     }
+    if (workType.length === 0)
+    {
+      setShowWorkTypeError(true);
+      return;
+    }
 
     const data = {
       name,
@@ -80,6 +87,7 @@ const CompanyRegisterForm = ({ onSignUp }) => {
       address,
       website,
       state: state.name,
+      workType,
     };
     onSignUp(data);
   };
@@ -93,6 +101,7 @@ const CompanyRegisterForm = ({ onSignUp }) => {
     setShowWebsiteError(false);
     setShowLocationError(false);
     setShowAddressError(false);
+    setShowWorkTypeError(false);
   };
   return (
     <Paper elevation={4}>
@@ -112,7 +121,7 @@ const CompanyRegisterForm = ({ onSignUp }) => {
             <Grid item xs={12}>
               <TextField
                 fullWidth
-                placeholder="Companie's name"
+                placeholder="Company's name"
                 type="text"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
@@ -201,6 +210,17 @@ const CompanyRegisterForm = ({ onSignUp }) => {
                 onChange={(e) => setAddress(e.target.value)}
                 error={showAddressError}
                 helperText={showAddressError && "Invalid address"}
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                fullWidth
+                placeholder="Work Type"
+                type="text"
+                value={workType}
+                onChange={(e) => setWorkType(e.target.value)}
+                error={showWorkTypeError}
+                helperText={showWorkTypeError && "Invalid work type"}
               />
             </Grid>
             <Grid item xs={12}>

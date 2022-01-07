@@ -19,6 +19,10 @@ const LookupTable = ({ companies }) => {
       field: "state",
       title: "State",
     },
+    {
+      field: "workType",
+      title: "Work Type",
+    }
   ];
 
   const renderWebsites = (websiteString) => {
