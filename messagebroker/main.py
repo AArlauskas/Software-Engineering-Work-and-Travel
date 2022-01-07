@@ -9,7 +9,7 @@ from publisher import addCompanyToQueue
 def main():
     initDb()
     print("Database initialised. Waiting for 60s")
-    time.sleep(5)
+    time.sleep(60)
     print("Initial database queue started")
     companies = getAllCompanies()
     for company in companies:
@@ -37,7 +37,7 @@ def initDb():
                     "phone" : companyEntry["phone"],
                     "rating" : None,
                     "pricing" : None,
-                    "type" : None,
+                    "workType" : None,
                     "mapsId": None
                 }
                 addCompany(company)
@@ -47,7 +47,10 @@ def timer():
     while True:
         print("Company fetch in progress")
         for company in companies:
-            result = updateInformation(company)
+            try:
+                result = updateInformation(company)
+            except:
+                result = company
             if (result[1]):
                 print("company changed!")
                 addCompanyToQueue(result[0])
