@@ -11,7 +11,14 @@ public class QueueRunner implements CommandLineRunner {
     private QueueService queueService;
 
     @Override
-    public void run(String... args) throws Exception {
-        queueService.receiveCompaniesFromQueue();
+    public void run(String... args) {
+        try
+        {
+            queueService.receiveCompaniesFromQueue();
+        }
+        catch (Exception e)
+        {
+            System.out.println("Message queue failed to start.");
+        }
     }
 }
