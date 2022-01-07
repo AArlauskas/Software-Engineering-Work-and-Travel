@@ -1,5 +1,5 @@
 from dbcompanies import isEmpty, addCompany, getAllCompanies, updateCompany
-from googleplaces import generateInitialPricesAndRatings, updatePricesAndRatings
+from googleplaces import generateInitialInformation, updateInformation
 import json
 import time
 import random
@@ -9,11 +9,11 @@ from publisher import addCompanyToQueue
 def main():
     initDb()
     print("Database initialised. Waiting for 60s")
-    time.sleep(60)
+    time.sleep(5)
     print("Initial database queue started")
     companies = getAllCompanies()
     for company in companies:
-        updatedCompany = generateInitialPricesAndRatings(company)
+        updatedCompany = generateInitialInformation(company)
         updateCompany(updatedCompany)
         addCompanyToQueue(updatedCompany)
     timer()
@@ -37,6 +37,7 @@ def initDb():
                     "phone" : companyEntry["phone"],
                     "rating" : None,
                     "pricing" : None,
+                    "type" : None,
                     "mapsId": None
                 }
                 addCompany(company)
@@ -46,7 +47,7 @@ def timer():
     while True:
         print("Company fetch in progress")
         for company in companies:
-            result = updatePricesAndRatings(company)
+            result = updateInformation(company)
             if (result[1]):
                 print("company changed!")
                 addCompanyToQueue(result[0])
