@@ -11,6 +11,7 @@ import {
 import StarIcon from "@mui/icons-material/StarBorder";
 import { useNavigate } from "react-router";
 import URI from "../../constants/URI";
+import { checkout } from "../../api/Api";
 
 const tiers = [
   {
@@ -45,6 +46,10 @@ const PricingPage = ({ isLoggedIn }) => {
   const navigate = useNavigate();
 
   const onNavigate = (path) => {
+    if (isLoggedIn) {
+      checkout().then((response) => (window.location.href = response.data));
+      return;
+    }
     navigate(path);
   };
   return (
@@ -114,7 +119,7 @@ const PricingPage = ({ isLoggedIn }) => {
                 ))}
               </ul>
             </CardContent>
-            {(!isLoggedIn || tier.title === "Pro") &&   (
+            {(!isLoggedIn || tier.title === "Pro") && (
               <CardActions>
                 <Button
                   color="secondary"

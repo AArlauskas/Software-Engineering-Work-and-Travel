@@ -10,8 +10,10 @@ import CompaniesPage from "./containers/CompaniesPage/CompaniesPage";
 import EmailerPage from "./containers/EmailerPage/EmailerPage";
 import TopBar from "./components/TopBar/TopBar";
 import LookupPage from "./containers/LookupPage/LookupPage";
+import PaymentFailPage from "./containers/PaymentFailPage/PaymentFailPage"
 import HomePage from "./containers/HomePage/HomePage";
 import UserRoles from "./constants/UserRoles";
+import PaymentSuccessPage from "./containers/PaymentSuccessPage/PaymentSuccessPage";
 
 function App() {
   return (
@@ -50,6 +52,8 @@ const getBasicRoutes = () => {
     <Routes>
       <Route path={URI.EMAILER} element={<EmailerPage />} />
       <Route path={URI.PRICING} element={<PricingPage isLoggedIn={true}/>} />
+      <Route path={URI.PAYMENT_FAIL} element={<PaymentFailPage/>}/>
+      <Route path={URI.PAYMENT_SUCCESS} element={<PaymentSuccessPage/>}/>
       <Route path="*" element={<Navigate to={URI.EMAILER}/>}/>
     </Routes>
   );
