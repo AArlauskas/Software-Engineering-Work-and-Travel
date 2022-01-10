@@ -1,11 +1,12 @@
 version: '1'
 
 services:
+
   wt-frontend:
     build:
       context: ./wt-frontend
     environment:
-      - CHOKIDAR_USEPOLLING="true"
+      - CHOKIDAR_USERPOLLING=true
     ports:
       - "3000:3000"
     container_name: wt-frontend
@@ -13,3 +14,19 @@ services:
     volumes:
       - ./wt-frontend:/usr/src/app/wt-frontend
       - /usr/src/app/wt-frontend/node_modules
+    depends_on:
+      - wt-database
+
+  wt-database:
+    container_name: wt-database
+    image: mysql/mysql-server:5.7
+    restart: always
+    environment:
+      - MYSQL_DATABASE=worktravel
+      - MYSQL_USER=erasmus
+      - MYSQL_PASSWORD=erasmus
+      - MYSQL_ROOT_PASSWORD=erasmus
+    ports:
+      - 3306:3306
+    volumes:
+      - ./.mysql-data/db:/var/lib/mysql
