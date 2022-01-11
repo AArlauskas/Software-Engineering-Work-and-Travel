@@ -1,4 +1,4 @@
-version: '1'
+version: '3'
 
 services:
 
@@ -8,7 +8,9 @@ services:
     environment:
       - CHOKIDAR_USERPOLLING=true
     ports:
-      - "3000:3000"
+      - 3000:3000
+    expose:
+      - 3000
     container_name: wt-frontend
     stdin_open: true
     volumes:
@@ -28,5 +30,19 @@ services:
       - MYSQL_ROOT_PASSWORD=erasmus
     ports:
       - 3306:3306
+    expose:
+      - 3306
     volumes:
       - ./.mysql-data/db:/var/lib/mysql
+  
+  wt-backend:
+    container_name: wt-backend
+    build:
+      context: ./wt-backend
+    depends_on:
+      - wt-database
+    ports:
+      - 8080:8080
+    expose:
+      - 8080
+    restart: always

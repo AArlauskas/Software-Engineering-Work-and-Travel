@@ -11,10 +11,12 @@
     <groupId>wt</groupId>
     <artifactId>backend</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>backend</name>
+    <name>wt-backend</name>
+    <packaging>jar</packaging>
     <description>Work and Travel backend project</description>
     <properties>
         <java.version>11</java.version>
+        <skipTests>true</skipTests>
     </properties>
     <dependencies>
         <dependency>
