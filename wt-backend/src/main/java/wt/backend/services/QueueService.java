@@ -19,7 +19,7 @@ public class QueueService {
 
     public void receiveCompaniesFromQueue() throws IOException, TimeoutException {
         ConnectionFactory factory = new ConnectionFactory();
-        factory.setHost("localhost");
+        factory.setHost("rabbitmq");
         Connection connection = factory.newConnection();
 
         Channel channel = connection.createChannel();

@@ -1,7 +1,6 @@
 version: '3.8'
 
 services:
-
   wt-frontend:
     build:
       context: ./wt-frontend
@@ -9,15 +8,11 @@ services:
       - CHOKIDAR_USERPOLLING=true
     ports:
       - 3000:3000
-    expose:
-      - 3000
     container_name: wt-frontend
     stdin_open: true
     volumes:
       - ./wt-frontend:/usr/src/app/wt-frontend
       - /usr/src/app/wt-frontend/node_modules
-    depends_on:
-      - wt-database
 
   wt-database:
     container_name: wt-database
@@ -34,18 +29,6 @@ services:
       - 3306
     volumes:
       - ./.mysql-data/db:/var/lib/mysql
-  
-  wt-backend:
-    container_name: wt-backend
-    build:
-      context: ./wt-backend
-    depends_on:
-      - wt-database
-    ports:
-      - 8080:8080
-    expose:
-      - 8080
-    restart: always
 
   rabbitmq:
     container_name: rabbitmq
@@ -53,9 +36,31 @@ services:
     ports:
       - 5672:5672
       - 15672:15672
-    networks:
-      - rabbitmq-network
+    healthcheck:
+      test: rabbitmq-diagnostics -q status
+      interval: 30s
+      timeout: 10s
+      start_period: 30s
+      retries: 5
 
-networks:
-  rabbitmq-network:
-    driver: bridge
+  messagebroker:
+    container_name: messagebroker
+    build:
+      context: ./messagebroker
+    restart: on-failure
+    depends_on:
+      rabbitmq:
+        condition: service_healthy
+    volumes:
+      - /usr/src/app/messagebroker
+  
+  wt-backend:
+    container_name: wt-backend
+    build:
+      context: ./wt-backend
+    ports:
+      - 8080:8080
+    restart: on-failure
+    depends_on:
+      - wt-database
+      - messagebroker
