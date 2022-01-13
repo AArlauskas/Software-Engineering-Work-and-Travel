@@ -4,6 +4,8 @@ WORKDIR /usr/src/app/wt-backend
 
 COPY . /usr/src/app/wt-backend
 
+RUN mvn clean install
+
 RUN mvn package
 
 FROM adoptopenjdk/openjdk11:alpine-jre

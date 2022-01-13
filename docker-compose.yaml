@@ -1,4 +1,4 @@
-version: '3.8'
+version: "3.8"
 
 services:
   wt-frontend:
@@ -43,24 +43,24 @@ services:
       start_period: 30s
       retries: 5
 
-  messagebroker:
-    container_name: messagebroker
-    build:
-      context: ./messagebroker
-    restart: on-failure
-    depends_on:
-      rabbitmq:
-        condition: service_healthy
-    volumes:
-      - /usr/src/app/messagebroker
-  
+  # messagebroker:
+  #   container_name: messagebroker
+  #   build:
+  #     context: ./messagebroker
+  #   restart: on-failure
+  #   depends_on:
+  #     rabbitmq:
+  #       condition: service_healthy
+  #   volumes:
+  #     - /usr/src/app/messagebroker
+
   wt-backend:
     container_name: wt-backend
     build:
       context: ./wt-backend
     ports:
       - 8080:8080
-    restart: on-failure
+    # restart: on-failure
     depends_on:
       - wt-database
-      - messagebroker
+      # - messagebroker
