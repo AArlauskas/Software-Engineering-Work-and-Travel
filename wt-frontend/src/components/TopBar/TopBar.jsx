@@ -15,6 +15,7 @@ import {
   Hidden,
   IconButton,
   Toolbar,
+  Tooltip,
   Typography,
   Avatar,
 } from "@mui/material";
@@ -51,7 +52,9 @@ const TopBar = () => {
   );
 
   const basicTabs = useRef(
-    new Map([["Emailer", { icon: <EmailOutlined />, href: URI.EMAILER }]])
+    new Map([["Emailer", { icon: <EmailOutlined />, href: URI.EMAILER }],
+    ["See Plans", {icon: <SearchOutlined />, href: URI.PRICING }],
+  ])
   );
 
   const proTabs = useRef(
@@ -157,9 +160,9 @@ const TopBar = () => {
               ) : (
                 <>
                   <Grid item>
-                    <Avatar sx={{ bgcolor: "#E86D5E" }}>
+                  <Tooltip title={window.localStorage.getItem("role")}><Avatar sx={{ bgcolor: "#E86D5E" }}>
                       {getCredentials()}
-                    </Avatar>
+                    </Avatar></Tooltip>
                   </Grid>
                   <Grid item>
                     <IconButton onClick={onLogout}>
