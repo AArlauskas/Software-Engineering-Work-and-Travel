@@ -1,13 +1,22 @@
 import { Grid, Link, Typography } from "@mui/material";
+import { useState } from "react";
 import { useNavigate } from "react-router";
+import { emailTest } from "../../api/PublicApi";
 import RegisterForm from "../../components/RegisterForm/RegisterForm";
 import URI from "../../constants/URI";
 
 const RegisterPage = () => {
+  const [isEmailTested, setIsEmailTested] = useState(false);
   const navigate = useNavigate();
 
   const onNavigate = (path) => {
     navigate(path);
+  };
+
+  const onEmailTest = (data) => {
+    emailTest(data)
+      .then(() => setIsEmailTested(true))
+      .catch(() => setIsEmailTested(false));
   };
 
   return (
@@ -34,7 +43,7 @@ const RegisterPage = () => {
         </Typography>
       </Grid>
       <Grid item container xs={12}>
-        <RegisterForm />
+        <RegisterForm isTested={isEmailTested} onTest={onEmailTest} />
       </Grid>
     </Grid>
   );
