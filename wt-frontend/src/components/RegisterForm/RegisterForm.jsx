@@ -11,7 +11,7 @@ import {
 import { useNavigate } from "react-router";
 import URI from "../../constants/URI";
 
-const RegisterForm = ({ isTested, onTest, onSubmit }) => {
+const RegisterForm = ({ isTested, inProgress, onTest, onSubmit }) => {
   const [firstname, setFirstname] = useState("");
   const [lastname, setLastname] = useState("");
   const [email, setEmail] = useState("");
@@ -29,7 +29,7 @@ const RegisterForm = ({ isTested, onTest, onSubmit }) => {
       mail: email,
       password,
     };
-    onSubmit(data);
+    onTest(data);
   };
 
   const onFormSubmit = () => {
@@ -38,7 +38,7 @@ const RegisterForm = ({ isTested, onTest, onSubmit }) => {
     const data = {
       firstname,
       lastname,
-      mail: email,
+      email,
       password,
     };
     onSubmit(data);
@@ -162,7 +162,7 @@ const RegisterForm = ({ isTested, onTest, onSubmit }) => {
                 variant="outlined"
                 fullWidth
                 color="secondary"
-                disabled={isTested}
+                disabled={isTested || inProgress}
                 onClick={onEmailTest}
               >
                 Test email
@@ -173,7 +173,7 @@ const RegisterForm = ({ isTested, onTest, onSubmit }) => {
                 variant="contained"
                 fullWidth
                 color="secondary"
-                disabled={!isTested}
+                disabled={!isTested || inProgress}
                 onClick={onFormSubmit}
               >
                 Register
