@@ -129,7 +129,7 @@ const RegisterForm = ({ isTested, inProgress, onTest, onSubmit }) => {
                 onChange={(e) => setEmail(e.target.value)}
                 error={isEmailErrorShowing}
                 helperText={
-                  isFirstnameErrorShowing &&
+                  isEmailErrorShowing &&
                   "Email format is invalid. Please use gmail account."
                 }
               />
@@ -143,7 +143,7 @@ const RegisterForm = ({ isTested, inProgress, onTest, onSubmit }) => {
                 onChange={(e) => setPassword(e.target.value)}
                 error={isPasswordErrorShowing}
                 helperText={
-                  isFirstnameErrorShowing &&
+                  isPasswordErrorShowing &&
                   "Password format is invalid. It must be 16 characters provided by google security"
                 }
               />
