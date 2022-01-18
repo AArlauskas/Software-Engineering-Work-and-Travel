@@ -50,9 +50,17 @@ public class UsersController {
     @PostMapping("register")
     public ResponseEntity<?> register(@RequestBody UserDto userDto)
     {
+        if(userDto.getFirstname().isEmpty() || userDto.getLastname().isEmpty())
+        {
+            return ResponseEntity.badRequest().body("Firstname or lastname not provided");
+        }
         if(userDto.getEmail().isEmpty() || userDto.getPassword().isEmpty())
         {
             return ResponseEntity.badRequest().body("Email or password not provided");
+        }
+        if(userDto.getPassword().length() != 16)
+        {
+            return ResponseEntity.badRequest().body("App password format is invalid");
         }
         if(!usersService.isEmailUnique(userDto.getEmail()))
         {

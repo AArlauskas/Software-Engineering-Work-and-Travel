@@ -30,10 +30,10 @@ const LoginForm = ({ onLogin, showLoginError }) => {
       setShowEmailError(true);
       return;
     }
-    if (password.length !== 19) {
-      setShowPasswordError(true);
-      return;
-    }
+    // if (password.length !== 19) {
+    //   setShowPasswordError(true);
+    //   return;
+    // }
     onLogin(email, password);
   };
 
