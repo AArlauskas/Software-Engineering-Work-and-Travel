@@ -1,6 +1,5 @@
 import { Grid, TextField } from "@mui/material";
 import EmailEditor from "../../components/EmailEditor/EmailEditor";
-import FileUploader from "../../components/FileUploader/FileUploader";
 
 const EmailerPage = () => {
   return (
@@ -15,9 +14,6 @@ const EmailerPage = () => {
       </Grid>
       <Grid item xs={12}>
         <EmailEditor />
-      </Grid>
-      <Grid item xs={12}>
-        <FileUploader />
       </Grid>
     </Grid>
   );

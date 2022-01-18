@@ -5,7 +5,7 @@ const URI = {
     REGISTER: "/register",
     COMPANIES: "/companies",
     INSTRUCTIONS: "/instructions",
-    EMAILER: "/emailer",
+    TASKS: "/tasks",
     LOOKUP: "/lookup",
     PAYMENT_FAIL: "/payment-fail",
     PAYMENT_SUCCESS: "/payment-success"

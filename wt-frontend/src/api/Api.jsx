@@ -12,5 +12,7 @@ const api = axios.create({
 
 export const getAllCompanies = () => api.get("/companies");
 
+export const getPersonalTasks = () => api.get("/tasks/personal");
+
 export const checkout = () =>
   api.get("/payments/checkout", { params: { token: STRIPE_PUBLIC_KEY } });

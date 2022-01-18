@@ -68,26 +68,16 @@ public class MailsService {
         message.setFrom(new InternetAddress(messageParameters.getFrom()));
         message.setRecipient(Message.RecipientType.TO, new InternetAddress(messageParameters.getTo()));
         message.setSubject(messageParameters.getHeader());
-        message.setContent(getMessageContent(messageParameters.getBody(), messageParameters.getAttachments()));
+        message.setContent(getMessageContent(messageParameters.getBody()));
         return message;
     }
 
-    private MimeMultipart getMessageContent(String body, List<String> paths) throws MessagingException, IOException {
+    private MimeMultipart getMessageContent(String body) throws MessagingException, IOException {
         MimeMultipart content = new MimeMultipart();
 
         MimeBodyPart contentText = new MimeBodyPart();
         contentText.setContent(body, "text/html");
         content.addBodyPart(contentText);
-
-        if(paths.size() == 0) return content;
-        for (var path : paths)
-        {
-            File file = new File(path);
-            MimeBodyPart contentAttachments = new MimeBodyPart();
-            contentAttachments.attachFile(file);
-            content.addBodyPart(contentAttachments);
-        }
-
         return content;
     }
 

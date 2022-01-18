@@ -52,14 +52,15 @@ const TopBar = () => {
   );
 
   const basicTabs = useRef(
-    new Map([["Emailer", { icon: <EmailOutlined />, href: URI.EMAILER }],
-    ["See Plans", {icon: <SearchOutlined />, href: URI.PRICING }],
-  ])
+    new Map([
+      ["Emailer", { icon: <EmailOutlined />, href: URI.TASKS }],
+      ["See Plans", { icon: <SearchOutlined />, href: URI.PRICING }],
+    ])
   );
 
   const proTabs = useRef(
     new Map([
-      ["Emailer", { icon: <EmailOutlined />, href: URI.EMAILER }],
+      ["Emailer", { icon: <EmailOutlined />, href: URI.TASKS }],
       ["Lookup", { icon: <SearchOutlined />, href: URI.LOOKUP }],
     ])
   );
@@ -160,9 +161,11 @@ const TopBar = () => {
               ) : (
                 <>
                   <Grid item>
-                  <Tooltip title={window.localStorage.getItem("role")}><Avatar sx={{ bgcolor: "#E86D5E" }}>
-                      {getCredentials()}
-                    </Avatar></Tooltip>
+                    <Tooltip title={window.localStorage.getItem("role")}>
+                      <Avatar sx={{ bgcolor: "#E86D5E" }}>
+                        {getCredentials()}
+                      </Avatar>
+                    </Tooltip>
                   </Grid>
                   <Grid item>
                     <IconButton onClick={onLogout}>
