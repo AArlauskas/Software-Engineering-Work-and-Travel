@@ -5,10 +5,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import wt.backend.dtos.TaskDto;
 import wt.backend.models.User;
 import wt.backend.services.TasksService;
@@ -36,6 +33,17 @@ public class TasksController {
 
         var tasks = user.getTasks();
         List<TaskDto> response = tasks.stream().map(TaskDto::new).collect(Collectors.toList());
-        return ResponseEntity.ok(tasks);
+        return ResponseEntity.ok(response);
+    }
+
+    @PostMapping()
+    @PreAuthorize("hasAnyRole('ADMIN','BASIC','PRO')")
+    public ResponseEntity<?> createTask(Authentication authentication, @RequestBody TaskDto taskDto)
+    {
+        User user = usersService.getAuthUser((UserDetails) authentication.getPrincipal());
+        if(user == null) return ResponseEntity.notFound().build();
+
+        var createdTask = tasksService.createTask(taskDto, user);
+        return ResponseEntity.ok(new TaskDto(createdTask));
     }
 }

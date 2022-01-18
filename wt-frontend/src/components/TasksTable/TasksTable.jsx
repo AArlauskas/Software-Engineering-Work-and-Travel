@@ -7,8 +7,9 @@ const TasksTable = ({ tasks }) => {
       title: "Header",
     },
     {
-      field: "mailCount",
+      field: "companies",
       title: "Emails count",
+      render: (rowData) => rowData.companies.length,
     },
     {
       field: "status",

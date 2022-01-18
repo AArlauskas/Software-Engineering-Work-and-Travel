@@ -1,9 +1,12 @@
 import { Button, Grid } from "@mui/material";
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router";
 import { getPersonalTasks } from "../../api/Api";
 import TasksTable from "../../components/TasksTable/TasksTable";
+import URI from "../../constants/URI";
 const TasksPage = () => {
   const [tasks, setTasks] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     getPersonalTasks()
@@ -24,7 +27,9 @@ const TasksPage = () => {
       spacing={2}
     >
       <Grid item xs={12}>
-        <Button variant="contained">Create new task</Button>
+        <Button variant="contained" onClick={() => navigate(URI.CREATE_TASK)}>
+          Create new task
+        </Button>
       </Grid>
       <Grid item xs={12}>
         <TasksTable tasks={tasks} />

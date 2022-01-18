@@ -6,6 +6,8 @@ const URI = {
     COMPANIES: "/companies",
     INSTRUCTIONS: "/instructions",
     TASKS: "/tasks",
+    CREATE_TASK: "/create-task",
+    UPDATE_TASK: "/update-task",
     LOOKUP: "/lookup",
     PAYMENT_FAIL: "/payment-fail",
     PAYMENT_SUCCESS: "/payment-success"
