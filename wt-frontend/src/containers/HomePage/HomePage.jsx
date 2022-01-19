@@ -1,4 +1,5 @@
 import { Grid, Typography, Button, Hidden } from "@mui/material";
+import { useNavigate } from "react-router";
 
 import travel from "../../assets/travel.png";
 import cali from "../../assets/cali.jpg";
@@ -12,8 +13,13 @@ import texas from "../../assets/texas.jpg";
 import buffalo from "../../assets/buffalo.jpg";
 import baltimore from "../../assets/baltimore.jpg";
 import fresno from "../../assets/fresno.jpg";
+import URI from "../../constants/URI";
 
 const HomePage = () => {
+  const navigate = useNavigate()
+  const onNavigate = () => {
+    onNavigate(URI.LOGIN)
+  }
   return (
     <Grid className="container" container spacing={2}>
       <Grid item xs={12} />
@@ -45,6 +51,7 @@ const HomePage = () => {
               variant="contained"
               style={{ margin: 20 }}
               color="secondary"
+              onClick={onNavigate}
             >
               Login/Register
             </Button>
