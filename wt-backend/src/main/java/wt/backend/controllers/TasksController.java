@@ -7,6 +7,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 import wt.backend.dtos.TaskDto;
+import wt.backend.models.Task;
 import wt.backend.models.User;
 import wt.backend.services.TasksService;
 import wt.backend.services.UsersService;
@@ -45,5 +46,14 @@ public class TasksController {
 
         var createdTask = tasksService.createTask(taskDto, user);
         return ResponseEntity.ok(new TaskDto(createdTask));
+    }
+
+    @GetMapping()
+    @PreAuthorize("hasAnyRole('ADMIN','BASIC','PRO')")
+    public ResponseEntity<?> getTaskById(@RequestParam() Long id)
+    {
+        Task task = tasksService.getTaskById(id);
+        if(task == null) return ResponseEntity.notFound().build();
+        return ResponseEntity.ok(new TaskDto(task));
     }
 }

@@ -1,7 +1,12 @@
 import MaterialTable from "@material-table/core";
 import { Grid, Typography } from "@mui/material";
 
-const LookupTable = ({ companies, usedCompanies, onSelectChange }) => {
+const LookupTable = ({
+  companies,
+  usedCompanies,
+  onSelectChange,
+  selectedCompanies,
+}) => {
   const isBasic = window.localStorage.getItem("role") === "BASIC";
 
   const proColumns = [
@@ -92,6 +97,7 @@ const LookupTable = ({ companies, usedCompanies, onSelectChange }) => {
         showSelectAllCheckbox: !isBasic,
         selectionProps: (rowData) => ({
           disabled: !!usedCompanies.find((el) => el.id === rowData.id),
+          checked: !!selectedCompanies.find((el) => el === rowData.id),
         }),
       }}
       detailPanel={({ rowData }) => {

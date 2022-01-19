@@ -1,10 +1,19 @@
 import { Button, Grid, TextField } from "@mui/material";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import EmailEditor from "../../components/EmailEditor/EmailEditor";
 
 const EmailerPage = ({ onNext, data }) => {
-  const [header, setHeader] = useState(data?.header || "");
-  const [body, setBody] = useState(data?.body || "");
+  const [header, setHeader] = useState("");
+  const [body, setBody] = useState("");
+
+  useEffect(() => {
+    if (data?.header !== undefined) {
+      setHeader(data.header);
+    }
+    if (data?.body !== undefined) {
+      setBody(data.body);
+    }
+  }, [data]);
 
   const onNextClick = () => {
     if (onNext === undefined) return;
@@ -17,6 +26,7 @@ const EmailerPage = ({ onNext, data }) => {
   return (
     <Grid className="grow-container" container spacing={2}>
       <Grid item xs={12}>
+        {console.log(data)}
         <TextField
           variant="outlined"
           fullWidth

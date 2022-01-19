@@ -25,6 +25,20 @@ public class TasksService {
     public Task createTask(TaskDto taskDto, User user)
     {
         var companies = companiesService.findCompaniesById(taskDto.getCompanies());
+        if(taskDto.getId() != null)
+        {
+            Task task = tasksRepository.findById(taskDto.getId()).get();
+            task.setHeader(taskDto.getHeader());
+            task.setBody(taskDto.getBody());
+            task.setCompanies(companies);
+            return tasksRepository.save(task);
+        }
         return tasksRepository.save(new Task(taskDto, user, companies));
+    }
+
+    public Task getTaskById(Long id)
+    {
+        var task = tasksRepository.findById(id);
+        return task.orElse(null);
     }
 }

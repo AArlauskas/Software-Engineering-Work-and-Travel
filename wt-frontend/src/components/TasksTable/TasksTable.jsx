@@ -1,6 +1,16 @@
 import MaterialTable from "@material-table/core";
+import { useNavigate } from "react-router";
 
 const TasksTable = ({ tasks }) => {
+  const navigation = useNavigate();
+
+  const onRowClick = (event, rowData) => {
+    const { id, status } = rowData;
+    if (status === "CREATED") {
+      navigation(`/update-task/${id}`);
+    }
+    console.log(rowData);
+  };
   const columns = [
     {
       field: "header",
@@ -26,6 +36,7 @@ const TasksTable = ({ tasks }) => {
         actionsColumnIndex: -1,
         pageSize: 5,
       }}
+      onRowClick={onRowClick}
     />
   );
 };

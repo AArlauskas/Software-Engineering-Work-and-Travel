@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import LookupTable from "../../components/LookupTable/LookupTable";
 import { getAllCompanies, getUsedCompanies } from "../../api/Api";
 
-const LookupPage = ({ onPrevious, onNext }) => {
+const LookupPage = ({ onPrevious, onNext, data }) => {
   const isBasic = window.localStorage.getItem("role") === "BASIC";
   const [companies, setCompanies] = useState([]);
   const [usedCompanies, setUsedCompanies] = useState([]);
@@ -22,6 +22,12 @@ const LookupPage = ({ onPrevious, onNext }) => {
     });
   }, []);
 
+  useEffect(() => {
+    if (data) {
+      setSelectedCompanies(data);
+    }
+  }, [data]);
+
   return (
     <Grid
       className="grow-container"
@@ -34,6 +40,7 @@ const LookupPage = ({ onPrevious, onNext }) => {
         <LookupTable
           companies={companies}
           usedCompanies={usedCompanies}
+          selectedCompanies={selectedCompanies}
           onSelectChange={
             onPrevious && onNext ? onCompanySelectChange : undefined
           }
