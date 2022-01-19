@@ -1,17 +1,16 @@
 package wt.backend.dtos;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@NoArgsConstructor
+@AllArgsConstructor
 public class MessageParameters {
-
-    public MessageParameters()
-    {
-        attachments = new ArrayList<>();
-    }
     @Getter
     @Setter
     private String from;
@@ -27,8 +26,4 @@ public class MessageParameters {
     @Getter
     @Setter
     private String body;
-
-    @Getter
-    @Setter
-    private List<String> attachments;
 }
