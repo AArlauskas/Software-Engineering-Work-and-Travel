@@ -24,7 +24,7 @@ import java.io.IOException;
 import java.util.stream.Collectors;
 
 @RestController
-@CrossOrigin("*")
+@CrossOrigin("*")("*")
 @RequestMapping("/api/payments/")
 public class PaymentsController {
     @Autowired
