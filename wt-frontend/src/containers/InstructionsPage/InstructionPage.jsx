@@ -1,5 +1,5 @@
 import { Grid, Typography, Button, Hidden } from "@mui/material";
-import VideoPlayer from "../../components/VideoPlayer/VideoPlayer";
+import VideoPlayers from "../../components/VideoPlayers/VideoPlayers"
 
 
 const InstructionPage = () => {
@@ -26,7 +26,7 @@ const InstructionPage = () => {
                         </li>
                     </ul>
                 </Grid>
-                <VideoPlayer />
+                <VideoPlayers />
             </Grid>
         </Grid>
     );
