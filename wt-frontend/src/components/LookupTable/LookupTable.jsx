@@ -1,8 +1,10 @@
 import MaterialTable from "@material-table/core";
 import { Grid, Typography } from "@mui/material";
 
-const LookupTable = ({ companies, onSelectChange }) => {
-  const columns = [
+const LookupTable = ({ companies, usedCompanies, onSelectChange }) => {
+  const isBasic = window.localStorage.getItem("role") === "BASIC";
+
+  const proColumns = [
     {
       field: "name",
       title: "Name",
@@ -22,6 +24,17 @@ const LookupTable = ({ companies, onSelectChange }) => {
     {
       field: "workType",
       title: "Work Type",
+    },
+  ];
+
+  const basicColumns = [
+    {
+      field: "name",
+      title: "Name",
+    },
+    {
+      field: "mail",
+      title: "Email",
     },
   ];
 
@@ -67,16 +80,22 @@ const LookupTable = ({ companies, onSelectChange }) => {
   };
   return (
     <MaterialTable
-      columns={columns}
+      columns={isBasic ? basicColumns : proColumns}
       data={companies}
       title="Companies"
-      onSelectionChange={(e) =>
-        !!onSelectChange && onSelectChange(e.map((entry) => entry.id))
-      }
+      onSelectionChange={(e) => {
+        console.log(e);
+        !!onSelectChange && onSelectChange(e.map((entry) => entry.id));
+      }}
       options={{
         selection: !!onSelectChange,
+        showSelectAllCheckbox: !isBasic,
+        selectionProps: (rowData) => ({
+          disabled: !!usedCompanies.find((el) => el.id === rowData.id),
+        }),
       }}
       detailPanel={({ rowData }) => {
+        if (isBasic) return false;
         return (
           <Grid
             style={{ width: "100%", padding: 10 }}

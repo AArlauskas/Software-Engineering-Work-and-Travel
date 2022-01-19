@@ -4,9 +4,9 @@ import {
   PaidOutlined,
   IntegrationInstructionsOutlined,
   MenuOutlined,
-  EmailOutlined,
   SearchOutlined,
   ExitToAppOutlined,
+  TaskOutlined,
 } from "@mui/icons-material";
 import {
   AppBar,
@@ -53,14 +53,14 @@ const TopBar = () => {
 
   const basicTabs = useRef(
     new Map([
-      ["Emailer", { icon: <EmailOutlined />, href: URI.TASKS }],
+      ["Tasks", { icon: <TaskOutlined />, href: URI.TASKS }],
       ["See Plans", { icon: <SearchOutlined />, href: URI.PRICING }],
     ])
   );
 
   const proTabs = useRef(
     new Map([
-      ["Emailer", { icon: <EmailOutlined />, href: URI.TASKS }],
+      ["Tasks", { icon: <TaskOutlined />, href: URI.TASKS }],
       ["Lookup", { icon: <SearchOutlined />, href: URI.LOOKUP }],
     ])
   );

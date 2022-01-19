@@ -12,6 +12,8 @@ const api = axios.create({
 
 export const getAllCompanies = () => api.get("/companies");
 
+export const getUsedCompanies = () => api.get("/companies/used");
+
 export const getPersonalTasks = () => api.get("/tasks/personal");
 
 export const createTask = (data) => api.post("/tasks", data);

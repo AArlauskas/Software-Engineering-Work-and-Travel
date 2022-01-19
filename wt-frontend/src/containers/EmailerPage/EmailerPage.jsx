@@ -38,7 +38,11 @@ const EmailerPage = ({ onNext, data }) => {
           alignContent="flex-end"
         >
           <Grid item xs={2}>
-            <Button variant="contained" onClick={onNextClick}>
+            <Button
+              variant="contained"
+              onClick={onNextClick}
+              disabled={header.length === 0}
+            >
               Next
             </Button>
           </Grid>
