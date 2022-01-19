@@ -7,6 +7,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import wt.backend.dtos.UserDto;
+import wt.backend.enums.UserRoles;
 import wt.backend.models.User;
 import wt.backend.repositories.UsersRepository;
 
@@ -33,6 +34,13 @@ public class UsersService implements UserDetailsService {
     public User getAuthUser(UserDetails details)
     {
         return usersRepository.findByEmailAndPassword(details.getUsername(),details.getPassword());
+    }
+
+    public void upgradeUser(Long userId)
+    {
+        User user = usersRepository.findById(userId).get();
+        user.setRole(UserRoles.PRO.toString());
+        usersRepository.save(user);
     }
 
     @Override

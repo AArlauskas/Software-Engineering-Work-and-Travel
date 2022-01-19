@@ -14,3 +14,8 @@ How to launch:
 3. Start rabbitMq
 4. Start messageBroker by installing dependencies and starting it with python main.python
 5. Start backend
+
+
+For Stripe:
+Provide private key in the backend StripeClientService.
+Run stripe CLI with the command: stripe listen --forward-to localhost:8080/api/payments/webhook

@@ -11,6 +11,7 @@ import {
 import StarIcon from "@mui/icons-material/StarBorder";
 import { useNavigate } from "react-router";
 import URI from "../../constants/URI";
+import { checkout } from "../../api/Api";
 
 const tiers = [
   {
@@ -21,7 +22,8 @@ const tiers = [
       "Random company access",
       "No company lookup",
     ],
-    buttonText: "Sign up for free",
+    buttonTextPublic: "Sign up for free",
+    buttonTextAuth: "",
     buttonVariant: "outlined",
   },
   {
@@ -34,15 +36,20 @@ const tiers = [
       "Company information lookup",
       "Organised tasks for emails",
     ],
-    buttonText: "Get started",
+    buttonTextPublic: "Get started",
+    buttonTextAuth: "Become Pro now!",
     buttonVariant: "contained",
   },
 ];
 
-const PricingPage = () => {
+const PricingPage = ({ isLoggedIn }) => {
   const navigate = useNavigate();
 
   const onNavigate = (path) => {
+    if (isLoggedIn) {
+      checkout().then((response) => (window.location.href = response.data));
+      return;
+    }
     navigate(path);
   };
   return (
@@ -55,7 +62,7 @@ const PricingPage = () => {
     >
       <Grid item xs={12}>
         <Typography component="h1" variant="h4" align="center">
-          Pricing
+          {isLoggedIn ? "Upgrade to Pro" : "Pricing"}
         </Typography>
       </Grid>
       {tiers.map((tier) => (
@@ -112,16 +119,18 @@ const PricingPage = () => {
                 ))}
               </ul>
             </CardContent>
-            <CardActions>
-              <Button
-                color="secondary"
-                fullWidth
-                variant={tier.buttonVariant}
-                onClick={() => onNavigate(URI.REGISTER)}
-              >
-                {tier.buttonText}
-              </Button>
-            </CardActions>
+            {(!isLoggedIn || tier.title === "Pro") && (
+              <CardActions>
+                <Button
+                  color="secondary"
+                  fullWidth
+                  variant={tier.buttonVariant}
+                  onClick={() => onNavigate(URI.REGISTER)}
+                >
+                  {isLoggedIn ? tier.buttonTextAuth : tier.buttonTextPublic}
+                </Button>
+              </CardActions>
+            )}
           </Card>
         </Grid>
       ))}

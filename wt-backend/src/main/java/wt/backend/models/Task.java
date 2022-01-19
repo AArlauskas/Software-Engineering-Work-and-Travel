@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import wt.backend.dtos.TaskDto;
 import wt.backend.enums.TaskStatus;
 
 import javax.persistence.*;
@@ -44,4 +45,13 @@ public class Task {
     joinColumns = @JoinColumn(name = "task_id"),
     inverseJoinColumns = @JoinColumn(name = "company_id"))
     private List<Company> companies;
+
+    public Task(TaskDto taskDto, User user, List<Company> companies)
+    {
+        this.header = taskDto.getHeader();
+        this.body = taskDto.getBody();
+        this.status = taskDto.getStatus();
+        this.user = user;
+        this.companies = companies;
+    }
 }

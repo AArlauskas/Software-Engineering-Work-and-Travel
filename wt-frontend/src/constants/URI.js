@@ -5,8 +5,12 @@ const URI = {
     REGISTER: "/register",
     COMPANIES: "/companies",
     INSTRUCTIONS: "/instructions",
-    EMAILER: "/emailer",
-    LOOKUP: "/lookup"
+    TASKS: "/tasks",
+    CREATE_TASK: "/create-task",
+    UPDATE_TASK: "/update-task/:id",
+    LOOKUP: "/lookup",
+    PAYMENT_FAIL: "/payment-fail",
+    PAYMENT_SUCCESS: "/payment-success"
 }
 
 export default URI;
