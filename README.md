@@ -9,13 +9,13 @@ docker command for rabbitMq:
 docker run -it --rm --name rabbitmq -p 5672:5672 -p 15672:15672 rabbitmq:3.9-management
 
 How to launch:
+
 1. Start frontend with npm install, npm start
 2. Initialise database and start with docker start database-wt
 3. Start rabbitMq
 4. Start messageBroker by installing dependencies and starting it with python main.python
 5. Start backend
 
-
 For Stripe:
 Provide private key in the backend StripeClientService.
-Run stripe CLI with the command: stripe listen --forward-to localhost:8080/api/payments/webhook
+Run stripe CLI with the command: stripe listen --forward-to http://deti-engsoft-09/:8080/api/payments/webhook
