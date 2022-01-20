@@ -2,7 +2,6 @@ from dbcompanies import isEmpty, addCompany, getAllCompanies, updateCompany
 from googleplaces import generateInitialInformation, updateInformation
 import json
 import time
-import random
 
 from publisher import addCompanyToQueue
 

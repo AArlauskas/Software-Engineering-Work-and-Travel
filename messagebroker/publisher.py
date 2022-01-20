@@ -1,9 +1,8 @@
 import json
 import pika
-import sys
 
 connection = pika.BlockingConnection(
-    pika.ConnectionParameters(host='localhost'))
+    pika.ConnectionParameters(host='rabbitmq'))
 channel = connection.channel()
 channel.queue_declare(queue='companies')
 channel.exchange_declare(exchange='logs', exchange_type='fanout')

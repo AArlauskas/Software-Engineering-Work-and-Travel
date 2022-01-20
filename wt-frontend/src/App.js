@@ -7,7 +7,6 @@ import CssBaseline from "@mui/material/CssBaseline";
 import PricingPage from "./containers/PricingPage/PricingPage";
 import RegisterPage from "./containers/RegisterPage/RegisterPage";
 import CompaniesPage from "./containers/CompaniesPage/CompaniesPage";
-import EmailerPage from "./containers/EmailerPage/EmailerPage";
 import InstructionPage from "./containers/InstructionsPage/InstructionPage";
 import TopBar from "./components/TopBar/TopBar";
 import LookupPage from "./containers/LookupPage/LookupPage";
@@ -15,6 +14,8 @@ import PaymentFailPage from "./containers/PaymentFailPage/PaymentFailPage"
 import HomePage from "./containers/HomePage/HomePage";
 import UserRoles from "./constants/UserRoles";
 import PaymentSuccessPage from "./containers/PaymentSuccessPage/PaymentSuccessPage";
+import TasksPage from "./containers/TasksPage/TasksPage";
+import TasksManagerPage from "./containers/TasksManagerPage/TasksManagerPage";
 
 function App() {
   return (
@@ -52,11 +53,13 @@ const getPublicRoutes = () => {
 const getBasicRoutes = () => {
   return (
     <Routes>
-      <Route path={URI.EMAILER} element={<EmailerPage />} />
+      <Route path={URI.TASKS} element={<TasksPage />} />
       <Route path={URI.PRICING} element={<PricingPage isLoggedIn={true}/>} />
       <Route path={URI.PAYMENT_FAIL} element={<PaymentFailPage/>}/>
       <Route path={URI.PAYMENT_SUCCESS} element={<PaymentSuccessPage/>}/>
-      <Route path="*" element={<Navigate to={URI.EMAILER}/>}/>
+      <Route path={URI.CREATE_TASK} element={<TasksManagerPage isCreating={true}/>}/>
+      <Route path={URI.UPDATE_TASK} element={<TasksManagerPage isCreating={false}/>}/>
+      <Route path="*" element={<Navigate to={URI.TASKS}/>}/>
     </Routes>
   );
 };
@@ -64,9 +67,11 @@ const getBasicRoutes = () => {
 const getProRoutes = () => {
   return (
     <Routes>
-      <Route path={URI.EMAILER} element={<EmailerPage />} />
+      <Route path={URI.TASKS} element={<TasksPage />} />
       <Route path={URI.LOOKUP} element={<LookupPage />} />
-      <Route path="*" element={<Navigate to={URI.EMAILER}/>}/>
+      <Route path={URI.CREATE_TASK} element={<TasksManagerPage isCreating={true}/>}/>
+      <Route path={URI.UPDATE_TASK} element={<TasksManagerPage isCreating={false}/>}/>
+      <Route path="*" element={<Navigate to={URI.TASKS}/>}/>
     </Routes>
   );
 };
