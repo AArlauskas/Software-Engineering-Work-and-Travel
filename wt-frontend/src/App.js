@@ -7,7 +7,6 @@ import CssBaseline from "@mui/material/CssBaseline";
 import PricingPage from "./containers/PricingPage/PricingPage";
 import RegisterPage from "./containers/RegisterPage/RegisterPage";
 import CompaniesPage from "./containers/CompaniesPage/CompaniesPage";
-import InstructionPage from "./containers/InstructionsPage/InstructionPage";
 import TopBar from "./components/TopBar/TopBar";
 import LookupPage from "./containers/LookupPage/LookupPage";
 import PaymentFailPage from "./containers/PaymentFailPage/PaymentFailPage"
@@ -16,6 +15,7 @@ import UserRoles from "./constants/UserRoles";
 import PaymentSuccessPage from "./containers/PaymentSuccessPage/PaymentSuccessPage";
 import TasksPage from "./containers/TasksPage/TasksPage";
 import TasksManagerPage from "./containers/TasksManagerPage/TasksManagerPage";
+import InstructionsPage from "./containers/InstructionsPage/InstructionPage";
 
 function App() {
   return (
@@ -44,7 +44,7 @@ const getPublicRoutes = () => {
       <Route path={URI.REGISTER} element={<RegisterPage />} />
       <Route path={URI.PRICING} element={<PricingPage isLoggedIn={false}/>} />
       <Route path={URI.COMPANIES} element={<CompaniesPage />} />
-      <Route path={URI.INSTRUCTIONS} element={<InstructionPage />} />
+      <Route path={URI.INSTRUCTIONS} element={<InstructionsPage />} />
       <Route path="*" element={<Navigate to={URI.HOME}/>}/>
     </Routes>
   );
