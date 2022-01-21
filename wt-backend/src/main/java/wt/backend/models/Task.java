@@ -11,7 +11,6 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@NoArgsConstructor
 @AllArgsConstructor
 public class Task {
     @Id
@@ -31,6 +30,14 @@ public class Task {
     @Getter
     @Setter
     private String body;
+
+    @Getter
+    @Setter
+    private int sentEmailsCount;
+
+    @Getter
+    @Setter
+    private boolean isStarted;
 
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
@@ -53,5 +60,12 @@ public class Task {
         this.status = taskDto.getStatus();
         this.user = user;
         this.companies = companies;
+        this.isStarted = false;
+    }
+
+    public Task()
+    {
+        sentEmailsCount = 0;
+        isStarted = false;
     }
 }

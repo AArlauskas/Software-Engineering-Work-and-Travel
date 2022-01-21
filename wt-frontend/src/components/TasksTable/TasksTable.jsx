@@ -18,8 +18,12 @@ const TasksTable = ({ tasks }) => {
     },
     {
       field: "companies",
-      title: "Emails count",
+      title: "Companies selected",
       render: (rowData) => rowData.companies.length,
+    },
+    {
+      field: "sentEmailsCount",
+      title: "Emails sent",
     },
     {
       field: "status",
