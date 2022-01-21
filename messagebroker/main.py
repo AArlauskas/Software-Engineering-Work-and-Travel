@@ -3,8 +3,8 @@ from googleplaces import generateInitialInformation, updateInformation
 import json
 import time
 
-from publisher import addCompanyToQueue
 
+from publisher import addCompanyToQueue
 def main():
     initDb()
     print("Database initialised. Waiting for 60s")
@@ -35,9 +35,7 @@ def initDb():
                     "mail" : companyEntry["mail"],
                     "phone" : companyEntry["phone"],
                     "rating" : None,
-                    "pricing" : None,
-                    "workType" : None,
-                    "mapsId": None
+                    "pricing" : None
                 }
                 addCompany(company)
 
