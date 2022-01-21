@@ -16,6 +16,7 @@ import PaymentSuccessPage from "./containers/PaymentSuccessPage/PaymentSuccessPa
 import TasksPage from "./containers/TasksPage/TasksPage";
 import TasksManagerPage from "./containers/TasksManagerPage/TasksManagerPage";
 import InstructionsPage from "./containers/InstructionsPage/InstructionPage";
+import SystemInstructionsPage from "./containers/SystemInstructionsPage/SystemInstructionsPage";
 
 function App() {
   return (
@@ -45,6 +46,7 @@ const getPublicRoutes = () => {
       <Route path={URI.PRICING} element={<PricingPage isLoggedIn={false}/>} />
       <Route path={URI.COMPANIES} element={<CompaniesPage />} />
       <Route path={URI.INSTRUCTIONS} element={<InstructionsPage />} />
+      <Route path={URI.SYSTEM_INSTRUCTIONS} element={<SystemInstructionsPage />} />
       <Route path="*" element={<Navigate to={URI.HOME}/>}/>
     </Routes>
   );

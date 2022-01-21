@@ -5,6 +5,7 @@ const URI = {
     REGISTER: "/register",
     COMPANIES: "/companies",
     INSTRUCTIONS: "/instructions",
+    SYSTEM_INSTRUCTIONS: "/system-instructions",
     TASKS: "/tasks",
     CREATE_TASK: "/create-task",
     UPDATE_TASK: "/update-task/:id",

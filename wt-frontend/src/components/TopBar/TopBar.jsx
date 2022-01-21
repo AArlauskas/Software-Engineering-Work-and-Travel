@@ -44,10 +44,8 @@ const TopBar = () => {
       ["Home", { icon: <HomeOutlined />, href: URI.HOME }],
       ["Companies", { icon: <BusinessOutlined />, href: URI.COMPANIES }],
       ["Pricing", { icon: <PaidOutlined />, href: URI.PRICING }],
-      [
-        "Instructions",
-        { icon: <IntegrationInstructionsOutlined />, href: URI.INSTRUCTIONS },
-      ],
+      ["Instructions", { icon: <IntegrationInstructionsOutlined />, href: URI.INSTRUCTIONS }],
+      ["System Instructions", { icon: <IntegrationInstructionsOutlined />, href:URI.SYSTEM_INSTRUCTIONS }],
     ])
   );
 
