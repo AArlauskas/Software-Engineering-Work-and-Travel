@@ -3,7 +3,9 @@ package wt.backend.utils;
 import com.stripe.Stripe;
 import com.stripe.model.Charge;
 import com.stripe.model.Customer;
+import com.stripe.model.WebhookEndpoint;
 import com.stripe.model.checkout.Session;
+import com.stripe.param.WebhookEndpointCreateParams;
 import com.stripe.param.checkout.SessionCreateParams;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -11,6 +13,7 @@ import com.stripe.exception.StripeException;
 import com.stripe.model.checkout.Session;
 import com.stripe.param.checkout.SessionCreateParams;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 

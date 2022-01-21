@@ -4,8 +4,11 @@ import com.stripe.exception.StripeException;
 import com.stripe.model.Event;
 import com.stripe.model.EventDataObjectDeserializer;
 import com.stripe.model.StripeObject;
+import com.stripe.model.WebhookEndpoint;
 import com.stripe.model.checkout.Session;
 import com.stripe.net.ApiResource;
+import com.stripe.net.Webhook;
+import com.stripe.param.WebhookEndpointCreateParams;
 import com.stripe.param.checkout.SessionCreateParams;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpRequest;
@@ -21,6 +24,7 @@ import wt.backend.utils.StripeClient;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.stream.Collectors;
 
 @RestController
@@ -52,31 +56,26 @@ public class PaymentsController {
 
     @PostMapping("webhook")
     public ResponseEntity<?> webhook(HttpServletRequest request) {
-        try
-        {
+        try {
             String payload = request.getReader().lines().collect(Collectors.joining(System.lineSeparator()));
             Event event = ApiResource.GSON.fromJson(payload, Event.class);
 
             EventDataObjectDeserializer dataObjectDeserializer = event.getDataObjectDeserializer();
             StripeObject stripeObject = null;
-            if(dataObjectDeserializer.getObject().isEmpty())
-            {
+            if (dataObjectDeserializer.getObject().isEmpty()) {
                 return ResponseEntity.badRequest().body("Failed to deserialize");
             }
             stripeObject = dataObjectDeserializer.getObject().get();
 
-            if(event.getType().equals("checkout.session.completed"))
-            {
-                Session session = (Session)stripeObject;
+            if (event.getType().equals("checkout.session.completed")) {
+                Session session = (Session) stripeObject;
                 Long userId = Long.parseLong(session.getMetadata().get("userId"));
                 usersService.upgradeUser(userId);
                 System.out.println("Upgraded user with id of " + userId);
             }
 
             return ResponseEntity.ok().build();
-        }
-        catch (Exception e)
-        {
+        } catch (Exception e) {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
     }
