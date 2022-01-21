@@ -53,6 +53,7 @@ const TopBar = () => {
     new Map([
       ["Tasks", { icon: <TaskOutlined />, href: URI.TASKS }],
       ["See Plans", { icon: <SearchOutlined />, href: URI.PRICING }],
+      ["System Instructions", { icon: <IntegrationInstructionsOutlined />, href:URI.SYSTEM_INSTRUCTIONS }],
     ])
   );
 
@@ -60,6 +61,7 @@ const TopBar = () => {
     new Map([
       ["Tasks", { icon: <TaskOutlined />, href: URI.TASKS }],
       ["Lookup", { icon: <SearchOutlined />, href: URI.LOOKUP }],
+      ["System Instructions", { icon: <IntegrationInstructionsOutlined />, href:URI.SYSTEM_INSTRUCTIONS }],
     ])
   );
 

@@ -56,6 +56,7 @@ const getBasicRoutes = () => {
   return (
     <Routes>
       <Route path={URI.TASKS} element={<TasksPage />} />
+      <Route path={URI.SYSTEM_INSTRUCTIONS} element={<SystemInstructionsPage />} />
       <Route path={URI.PRICING} element={<PricingPage isLoggedIn={true}/>} />
       <Route path={URI.PAYMENT_FAIL} element={<PaymentFailPage/>}/>
       <Route path={URI.PAYMENT_SUCCESS} element={<PaymentSuccessPage/>}/>
@@ -71,6 +72,7 @@ const getProRoutes = () => {
     <Routes>
       <Route path={URI.TASKS} element={<TasksPage />} />
       <Route path={URI.LOOKUP} element={<LookupPage />} />
+      <Route path={URI.SYSTEM_INSTRUCTIONS} element={<SystemInstructionsPage />} />
       <Route path={URI.CREATE_TASK} element={<TasksManagerPage isCreating={true}/>}/>
       <Route path={URI.UPDATE_TASK} element={<TasksManagerPage isCreating={false}/>}/>
       <Route path="*" element={<Navigate to={URI.TASKS}/>}/>
