@@ -31,6 +31,27 @@ public class MailsService {
         messageParameters.setTo(email);
         messageParameters.setHeader("Test email for validating provided credentials");
         messageParameters.setBody("<h1>Testing email sender</h1>");
+        return executeEmailing(session, messageParameters);
+    }
+
+    public boolean sendEmail(String email, String password, String header, String body)
+    {
+        return sendEmail(email,password,header,body,email);
+    }
+
+    public boolean sendEmail(String email, String password, String header, String body, String receiver)
+    {
+        var session = getMailSession(email, password);
+        var messageParameters = new MessageParameters();
+        messageParameters.setFrom(email);
+        messageParameters.setTo(receiver);
+        messageParameters.setHeader(header);
+        messageParameters.setBody(body);
+
+        return executeEmailing(session, messageParameters);
+    }
+
+    private boolean executeEmailing(Session session, MessageParameters messageParameters) {
         try
         {
             var message = getMailMessage(session, messageParameters);

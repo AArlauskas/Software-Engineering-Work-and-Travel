@@ -22,3 +22,6 @@ export const getTaskById = (id) => api.get("/tasks", { params: { id } });
 
 export const checkout = () =>
   api.get("/payments/checkout", { params: { token: STRIPE_PUBLIC_KEY } });
+
+export const sendEmailTestTemplate = (data) =>
+  api.post("/mailer/test-template", data);
