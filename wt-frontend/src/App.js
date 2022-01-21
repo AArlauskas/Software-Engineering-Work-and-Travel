@@ -15,7 +15,7 @@ import UserRoles from "./constants/UserRoles";
 import PaymentSuccessPage from "./containers/PaymentSuccessPage/PaymentSuccessPage";
 import TasksPage from "./containers/TasksPage/TasksPage";
 import TasksManagerPage from "./containers/TasksManagerPage/TasksManagerPage";
-import InstructionsPage from "./containers/InstructionsPage/InstructionPage";
+import InstructionsPage from "./containers/InstructionsPage/InstructionsPage";
 import SystemInstructionsPage from "./containers/SystemInstructionsPage/SystemInstructionsPage";
 
 function App() {

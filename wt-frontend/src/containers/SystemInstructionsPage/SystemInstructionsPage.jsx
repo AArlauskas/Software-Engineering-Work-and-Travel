@@ -35,17 +35,13 @@ const SystemInstructionsPage = () => {
             <Grid item xs={12} md={4} alignItems="center">
                 <Typography variant="h6">Companies selection</Typography>
                 <ul>
-                    <li>In Companies selection page you can see the list of all comanies</li>
-                    <li>You can select </li>
-                    <li>Beyond you have field for writing the body of your mail </li>
-                    <li>You can decide if you want first to send your email to yourself first by pressing TEST EMAIL button </li>
-                    <li></li>
+                    <li>In Companies selection page you can see the list of all companies</li>
+                    <li>You can search through all the informations that you can see in the table</li>
+                    <li>You can select companies that you want to send the mail </li>
                 </ul>
             </Grid>
             <Grid item xs={4} />
         </Grid>
-
-
     );
 };
 
