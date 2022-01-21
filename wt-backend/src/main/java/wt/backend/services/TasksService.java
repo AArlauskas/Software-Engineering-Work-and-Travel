@@ -3,6 +3,7 @@ package wt.backend.services;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import wt.backend.dtos.TaskDto;
+import wt.backend.enums.TaskStatus;
 import wt.backend.models.Task;
 import wt.backend.models.User;
 import wt.backend.repositories.TasksRepository;
@@ -40,5 +41,14 @@ public class TasksService {
     {
         var task = tasksRepository.findById(id);
         return task.orElse(null);
+    }
+
+    public boolean deleteTask(Long id)
+    {
+        var task = tasksRepository.findById(id);
+        if(task.isEmpty()) return false;
+        if(!task.get().getStatus().equals(TaskStatus.CREATED.toString())) return false;
+        tasksRepository.deleteById(id);
+        return true;
     }
 }

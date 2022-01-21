@@ -1,7 +1,7 @@
 import MaterialTable from "@material-table/core";
 import { useNavigate } from "react-router";
 
-const TasksTable = ({ tasks }) => {
+const TasksTable = ({ tasks, onTaskDelete }) => {
   const navigation = useNavigate();
 
   const onRowClick = (event, rowData) => {
@@ -11,6 +11,7 @@ const TasksTable = ({ tasks }) => {
     }
     console.log(rowData);
   };
+
   const columns = [
     {
       field: "header",
@@ -39,6 +40,16 @@ const TasksTable = ({ tasks }) => {
         search: false,
         actionsColumnIndex: -1,
         pageSize: 5,
+      }}
+      editable={{
+        isDeletable: (rowData) => rowData.status === "CREATED",
+        onRowDelete: (oldData) =>
+          new Promise((resolve, reject) => {
+            setTimeout(() => {
+              onTaskDelete(oldData.id);
+              resolve();
+            }, 1000);
+          }),
       }}
       onRowClick={onRowClick}
     />

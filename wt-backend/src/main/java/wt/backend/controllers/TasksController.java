@@ -1,5 +1,6 @@
 package wt.backend.controllers;
 
+import org.apache.tomcat.util.http.parser.Authorization;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -55,5 +56,16 @@ public class TasksController {
         Task task = tasksService.getTaskById(id);
         if(task == null) return ResponseEntity.notFound().build();
         return ResponseEntity.ok(new TaskDto(task));
+    }
+
+    @DeleteMapping()
+    @PreAuthorize("hasAnyRole('ADMIN','BASIC','PRO')")
+    public ResponseEntity<?> deleteTask(@RequestParam() Long id)
+    {
+        if(tasksService.deleteTask(id))
+        {
+            return ResponseEntity.ok().build();
+        }
+        return ResponseEntity.badRequest().build();
     }
 }
