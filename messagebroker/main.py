@@ -54,6 +54,6 @@ def timer():
                 print("company changed!")
                 addCompanyToQueue(result[0])
                 updateCompany(result[0])
-        time.sleep(1800)
+        time.sleep(5400)
 
 main()

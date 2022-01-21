@@ -1,4 +1,5 @@
 import googlemaps
+import random
 
 gmaps = googlemaps.Client(key='AIzaSyB7be1Qig9Ai4E5fILUFsD6Ua5M4-o77F8')
 
@@ -11,17 +12,23 @@ def place_id(company):
     except:
         return None
 
-def generateRating(place):
-    return place['rating']
+def generateRating():
+    return round(random.uniform(1.0,5.0),1)
     
-def updateRating(place):
-    return generateRating(place)
+def updateRating():
+    goal = 50
+    if random.randint(1,100) == goal:
+        return generateRating()
+    return None
 
-def generatePricing(place):
-    return place['price_level']
+def generatePricing():
+    return random.randint(1,3)
 
-def updatePricing(place):
-    return generatePricing(place)
+def updatePricing():
+    goal = 23
+    if random.randint(1,100) == goal:
+        return generatePricing()
+    return None
 
 def generateWorkType(place):
     workTypeArray = place['types']
@@ -47,8 +54,8 @@ def updateInformation(company):
         place_maps_id = id
         company["mapsId"] = place_maps_id
     place = gmaps.place(place_id = place_maps_id)
-    new_rating = place.get("rating")
-    new_pricing = place.get("price_level")
+    new_rating = updateRating()
+    new_pricing = updatePricing()
     new_workType = place.get("types")
     print("name: {} rating: {} pricing: {} workType: {} newRating: {} newPricing: {} newWorkType {}".format(place_name, company["rating"], company["pricing"], company["workType"], new_rating,new_pricing, new_workType))
     if new_rating != None:
@@ -77,9 +84,9 @@ def generateInitialInformation(company):
     place = gmaps.place(place_id = place_maps_id, fields=["rating", "price_level", "type"])["result"]
     print(place)
     if place.get("rating") != None:
-        company["rating"] = generateRating(place)
+        company["rating"] = generateRating()
     if place.get("price_level") != None:
-        company["pricing"] = generatePricing(place)
+        company["pricing"] = generatePricing()
     if place.get("types") != None:
         company["workType"] = generateWorkType(place)
     return company
