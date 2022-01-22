@@ -7,8 +7,10 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 import wt.backend.dtos.TaskDto;
+import wt.backend.enums.LogType;
 import wt.backend.models.Task;
 import wt.backend.models.User;
+import wt.backend.services.LogsService;
 import wt.backend.services.TasksService;
 import wt.backend.services.UsersService;
 
@@ -25,6 +27,9 @@ public class TasksController {
     @Autowired
     private UsersService usersService;
 
+    @Autowired
+    private LogsService logsService;
+
     @GetMapping("personal")
     @PreAuthorize("hasAnyRole('ADMIN','BASIC','PRO')")
     public ResponseEntity<?> getPersonalTasks(Authentication authentication)
@@ -34,6 +39,9 @@ public class TasksController {
 
         var tasks = user.getTasks();
         List<TaskDto> response = tasks.stream().map(TaskDto::new).collect(Collectors.toList());
+
+        logsService.log(LogType.PERSONAL_TASKS, "User with id " + user.getId() + " see his created tasks");
+
         return ResponseEntity.ok(response);
     }
 
@@ -45,6 +53,9 @@ public class TasksController {
         if(user == null) return ResponseEntity.notFound().build();
 
         var createdTask = tasksService.createTask(taskDto, user);
+
+        logsService.log(LogType.CREATE_TASK, "User with id " + user.getId() + " created new task");
+
         return ResponseEntity.ok(new TaskDto(createdTask));
     }
 
@@ -54,6 +65,9 @@ public class TasksController {
     {
         Task task = tasksService.getTaskById(id);
         if(task == null) return ResponseEntity.notFound().build();
+
+        logsService.log(LogType.TASK_GET, "Task with id  " + task.getId() + " was selected");
+
         return ResponseEntity.ok(new TaskDto(task));
     }
 

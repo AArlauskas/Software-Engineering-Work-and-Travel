@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.*;
 import wt.backend.dtos.EmailTemplateTestRequest;
 import wt.backend.dtos.TestEmailRequest;
 import wt.backend.models.User;
+import wt.backend.enums.LogType;
+import wt.backend.services.LogsService;
 import wt.backend.services.MailsService;
 import wt.backend.services.UsersService;
 
@@ -20,12 +22,8 @@ public class MailerController {
     @Autowired
     private MailsService mailsService;
 
-    @Autowired
-    private UsersService usersService;
-
     @PostMapping("test")
-    @PreAuthorize("hasAnyRole('ADMIN','BASIC','PRO')")
-    public ResponseEntity<?> testMail(@RequestBody TestEmailRequest request)
+    public ResponseEntity<?> tesMail(@RequestBody TestEmailRequest request)
     {
         if(request.getMail().isBlank() || !request.getMail().contains("@gmail.com"))
         {
@@ -39,7 +37,11 @@ public class MailerController {
         {
             return ResponseEntity.ok().build();
         }
+
+        logsService.log(LogType.EMAIL_SEND_FAILURE, "Self Email failed to send because of wrong credentials");
+
         return ResponseEntity.badRequest().body("Failed to send a test email. Check credentials");
+
     }
 
     @PostMapping("/test-template")
