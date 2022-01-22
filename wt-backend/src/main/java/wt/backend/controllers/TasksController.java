@@ -1,6 +1,5 @@
 package wt.backend.controllers;
 
-import org.apache.tomcat.util.http.parser.Authorization;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -55,6 +54,21 @@ public class TasksController {
     {
         Task task = tasksService.getTaskById(id);
         if(task == null) return ResponseEntity.notFound().build();
+        return ResponseEntity.ok(new TaskDto(task));
+    }
+
+    @GetMapping("current")
+    @PreAuthorize("hasAnyRole('ADMIN','BASIC','PRO')")
+    public ResponseEntity<?> getCurrentRunningTask(Authentication authentication)
+    {
+        User user = usersService.getAuthUser((UserDetails) authentication.getPrincipal());
+        if(user == null) return ResponseEntity.notFound().build();
+
+        Task task = tasksService.findRunningTask(user);
+        if(task == null)
+        {
+            return ResponseEntity.notFound().build();
+        }
         return ResponseEntity.ok(new TaskDto(task));
     }
 

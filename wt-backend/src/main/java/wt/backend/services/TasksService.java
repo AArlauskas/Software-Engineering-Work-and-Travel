@@ -65,4 +65,11 @@ public class TasksService {
         tasksRepository.deleteById(id);
         return true;
     }
+
+    public Task findRunningTask(User user)
+    {
+        return user.getTasks().stream()
+                .filter(el -> el.getStatus().equals(TaskStatus.PROGRESS.toString()))
+                .findFirst().orElse(null);
+    }
 }

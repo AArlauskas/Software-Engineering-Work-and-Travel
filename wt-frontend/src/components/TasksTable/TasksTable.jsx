@@ -65,6 +65,7 @@ const TasksTable = ({ tasks, onTaskDelete }) => {
         {
           icon: NotStartedIcon,
           tooltip: "Start sending emails",
+          disabled: (rowData) => rowData.status !== "CREATED",
           onClick: (event, rowData) => onStartClick(rowData.id),
         },
       ]}
