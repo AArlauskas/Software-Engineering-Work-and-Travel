@@ -1,7 +1,7 @@
 import json
 import pika
 
-host="localhost"
+host="rabbitmq"
 
 def initConnection():
     global connection
@@ -15,4 +15,3 @@ def initConnection():
 def addCompanyToQueue(company):
     channel.basic_publish(exchange='logs', routing_key='', body=json.dumps(company))
     print(" [x] Sent %r" % json.dumps(company))
-    connection.close()
