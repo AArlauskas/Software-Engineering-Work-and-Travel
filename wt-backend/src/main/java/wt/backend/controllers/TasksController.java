@@ -58,6 +58,19 @@ public class TasksController {
         return ResponseEntity.ok(new TaskDto(task));
     }
 
+    @PostMapping("start")
+    @PreAuthorize("hasAnyRole('ADMIN','BASIC','PRO')")
+    public ResponseEntity<?> startEmailSending(Authentication authentication, @RequestParam() Long id)
+    {
+        User user = usersService.getAuthUser((UserDetails) authentication.getPrincipal());
+        if(user == null) return ResponseEntity.notFound().build();
+        if(tasksService.startTask(id, user))
+        {
+            return ResponseEntity.ok().build();
+        }
+        return ResponseEntity.badRequest().body("Task failed to start");
+    }
+
     @DeleteMapping()
     @PreAuthorize("hasAnyRole('ADMIN','BASIC','PRO')")
     public ResponseEntity<?> deleteTask(@RequestParam() Long id)

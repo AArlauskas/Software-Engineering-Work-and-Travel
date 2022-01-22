@@ -1,5 +1,7 @@
 import MaterialTable from "@material-table/core";
+import NotStartedIcon from "@mui/icons-material/NotStarted";
 import { useNavigate } from "react-router";
+import { startTask } from "../../api/Api";
 
 const TasksTable = ({ tasks, onTaskDelete }) => {
   const navigation = useNavigate();
@@ -31,6 +33,14 @@ const TasksTable = ({ tasks, onTaskDelete }) => {
       title: "Status",
     },
   ];
+
+  const onStartClick = (id) => {
+    startTask(id)
+      .then(() => {
+        window.location.reload();
+      })
+      .catch(() => alert("Failed to start the task"));
+  };
   return (
     <MaterialTable
       columns={columns}
@@ -51,6 +61,13 @@ const TasksTable = ({ tasks, onTaskDelete }) => {
             }, 1000);
           }),
       }}
+      actions={[
+        {
+          icon: NotStartedIcon,
+          tooltip: "Start sending emails",
+          onClick: (event, rowData) => onStartClick(rowData.id),
+        },
+      ]}
       onRowClick={onRowClick}
     />
   );

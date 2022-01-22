@@ -1,5 +1,6 @@
 package wt.backend.services;
 
+import org.jobrunr.scheduling.JobScheduler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import wt.backend.dtos.TaskDto;
@@ -14,6 +15,12 @@ import java.util.List;
 public class TasksService {
     @Autowired
     private TasksRepository tasksRepository;
+    
+    @Autowired
+    private JobScheduler scheduler;
+
+    @Autowired
+    private JobsService jobsService;
 
     @Autowired
     private CompaniesService companiesService;
@@ -35,6 +42,13 @@ public class TasksService {
             return tasksRepository.save(task);
         }
         return tasksRepository.save(new Task(taskDto, user, companies));
+    }
+
+    public boolean startTask(Long taskId, User user)
+    {
+        if(!tasksRepository.existsById(taskId)) return false;
+        scheduler.enqueue(() -> jobsService.taskRunner(user.getId(), taskId));
+        return true;
     }
 
     public Task getTaskById(Long id)

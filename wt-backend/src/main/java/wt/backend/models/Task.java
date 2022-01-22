@@ -45,7 +45,8 @@ public class Task {
     @Setter
     private User user;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER,
+            cascade = CascadeType.REMOVE)
     @Getter
     @Setter
     @JoinTable(name = "task_company",
