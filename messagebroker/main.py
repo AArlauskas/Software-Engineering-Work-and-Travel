@@ -2,10 +2,10 @@ from dbcompanies import isEmpty, addCompany, getAllCompanies, updateCompany
 from googleplaces import generateInitialInformation, updateInformation
 import json
 import time
+from publisher import addCompanyToQueue, initConnection
 
-
-from publisher import addCompanyToQueue
 def main():
+    initConnection()
     initDb()
     print("Database initialised. Waiting for 60s")
     time.sleep(60)
@@ -24,6 +24,8 @@ def initDb():
             data = json.load(f)
             for item in data:
                 companyEntry = data[item]
+                if companyEntry["mail"] == "":
+                    return
                 company = {
                     "id": item,
                     "name": companyEntry["name"],
@@ -45,6 +47,8 @@ def timer():
         print("Company fetch in progress")
         for company in companies:
             try:
+                if company["mail"] == "":
+                    continue
                 result = updateInformation(company)
             except:
                 result = company

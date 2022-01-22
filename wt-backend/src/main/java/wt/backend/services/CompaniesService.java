@@ -26,6 +26,10 @@ public class CompaniesService {
 
     public Company saveOrUpdateCompany(Company company)
     {
+        if(company.getMail() == null || company.getMail().isBlank())
+        {
+            return company;
+        }
         return companiesRepository.save(company);
     }
 
