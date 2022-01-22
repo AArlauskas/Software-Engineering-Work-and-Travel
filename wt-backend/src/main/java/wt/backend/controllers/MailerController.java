@@ -22,6 +22,12 @@ public class MailerController {
     @Autowired
     private MailsService mailsService;
 
+    @Autowired
+    private LogsService logsService;
+
+    @Autowired
+    private UsersService usersService;
+
     @PostMapping("test")
     public ResponseEntity<?> tesMail(@RequestBody TestEmailRequest request)
     {
