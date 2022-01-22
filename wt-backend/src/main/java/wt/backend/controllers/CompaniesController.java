@@ -65,7 +65,7 @@ public class CompaniesController {
         List<BasicCompanyDto> result = companiesService.findUserCompanies(user)
                 .stream().map(BasicCompanyDto::new).collect(Collectors.toList());
 
-        logsService.log(LogType.DATA_GET, "user with id of " + user.getId() + "fetched the used companies");
+        logsService.log(LogType.DATA_GET, "User with id of " + user.getId() + "fetched the used companies");
 
         return ResponseEntity.ok(result);
     }

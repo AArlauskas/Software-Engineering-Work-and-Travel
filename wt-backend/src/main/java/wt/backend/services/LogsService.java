@@ -6,6 +6,8 @@ import wt.backend.enums.LogType;
 import wt.backend.models.Log;
 import wt.backend.repositories.LogsRepository;
 
+import java.util.List;
+
 @Service
 public class LogsService {
     @Autowired
@@ -14,5 +16,10 @@ public class LogsService {
     public void log(LogType type, String message)
     {
         logsRepository.save(new Log(type.toString(), message));
+    }
+
+    public List<Log> getAllLogs()
+    {
+        return logsRepository.findAll();
     }
 }
