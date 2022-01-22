@@ -5,7 +5,9 @@ import time
 from publisher import addCompanyToQueue, initConnection
 
 def main():
+    comp = {}
     initConnection()
+    addCompanyToQueue(comp)
     initDb()
     print("Database initialised. Waiting for 60s")
     time.sleep(60)

@@ -1,11 +1,11 @@
 import json
 import pika
 
-host="rabbitmq"
-connection = None
-channel = None
+host="localhost"
 
 def initConnection():
+    global connection
+    global channel
     connection = pika.BlockingConnection(
         pika.ConnectionParameters(host=host))
     channel = connection.channel()
