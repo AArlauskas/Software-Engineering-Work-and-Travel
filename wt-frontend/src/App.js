@@ -15,7 +15,9 @@ import UserRoles from "./constants/UserRoles";
 import PaymentSuccessPage from "./containers/PaymentSuccessPage/PaymentSuccessPage";
 import TasksPage from "./containers/TasksPage/TasksPage";
 import TasksManagerPage from "./containers/TasksManagerPage/TasksManagerPage";
-import InstructionsPage from "./containers/InstructionsPage/InstructionPage";
+import InstructionsPage from "./containers/InstructionsPage/InstructionsPage";
+import SystemInstructionsPage from "./containers/SystemInstructionsPage/SystemInstructionsPage";
+import LogsPage from "./containers/LogsPage/LogsPage";
 
 function App() {
   return (
@@ -33,7 +35,8 @@ const getRoutes = () => {
   const role = window.localStorage.getItem("role");
   if(role === UserRoles.PUBLIC) return getPublicRoutes();
   if(role === UserRoles.BASIC) return getBasicRoutes();
-  if(role === UserRoles.PRO || role === UserRoles.ADMIN) return getProRoutes();
+  if(role === UserRoles.PRO) return getProRoutes();
+  if(role === UserRoles.ADMIN) return getAdminRoutes();
 }
 
 const getPublicRoutes = () => {
@@ -45,6 +48,7 @@ const getPublicRoutes = () => {
       <Route path={URI.PRICING} element={<PricingPage isLoggedIn={false}/>} />
       <Route path={URI.COMPANIES} element={<CompaniesPage />} />
       <Route path={URI.INSTRUCTIONS} element={<InstructionsPage />} />
+      <Route path={URI.SYSTEM_INSTRUCTIONS} element={<SystemInstructionsPage />} />
       <Route path="*" element={<Navigate to={URI.HOME}/>}/>
     </Routes>
   );
@@ -54,6 +58,7 @@ const getBasicRoutes = () => {
   return (
     <Routes>
       <Route path={URI.TASKS} element={<TasksPage />} />
+      <Route path={URI.SYSTEM_INSTRUCTIONS} element={<SystemInstructionsPage />} />
       <Route path={URI.PRICING} element={<PricingPage isLoggedIn={true}/>} />
       <Route path={URI.PAYMENT_FAIL} element={<PaymentFailPage/>}/>
       <Route path={URI.PAYMENT_SUCCESS} element={<PaymentSuccessPage/>}/>
@@ -69,11 +74,23 @@ const getProRoutes = () => {
     <Routes>
       <Route path={URI.TASKS} element={<TasksPage />} />
       <Route path={URI.LOOKUP} element={<LookupPage />} />
+      <Route path={URI.SYSTEM_INSTRUCTIONS} element={<SystemInstructionsPage />} />
       <Route path={URI.CREATE_TASK} element={<TasksManagerPage isCreating={true}/>}/>
       <Route path={URI.UPDATE_TASK} element={<TasksManagerPage isCreating={false}/>}/>
       <Route path="*" element={<Navigate to={URI.TASKS}/>}/>
     </Routes>
   );
 };
+
+const getAdminRoutes = () => {
+  return <Routes>
+          <Route path={URI.TASKS} element={<TasksPage />} />
+      <Route path={URI.LOOKUP} element={<LookupPage />} />
+      <Route path={URI.CREATE_TASK} element={<TasksManagerPage isCreating={true}/>}/>
+      <Route path={URI.UPDATE_TASK} element={<TasksManagerPage isCreating={false}/>}/>
+      <Route path={URI.LOGS} element={<LogsPage/>}/>
+      <Route path="*" element={<Navigate to={URI.TASKS}/>}/>
+  </Routes>
+}
 
 export default App;

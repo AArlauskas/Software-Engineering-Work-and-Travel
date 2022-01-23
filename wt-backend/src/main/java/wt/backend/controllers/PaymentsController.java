@@ -21,9 +21,11 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
+import wt.backend.enums.LogType;
 import wt.backend.enums.UserRoles;
 import wt.backend.models.Company;
 import wt.backend.models.User;
+import wt.backend.services.LogsService;
 import wt.backend.services.UsersService;
 import wt.backend.utils.StripeClient;
 
@@ -41,6 +43,9 @@ public class PaymentsController {
 
     @Autowired
     private UsersService usersService;
+
+    @Autowired
+    private LogsService logsService;
 
     @Operation(summary = "Generate a URL to open the payment page")
     @ApiResponses(value = {
@@ -60,6 +65,9 @@ public class PaymentsController {
             if(user == null) return ResponseEntity.notFound().build();
             if(!user.getRole().equals(UserRoles.BASIC.toString())) return ResponseEntity.badRequest().body("Only BASIC users can purchase");
             Session session = stripeClient.getPaymentSession(user.getId());
+
+            logsService.log(LogType.PAYMENT_GET, "User with id " + user.getId() + "made a payment");
+
             return ResponseEntity.ok(session.getUrl());
         }
         catch (StripeException e)
@@ -95,6 +103,8 @@ public class PaymentsController {
                 Long userId = Long.parseLong(session.getMetadata().get("userId"));
                 usersService.upgradeUser(userId);
                 System.out.println("Upgraded user with id of " + userId);
+
+                logsService.log(LogType.UPGRADE_PROFILE, "User with id " + userId + "upgraded his profile");
             }
 
             return ResponseEntity.ok().build();

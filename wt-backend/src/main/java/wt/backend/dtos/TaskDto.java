@@ -37,7 +37,11 @@ public class TaskDto {
 
     @Getter
     @Setter
-    private int emailCount;
+    private int sentEmailsCount;
+
+    @Getter
+    @Setter
+    private int isStarted;
 
     @Getter
     @Setter
@@ -53,13 +57,13 @@ public class TaskDto {
         this.companies = task.getCompanies().stream()
                 .map(Company::getId)
                 .collect(Collectors.toList());
-        emailCount = 0;
+        sentEmailsCount = task.getSentEmailsCount();
     }
 
     public TaskDto()
     {
         status = TaskStatus.CREATED.toString();
         companies = new ArrayList<>();
-        emailCount = 0;
+        sentEmailsCount = 0;
     }
 }
