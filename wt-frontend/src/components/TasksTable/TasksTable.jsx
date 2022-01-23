@@ -1,7 +1,9 @@
 import MaterialTable from "@material-table/core";
+import NotStartedIcon from "@mui/icons-material/NotStarted";
 import { useNavigate } from "react-router";
+import { startTask } from "../../api/Api";
 
-const TasksTable = ({ tasks }) => {
+const TasksTable = ({ tasks, onTaskDelete }) => {
   const navigation = useNavigate();
 
   const onRowClick = (event, rowData) => {
@@ -11,6 +13,7 @@ const TasksTable = ({ tasks }) => {
     }
     console.log(rowData);
   };
+
   const columns = [
     {
       field: "header",
@@ -18,14 +21,26 @@ const TasksTable = ({ tasks }) => {
     },
     {
       field: "companies",
-      title: "Emails count",
+      title: "Companies selected",
       render: (rowData) => rowData.companies.length,
+    },
+    {
+      field: "sentEmailsCount",
+      title: "Emails sent",
     },
     {
       field: "status",
       title: "Status",
     },
   ];
+
+  const onStartClick = (id) => {
+    startTask(id)
+      .then(() => {
+        window.location.reload();
+      })
+      .catch(() => alert("Failed to start the task"));
+  };
   return (
     <MaterialTable
       columns={columns}
@@ -36,6 +51,24 @@ const TasksTable = ({ tasks }) => {
         actionsColumnIndex: -1,
         pageSize: 5,
       }}
+      editable={{
+        isDeletable: (rowData) => rowData.status === "CREATED",
+        onRowDelete: (oldData) =>
+          new Promise((resolve, reject) => {
+            setTimeout(() => {
+              onTaskDelete(oldData.id);
+              resolve();
+            }, 1000);
+          }),
+      }}
+      actions={[
+        {
+          icon: NotStartedIcon,
+          tooltip: "Start sending emails",
+          disabled: (rowData) => rowData.status !== "CREATED",
+          onClick: (event, rowData) => onStartClick(rowData.id),
+        },
+      ]}
       onRowClick={onRowClick}
     />
   );
