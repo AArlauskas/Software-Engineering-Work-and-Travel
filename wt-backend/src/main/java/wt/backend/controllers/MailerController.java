@@ -15,7 +15,7 @@ import wt.backend.services.MailsService;
 import wt.backend.services.UsersService;
 
 @RestController
-@CrossOrigin
+@CrossOrigin("*")
 @RequestMapping("api/mailer")
 public class MailerController {
 

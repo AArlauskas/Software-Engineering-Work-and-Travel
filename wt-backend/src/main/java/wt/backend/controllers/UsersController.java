@@ -21,7 +21,7 @@ import wt.backend.services.LogsService;
 import wt.backend.services.UsersService;
 
 @RestController
-@CrossOrigin
+@CrossOrigin("*")
 @RequestMapping("/api/users")
 public class UsersController {
     @Autowired
