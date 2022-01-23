@@ -66,3 +66,12 @@ services:
         condition: service_started
       messagebroker:
         condition: service_started
+
+  stripe-cli:
+    image: stripe/stripe-cli
+    container_name: stripe-cli
+    command: listen --api-key ${STRIPE_SECRET_KEY} \--device-name ${STRIPE_DEVICE_NAME} \--forward-to wt-backend:8080/api/payments/webhook
+    depends_on:
+      wt-backend:
+        condition: service_started
+    

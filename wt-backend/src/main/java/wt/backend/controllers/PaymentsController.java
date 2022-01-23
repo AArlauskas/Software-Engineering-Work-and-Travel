@@ -62,6 +62,7 @@ public class PaymentsController {
     public ResponseEntity<?> webhook(HttpServletRequest request) {
         try
         {
+            System.out.println("Webhook has been called");
             String payload = request.getReader().lines().collect(Collectors.joining(System.lineSeparator()));
             Event event = ApiResource.GSON.fromJson(payload, Event.class);
 
@@ -81,6 +82,7 @@ public class PaymentsController {
                 System.out.println("Upgraded user with id of " + userId);
 
                 logsService.log(LogType.UPGRADE_PROFILE, "User with id " + userId + "upgraded his profile");
+                System.out.println("User has been elevated");
             }
 
             return ResponseEntity.ok().build();
