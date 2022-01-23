@@ -17,8 +17,7 @@ import java.util.Map;
 @Component
 public class StripeClient {
     @Autowired
-    StripeClient()
-    {
+    StripeClient() {
         Stripe.apiKey = "sk_test_51IGqrgLWKlSQ5z9ePt64Q4HrHwbK58SHUIGQtKkd3a5quLGBoxMjDwFjy1BGdVLepFoTALsDauXS2gKtB06OgaDv00dKAB44m1";
     }
 
@@ -34,8 +33,8 @@ public class StripeClient {
                         .setAmount(1500L)
                         .setCurrency("EUR")
                         .build())
-                .setSuccessUrl("http://localhost:3000/payment-success")
-                .setCancelUrl("http://localhost:3000/payment-fail")
+                .setSuccessUrl("http://deti-engsoft-09/payment-success")
+                .setCancelUrl("http://deti-engsoft-09/payment-fail")
                 .build();
         return Session.create(sessionParams);
     }

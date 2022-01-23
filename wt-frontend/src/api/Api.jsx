@@ -3,7 +3,7 @@ import axios from "axios";
 const STRIPE_PUBLIC_KEY =
   "pk_test_51IGqrgLWKlSQ5z9eD9TXNONdwhmX7RIiGafQG5x4QMesA5vmCWhoZG1pzVEWaJN9PAXVd3UIlMmOJiRtiGfjsbXN00IlJ3Nl8w";
 const api = axios.create({
-  baseURL: "http://localhost:8080/api",
+  baseURL: "http://deti-engsoft-09:8080/api",
   headers: {
     "Content-Type": "application/json",
     Authorization: `Bearer ${window.localStorage.getItem("token")}`,
