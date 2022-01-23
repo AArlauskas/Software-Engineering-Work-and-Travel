@@ -81,7 +81,7 @@ public class TasksController {
         Task task = tasksService.findRunningTask(user);
         if(task == null)
         {
-            return ResponseEntity.notFound().build();
+            return ResponseEntity.ok(null);
         }
         return ResponseEntity.ok(new TaskDto(task));
     }
