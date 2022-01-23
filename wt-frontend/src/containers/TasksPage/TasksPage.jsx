@@ -25,7 +25,6 @@ const TasksPage = () => {
   const fetchCurrentTask = () => {
     getCurrentTask()
       .then((response) => {
-        console.log(response.data);
         setCurrentTask(response.data);
       })
       .catch(() => setCurrentTask(null));

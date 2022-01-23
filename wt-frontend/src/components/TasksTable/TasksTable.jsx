@@ -62,12 +62,12 @@ const TasksTable = ({ tasks, onTaskDelete }) => {
           }),
       }}
       actions={[
-        {
+        (rowData) => ({
           icon: NotStartedIcon,
           tooltip: "Start sending emails",
-          disabled: (rowData) => rowData.status !== "CREATED",
+          disabled: rowData.status !== "CREATED",
           onClick: (event, rowData) => onStartClick(rowData.id),
-        },
+        }),
       ]}
       onRowClick={onRowClick}
     />
