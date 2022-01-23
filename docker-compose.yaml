@@ -1,4 +1,4 @@
-version: "3.8"
+version: "2.1"
 
 services:
   wt-frontend:
@@ -40,19 +40,19 @@ services:
       test: rabbitmq-diagnostics -q status
       interval: 30s
       timeout: 10s
-      start_period: 30s
+      # start_period: 30s
       retries: 5
 
-  # messagebroker:
-  #   container_name: messagebroker
-  #   build:
-  #     context: ./messagebroker
-  #   restart: on-failure
-  #   depends_on:
-  #     rabbitmq:
-  #       condition: service_healthy
-  #   volumes:
-  #     - /usr/src/app/messagebroker
+  messagebroker:
+    container_name: messagebroker
+    build:
+      context: ./messagebroker
+    restart: on-failure
+    depends_on:
+      rabbitmq:
+        condition: service_healthy
+    volumes:
+      - /usr/src/app/messagebroker
 
   wt-backend:
     container_name: wt-backend
@@ -62,5 +62,7 @@ services:
       - 8080:8080
     # restart: on-failure
     depends_on:
-      - wt-database
-      # - messagebroker
+      wt-database:
+        condition: service_started
+      messagebroker:
+        condition: service_started
