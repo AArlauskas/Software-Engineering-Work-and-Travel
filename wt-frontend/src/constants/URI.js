@@ -11,7 +11,8 @@ const URI = {
     UPDATE_TASK: "/update-task/:id",
     LOOKUP: "/lookup",
     PAYMENT_FAIL: "/payment-fail",
-    PAYMENT_SUCCESS: "/payment-success"
+    PAYMENT_SUCCESS: "/payment-success",
+    LOGS: "/logs"
 }
 
 export default URI;
