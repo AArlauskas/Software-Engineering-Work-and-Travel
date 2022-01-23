@@ -11,7 +11,6 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@NoArgsConstructor
 @AllArgsConstructor
 public class Task {
     @Id
@@ -32,13 +31,22 @@ public class Task {
     @Setter
     private String body;
 
+    @Getter
+    @Setter
+    private int sentEmailsCount;
+
+    @Getter
+    @Setter
+    private boolean isStarted;
+
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
     @Getter
     @Setter
     private User user;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER,
+            cascade = CascadeType.REMOVE)
     @Getter
     @Setter
     @JoinTable(name = "task_company",
@@ -53,5 +61,12 @@ public class Task {
         this.status = taskDto.getStatus();
         this.user = user;
         this.companies = companies;
+        this.isStarted = false;
+    }
+
+    public Task()
+    {
+        sentEmailsCount = 0;
+        isStarted = false;
     }
 }

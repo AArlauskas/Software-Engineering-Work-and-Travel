@@ -20,5 +20,15 @@ export const createTask = (data) => api.post("/tasks", data);
 
 export const getTaskById = (id) => api.get("/tasks", { params: { id } });
 
+export const deleteTask = (id) => api.delete("/tasks", { params: { id } });
+
+export const startTask = (id) =>
+  api.post("/tasks/start", null, { params: { id } });
+
+export const getCurrentTask = () => api.get("/tasks/current");
+
 export const checkout = () =>
   api.get("/payments/checkout", { params: { token: STRIPE_PUBLIC_KEY } });
+
+export const sendEmailTestTemplate = (data) =>
+  api.post("/mailer/test-template", data);
