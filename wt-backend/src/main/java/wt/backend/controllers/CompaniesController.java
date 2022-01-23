@@ -1,5 +1,12 @@
 package wt.backend.controllers;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
@@ -20,6 +27,7 @@ import wt.backend.services.UsersService;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Tag(name = "Companies")
 @RestController
 @CrossOrigin
 @RequestMapping("/api/companies")
@@ -30,9 +38,16 @@ public class CompaniesController {
     @Autowired
     private UsersService usersService;
 
+    @Operation(summary = "Get all companies")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Success",
+                    content = { @Content(mediaType = "application/json",
+                            schema = @Schema(implementation = Company.class)) }),
+            @ApiResponse(responseCode = "404", description = "User not found", content = @Content) })
     @GetMapping()
     @PreAuthorize("hasAnyRole('BASIC','ADMIN','PRO')")
-    public ResponseEntity<?> getAllCompanies(Authentication authentication)
+    public ResponseEntity<?> getAllCompanies(
+            @Parameter(description="User authentication") @RequestParam Authentication authentication)
     {
         User user = usersService.getAuthUser((UserDetails) authentication.getPrincipal());
         if(user == null) return ResponseEntity.notFound().build();
@@ -48,9 +63,16 @@ public class CompaniesController {
         return ResponseEntity.ok(companiesService.getAllCompanies());
     }
 
+    @Operation(summary = "Get companies to which a mail has already been sent")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Success",
+                    content = { @Content(mediaType = "application/json",
+                            schema = @Schema(implementation = Company.class)) }),
+            @ApiResponse(responseCode = "404", description = "User not found", content = @Content) })
     @GetMapping("used")
     @PreAuthorize("hasAnyRole('BASIC','ADMIN','PRO')")
-    public ResponseEntity<?> getUsedCompanies(Authentication authentication)
+    public ResponseEntity<?> getUsedCompanies(
+            @Parameter(description="User authentication") @RequestParam Authentication authentication)
     {
         User user = usersService.getAuthUser((UserDetails) authentication.getPrincipal());
         if(user == null) return ResponseEntity.notFound().build();
@@ -60,8 +82,13 @@ public class CompaniesController {
         return ResponseEntity.ok(result);
     }
 
+    @Operation(summary = "Signing up as a company")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Success", content = @Content),
+            @ApiResponse(responseCode = "400", description = "Blank field", content = @Content) })
     @PostMapping("/sign-up")
-    public ResponseEntity<?> signUpCompany(@RequestBody Company company)
+    public ResponseEntity<?> signUpCompany(
+            @Parameter(description="Company information") @RequestBody Company company)
     {
         if (company.getName().isBlank()) return ResponseEntity.badRequest().body("Company name is blank");
         if (company.getAddress().isBlank()) return ResponseEntity.badRequest().body("Address is blank");
