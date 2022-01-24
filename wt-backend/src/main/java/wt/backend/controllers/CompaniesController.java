@@ -48,11 +48,11 @@ public class CompaniesController {
             @ApiResponse(responseCode = "200", description = "Success",
                     content = { @Content(mediaType = "application/json",
                             schema = @Schema(implementation = Company.class)) }),
-            @ApiResponse(responseCode = "404", description = "User not found", content = @Content) })
+            @ApiResponse(responseCode = "404", description = "User not found", content = @Content),
+            @ApiResponse(responseCode = "401", description = "Unauthorized", content = @Content)})
     @GetMapping()
     @PreAuthorize("hasAnyRole('BASIC','ADMIN','PRO')")
-    public ResponseEntity<?> getAllCompanies(
-            @Parameter(description="User authentication") @RequestParam Authentication authentication)
+    public ResponseEntity<?> getAllCompanies(Authentication authentication)
     {
         User user = usersService.getAuthUser((UserDetails) authentication.getPrincipal());
         if(user == null) return ResponseEntity.notFound().build();
@@ -75,11 +75,11 @@ public class CompaniesController {
             @ApiResponse(responseCode = "200", description = "Success",
                     content = { @Content(mediaType = "application/json",
                             schema = @Schema(implementation = Company.class)) }),
-            @ApiResponse(responseCode = "404", description = "User not found", content = @Content) })
+            @ApiResponse(responseCode = "404", description = "User not found", content = @Content),
+            @ApiResponse(responseCode = "401", description = "Unauthorized", content = @Content)})
     @GetMapping("used")
     @PreAuthorize("hasAnyRole('BASIC','ADMIN','PRO')")
-    public ResponseEntity<?> getUsedCompanies(
-            @Parameter(description="User authentication") @RequestParam Authentication authentication)
+    public ResponseEntity<?> getUsedCompanies(Authentication authentication)
     {
         User user = usersService.getAuthUser((UserDetails) authentication.getPrincipal());
         if(user == null) return ResponseEntity.notFound().build();

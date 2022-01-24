@@ -40,7 +40,7 @@ public class MailerController {
             @ApiResponse(responseCode = "200", description = "Success", content = @Content),
             @ApiResponse(responseCode = "400", description = "Invalid information", content = @Content)})
     @PostMapping("test")
-    public ResponseEntity<?> tesMail(
+    public ResponseEntity<?> testMail(
             @Parameter(description="Provided information") @RequestBody TestEmailRequest request)
     {
         if(request.getMail().isBlank() || !request.getMail().contains("@gmail.com"))
@@ -62,6 +62,10 @@ public class MailerController {
 
     }
 
+    @Operation(summary = "Send an email")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Success", content = @Content),
+            @ApiResponse(responseCode = "400", description = "Blank field", content = @Content)})
     @PostMapping("/test-template")
     public ResponseEntity<?> testEmailTemplate(Authentication authentication, @RequestBody EmailTemplateTestRequest request)
     {

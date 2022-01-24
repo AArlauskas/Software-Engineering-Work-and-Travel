@@ -53,11 +53,11 @@ public class PaymentsController {
                     content = { @Content(mediaType = "application/json",
                             schema = @Schema(implementation = Authentication.class)) }),
             @ApiResponse(responseCode = "404", description = "User not found", content = @Content),
-            @ApiResponse(responseCode = "400", description = "Bad request", content = @Content)})
+            @ApiResponse(responseCode = "400", description = "Not a Basic user", content = @Content),
+            @ApiResponse(responseCode = "401", description = "Not a Basic user", content = @Content)})
     @GetMapping("checkout")
     @PreAuthorize("hasRole('BASIC')")
-    public ResponseEntity<?> checkout(
-            @Parameter(description="User authentication") @RequestParam Authentication authentication)
+    public ResponseEntity<?> checkout(Authentication authentication)
     {
         try
         {
@@ -81,8 +81,7 @@ public class PaymentsController {
             @ApiResponse(responseCode = "200", description = "Success", content = @Content),
             @ApiResponse(responseCode = "400", description = "Bad request", content = @Content)})
     @PostMapping("webhook")
-    public ResponseEntity<?> webhook(
-            @Parameter(description="Provided information") @RequestParam HttpServletRequest request)
+    public ResponseEntity<?> webhook(@RequestParam HttpServletRequest request)
     {
         try
         {

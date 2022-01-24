@@ -44,11 +44,11 @@ public class TasksController {
             @ApiResponse(responseCode = "200", description = "Success",
                     content = { @Content(mediaType = "application/json",
                             schema = @Schema(implementation = TaskDto.class)) }),
-            @ApiResponse(responseCode = "404", description = "user not found",content = @Content) })
+            @ApiResponse(responseCode = "404", description = "User not found",content = @Content),
+            @ApiResponse(responseCode = "401", description = "Unauthorized", content = @Content)})
     @GetMapping("personal")
     @PreAuthorize("hasAnyRole('ADMIN','BASIC','PRO')")
-    public ResponseEntity<?> getPersonalTasks(
-            @Parameter(description="User authentication") @RequestParam Authentication authentication)
+    public ResponseEntity<?> getPersonalTasks(Authentication authentication)
     {
         User user = usersService.getAuthUser((UserDetails) authentication.getPrincipal());
         if(user == null) return ResponseEntity.notFound().build();
@@ -64,11 +64,11 @@ public class TasksController {
     @Operation(summary = "Create a new task")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Success", content = @Content),
-            @ApiResponse(responseCode = "404", description = "User not found", content = @Content) })
+            @ApiResponse(responseCode = "404", description = "User not found", content = @Content),
+            @ApiResponse(responseCode = "401", description = "Unauthorized", content = @Content)})
     @PostMapping()
     @PreAuthorize("hasAnyRole('ADMIN','BASIC','PRO')")
-    public ResponseEntity<?> createTask(
-            @Parameter(description="User authentication") @RequestParam Authentication authentication,
+    public ResponseEntity<?> createTask(Authentication authentication,
             @Parameter(description="Task information") @RequestBody TaskDto taskDto)
     {
         User user = usersService.getAuthUser((UserDetails) authentication.getPrincipal());
@@ -86,7 +86,8 @@ public class TasksController {
             @ApiResponse(responseCode = "200", description = "Success",
                     content = { @Content(mediaType = "application/json",
                             schema = @Schema(implementation = TaskDto.class)) }),
-            @ApiResponse(responseCode = "404", description = "Task not found",content = @Content) })
+            @ApiResponse(responseCode = "404", description = "Task not found",content = @Content),
+            @ApiResponse(responseCode = "401", description = "Unauthorized user", content = @Content)})
     @GetMapping()
     @PreAuthorize("hasAnyRole('ADMIN','BASIC','PRO')")
     public ResponseEntity<?> getTaskById(
@@ -100,6 +101,13 @@ public class TasksController {
         return ResponseEntity.ok(new TaskDto(task));
     }
 
+    @Operation(summary = "Get the current task")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Success",
+                    content = { @Content(mediaType = "application/json",
+                            schema = @Schema(implementation = TaskDto.class)) }),
+            @ApiResponse(responseCode = "404", description = "User not found",content = @Content),
+            @ApiResponse(responseCode = "401", description = "Unauthorized", content = @Content)})
     @GetMapping("current")
     @PreAuthorize("hasAnyRole('ADMIN','BASIC','PRO')")
     public ResponseEntity<?> getCurrentRunningTask(Authentication authentication)
@@ -115,9 +123,16 @@ public class TasksController {
         return ResponseEntity.ok(new TaskDto(task));
     }
 
+    @Operation(summary = "Start a task by id")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Success", content = @Content),
+            @ApiResponse(responseCode = "400", description = "Task failed to start",content = @Content),
+            @ApiResponse(responseCode = "404", description = "User not found",content = @Content),
+            @ApiResponse(responseCode = "401", description = "Unauthorized", content = @Content)})
     @PostMapping("start")
     @PreAuthorize("hasAnyRole('ADMIN','BASIC','PRO')")
-    public ResponseEntity<?> startEmailSending(Authentication authentication, @RequestParam() Long id)
+    public ResponseEntity<?> startEmailSending(Authentication authentication,
+                                               @Parameter(description="Task id") @RequestParam() Long id)
     {
         User user = usersService.getAuthUser((UserDetails) authentication.getPrincipal());
         if(user == null) return ResponseEntity.notFound().build();
@@ -128,9 +143,14 @@ public class TasksController {
         return ResponseEntity.badRequest().body("Task failed to start");
     }
 
+    @Operation(summary = "Delete a task by id")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Success", content = @Content),
+            @ApiResponse(responseCode = "400", description = "Task failed to delete",content = @Content),
+            @ApiResponse(responseCode = "401", description = "Unauthorized", content = @Content)})
     @DeleteMapping()
     @PreAuthorize("hasAnyRole('ADMIN','BASIC','PRO')")
-    public ResponseEntity<?> deleteTask(@RequestParam() Long id)
+    public ResponseEntity<?> deleteTask(@Parameter(description="Task id") @RequestParam() Long id)
     {
         if(tasksService.deleteTask(id))
         {

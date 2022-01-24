@@ -46,9 +46,11 @@ public class UsersController {
     private LogsService logsService;
 
     @Operation(summary = "Get all users")
-    @ApiResponse(responseCode = "200",description = "Success",
+    @ApiResponses(value={
+            @ApiResponse(responseCode= "200",description = "Success",
             content = { @Content(mediaType = "application/json",
-                    schema = @Schema(implementation = UserDto.class)) })
+                    schema = @Schema(implementation = UserDto.class)) }),
+            @ApiResponse(responseCode = "401", description = "Not Admin", content = @Content)})
     @GetMapping()
     @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<?> getAllUsers()
@@ -61,11 +63,11 @@ public class UsersController {
             @ApiResponse(responseCode = "200", description = "Success",
                     content = { @Content(mediaType = "application/json",
                             schema = @Schema(implementation = UserDto.class)) }),
-            @ApiResponse(responseCode = "404", description = "User not found",content = @Content) })
+            @ApiResponse(responseCode = "404", description = "User not found",content = @Content),
+            @ApiResponse(responseCode = "401", description = "Unauthorized", content = @Content)})
     @GetMapping("personal")
     @PreAuthorize("hasAnyRole('ADMIN','BASIC','PRO')")
-    public ResponseEntity<?> getPersonalInfo(
-            @Parameter(description="User authentication") @RequestParam Authentication authentication)
+    public ResponseEntity<?> getPersonalInfo(Authentication authentication)
     {
         User user = usersService.getAuthUser((UserDetails) authentication.getPrincipal());
         if(user == null) return ResponseEntity.notFound().build();
@@ -109,7 +111,8 @@ public class UsersController {
     @Operation(summary = "Authenticating user credentials")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Success", content = @Content),
-            @ApiResponse(responseCode = "400", description = "Blank field", content = @Content) })
+            @ApiResponse(responseCode = "400", description = "Blank field", content = @Content),
+            @ApiResponse(responseCode = "404", description = "User not found", content = @Content)})
     @PostMapping("authenticate")
     public ResponseEntity<?> authenticate(
             @Parameter(description="Login information") @RequestBody LoginUser loginUser)
