@@ -56,7 +56,26 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                         "/api/users/register",
                         "/api/companies/sign-up",
                         "/api/payments/webhook",
-                        "/api/mailer/test")
+                        "/api/mailer/test",
+                        "/swagger-ui/index.html",
+                        "/api-docs",
+                        "/configuration/ui",
+                        "/swagger-resources/**",
+                        "/configuration/security",
+                        "/swagger-resources",
+                        "/swagger-ui.html",
+                        "/api-docs/**",
+                        "/swagger-ui/**",
+                        "/configuration/**",
+                        "/webjars/**",
+                        "/swagger-resources/**",
+                        "/csrf",
+                        "/",
+                        "/v3/api-docs/swagger-config",
+                        "/api-docs/swagger-config",
+                        "/api/swagger-ui.html",
+                        "/v3/api-docs",
+                        "/v3/api-docs.yaml")
                 .permitAll()
                 .anyRequest().authenticated()
                 .and()

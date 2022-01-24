@@ -1,5 +1,11 @@
 package wt.backend.controllers;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -14,6 +20,7 @@ import wt.backend.services.LogsService;
 import wt.backend.services.MailsService;
 import wt.backend.services.UsersService;
 
+@Tag(name = "Mailer")
 @RestController
 @CrossOrigin
 @RequestMapping("api/mailer")
@@ -28,8 +35,13 @@ public class MailerController {
     @Autowired
     private UsersService usersService;
 
+    @Operation(summary = "Send a test email to see if the app password works")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Success", content = @Content),
+            @ApiResponse(responseCode = "400", description = "Invalid information", content = @Content)})
     @PostMapping("test")
-    public ResponseEntity<?> tesMail(@RequestBody TestEmailRequest request)
+    public ResponseEntity<?> testMail(
+            @Parameter(description="Provided information") @RequestBody TestEmailRequest request)
     {
         if(request.getMail().isBlank() || !request.getMail().contains("@gmail.com"))
         {
@@ -50,6 +62,10 @@ public class MailerController {
 
     }
 
+    @Operation(summary = "Send an email")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Success", content = @Content),
+            @ApiResponse(responseCode = "400", description = "Blank field", content = @Content)})
     @PostMapping("/test-template")
     public ResponseEntity<?> testEmailTemplate(Authentication authentication, @RequestBody EmailTemplateTestRequest request)
     {

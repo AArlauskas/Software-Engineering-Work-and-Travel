@@ -1,5 +1,6 @@
 package wt.backend.dtos;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -16,6 +17,8 @@ import java.util.stream.Collectors;
 public class TaskDto {
     @Getter
     @Setter
+    @Schema(description = "Unique identifier for the task",
+            example = "1")
     private Long id;
 
     @Getter
@@ -24,10 +27,12 @@ public class TaskDto {
 
     @Getter
     @Setter
+    @Schema(description = "The subject for the mail",required = true)
     private String header;
 
     @Getter
     @Setter
+    @Schema(description = "The body of the mail",required = true)
     private String body;
 
     @Getter
@@ -40,6 +45,7 @@ public class TaskDto {
 
     @Getter
     @Setter
+    @Schema(description = "Company to which the mail will be sent to",required = true)
     private List<Long> companies;
 
     public TaskDto(Task task)

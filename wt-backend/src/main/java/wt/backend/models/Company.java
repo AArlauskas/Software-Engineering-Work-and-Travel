@@ -1,5 +1,6 @@
 package wt.backend.models;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -20,10 +21,13 @@ public class Company {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Getter
     @Setter
+    @Schema(description = "Unique identifier for the company",
+            example = "1")
     private Long id;
 
     @Getter
     @Setter
+    @Schema(required = true)
     private String mail;
 
     @Getter
@@ -44,10 +48,12 @@ public class Company {
 
     @Getter
     @Setter
+    @Schema(nullable = true)
     private double rating;
 
     @Getter
     @Setter
+    @Schema(nullable = true)
     private int pricing;
 
     @Getter
@@ -64,5 +70,6 @@ public class Company {
 
     @Getter
     @Setter
+    @Schema(nullable = true)
     private String workType;
 }
