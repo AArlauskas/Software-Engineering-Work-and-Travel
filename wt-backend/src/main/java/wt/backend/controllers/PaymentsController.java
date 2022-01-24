@@ -81,7 +81,7 @@ public class PaymentsController {
             @ApiResponse(responseCode = "200", description = "Success", content = @Content),
             @ApiResponse(responseCode = "400", description = "Bad request", content = @Content)})
     @PostMapping("webhook")
-    public ResponseEntity<?> webhook(@RequestParam HttpServletRequest request)
+    public ResponseEntity<?> webhook(HttpServletRequest request)
     {
         try
         {
