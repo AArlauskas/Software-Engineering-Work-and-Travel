@@ -1,7 +1,9 @@
 package wt.backend.services;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import wt.backend.dtos.MessageParameters;
+import wt.backend.enums.LogType;
 
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
@@ -14,6 +16,9 @@ import java.util.Properties;
 @Service
 public class MailsService {
     private final Properties properties;
+
+    @Autowired
+    private LogsService logsService;
 
     public MailsService()
     {
@@ -57,17 +62,21 @@ public class MailsService {
         {
             var message = getMailMessage(session, messageParameters);
             sendMail(message);
+            logsService.log(LogType.EMAIL_SEND_SUCCESS, "Email sent from " + messageParameters.getFrom() + " to " + messageParameters.getTo());
             return true;
         }
         catch (MessagingException e)
         {
             System.out.println("Messaging error occurred.");
+            logsService.log(LogType.EMAIL_SEND_FAILURE, "Messaging error " + e.getMessage());
+
             System.out.println(e.getMessage());
             return false;
         }
         catch (IOException e)
         {
             System.out.println("File handling exception occurred");
+            logsService.log(LogType.EMAIL_SEND_FAILURE, "File sending error" + e.getMessage());
             System.out.println(e.getMessage());
             return false;
         }
