@@ -12,10 +12,12 @@ import buffalo from "../../assets/buffalo.jpg";
 import baltimore from "../../assets/baltimore.jpg";
 import fresno from "../../assets/fresno.jpg";
 import URI from "../../constants/URI";
+import { useNavigate } from "react-router-dom";
 
 const HomePage = () => {
+  const navigate = useNavigate();
   const onNavigate = () => {
-    onNavigate(URI.LOGIN);
+    navigate(URI.LOGIN);
   };
   return (
     <Grid className="container" container spacing={2}>
