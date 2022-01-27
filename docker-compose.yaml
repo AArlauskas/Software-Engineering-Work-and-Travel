@@ -1,4 +1,4 @@
-version: "3.8"
+version: "2.1"
 
 services:
   wt-frontend:
@@ -7,7 +7,7 @@ services:
     environment:
       - CHOKIDAR_USERPOLLING=true
     ports:
-      - 3000:3000
+      - 80:3000
     container_name: wt-frontend
     stdin_open: true
     volumes:
@@ -40,19 +40,19 @@ services:
       test: rabbitmq-diagnostics -q status
       interval: 30s
       timeout: 10s
-      start_period: 30s
+      # start_period: 30s
       retries: 5
 
-  # messagebroker:
-  #   container_name: messagebroker
-  #   build:
-  #     context: ./messagebroker
-  #   restart: on-failure
-  #   depends_on:
-  #     rabbitmq:
-  #       condition: service_healthy
-  #   volumes:
-  #     - /usr/src/app/messagebroker
+  messagebroker:
+    container_name: messagebroker
+    build:
+      context: ./messagebroker
+    restart: on-failure
+    depends_on:
+      rabbitmq:
+        condition: service_healthy
+    volumes:
+      - /usr/src/app/messagebroker
 
   wt-backend:
     container_name: wt-backend
@@ -62,5 +62,16 @@ services:
       - 8080:8080
     # restart: on-failure
     depends_on:
-      - wt-database
-      # - messagebroker
+      wt-database:
+        condition: service_started
+      messagebroker:
+        condition: service_started
+
+  stripe-cli:
+    image: stripe/stripe-cli
+    container_name: stripe-cli
+    command: listen --api-key ${STRIPE_SECRET_KEY} \--device-name ${STRIPE_DEVICE_NAME} \--forward-to wt-backend:8080/api/payments/webhook
+    depends_on:
+      wt-backend:
+        condition: service_started
+    

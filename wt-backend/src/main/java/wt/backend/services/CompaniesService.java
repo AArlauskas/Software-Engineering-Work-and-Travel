@@ -2,6 +2,7 @@ package wt.backend.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import wt.backend.enums.LogType;
 import wt.backend.models.Company;
 import wt.backend.models.User;
 import wt.backend.repositories.CompaniesRepository;
@@ -14,6 +15,9 @@ public class CompaniesService {
     @Autowired
     private CompaniesRepository companiesRepository;
 
+    @Autowired
+    private LogsService logsService;
+
     public List<Company> getAllCompanies()
     {
         return companiesRepository.findAll();
@@ -24,9 +28,26 @@ public class CompaniesService {
         return companiesRepository.getById(id);
     }
 
-    public Company saveOrUpdateCompany(Company company)
+    public void saveOrUpdateCompany(Company company)
     {
-        return companiesRepository.save(company);
+        if(company.getMail() == null || company.getMail().isBlank())
+        {
+            return;
+        }
+        if(companiesRepository.existsById(company.getId()))
+        {
+            logsService.log(LogType.COMPANY_UPDATED, "Company: id" +
+                    company.getId() +
+                    "name" +
+                    company.getName() +
+                    "updated");
+        }
+        logsService.log(LogType.COMPANY_RECEIVED, "Company: id" +
+                company.getId() +
+                "name" +
+                company.getName() +
+                "received");
+        companiesRepository.save(company);
     }
 
     public List<Company> findCompaniesById(List<Long> companyIds)

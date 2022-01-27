@@ -1,18 +1,24 @@
 package wt.backend.services;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import wt.backend.dtos.MessageParameters;
+import wt.backend.enums.LogType;
 
 import javax.mail.*;
-import javax.mail.internet.*;
-import java.io.File;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeBodyPart;
+import javax.mail.internet.MimeMessage;
+import javax.mail.internet.MimeMultipart;
 import java.io.IOException;
-import java.util.List;
 import java.util.Properties;
 
 @Service
 public class MailsService {
     private final Properties properties;
+
+    @Autowired
+    private LogsService logsService;
 
     public MailsService()
     {
@@ -31,21 +37,46 @@ public class MailsService {
         messageParameters.setTo(email);
         messageParameters.setHeader("Test email for validating provided credentials");
         messageParameters.setBody("<h1>Testing email sender</h1>");
+        return executeEmailing(session, messageParameters);
+    }
+
+    public boolean sendEmail(String email, String password, String header, String body)
+    {
+        return sendEmail(email,password,header,body,email);
+    }
+
+    public boolean sendEmail(String email, String password, String header, String body, String receiver)
+    {
+        var session = getMailSession(email, password);
+        var messageParameters = new MessageParameters();
+        messageParameters.setFrom(email);
+        messageParameters.setTo(receiver);
+        messageParameters.setHeader(header);
+        messageParameters.setBody(body);
+
+        return executeEmailing(session, messageParameters);
+    }
+
+    private boolean executeEmailing(Session session, MessageParameters messageParameters) {
         try
         {
             var message = getMailMessage(session, messageParameters);
             sendMail(message);
+            logsService.log(LogType.EMAIL_SEND_SUCCESS, "Email sent from " + messageParameters.getFrom() + " to " + messageParameters.getTo());
             return true;
         }
         catch (MessagingException e)
         {
             System.out.println("Messaging error occurred.");
+            logsService.log(LogType.EMAIL_SEND_FAILURE, "Messaging error " + e.getMessage());
+
             System.out.println(e.getMessage());
             return false;
         }
         catch (IOException e)
         {
-            System.out.println("File handling exception occured");
+            System.out.println("File handling exception occurred");
+            logsService.log(LogType.EMAIL_SEND_FAILURE, "File sending error" + e.getMessage());
             System.out.println(e.getMessage());
             return false;
         }
@@ -53,14 +84,12 @@ public class MailsService {
 
     private Session getMailSession(String email, String password)
     {
-        Session session = Session.getInstance(properties, new Authenticator() {
+        return Session.getInstance(properties, new Authenticator() {
             @Override
             protected PasswordAuthentication getPasswordAuthentication() {
                 return new PasswordAuthentication(email, password);
             }
         });
-        session.setDebug(true);
-        return session;
     }
 
     private MimeMessage getMailMessage(Session session, MessageParameters messageParameters) throws MessagingException, IOException {
@@ -72,7 +101,7 @@ public class MailsService {
         return message;
     }
 
-    private MimeMultipart getMessageContent(String body) throws MessagingException, IOException {
+    private MimeMultipart getMessageContent(String body) throws MessagingException {
         MimeMultipart content = new MimeMultipart();
 
         MimeBodyPart contentText = new MimeBodyPart();

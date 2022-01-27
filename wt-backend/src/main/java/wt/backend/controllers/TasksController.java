@@ -7,8 +7,10 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 import wt.backend.dtos.TaskDto;
+import wt.backend.enums.LogType;
 import wt.backend.models.Task;
 import wt.backend.models.User;
+import wt.backend.services.LogsService;
 import wt.backend.services.TasksService;
 import wt.backend.services.UsersService;
 
@@ -16,7 +18,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@CrossOrigin
+@CrossOrigin("*")
 @RequestMapping("/api/tasks")
 public class TasksController {
     @Autowired
@@ -24,6 +26,9 @@ public class TasksController {
 
     @Autowired
     private UsersService usersService;
+
+    @Autowired
+    private LogsService logsService;
 
     @GetMapping("personal")
     @PreAuthorize("hasAnyRole('ADMIN','BASIC','PRO')")
@@ -34,6 +39,9 @@ public class TasksController {
 
         var tasks = user.getTasks();
         List<TaskDto> response = tasks.stream().map(TaskDto::new).collect(Collectors.toList());
+
+        logsService.log(LogType.PERSONAL_TASKS, "User with id " + user.getId() + " see his created tasks");
+
         return ResponseEntity.ok(response);
     }
 
@@ -45,6 +53,9 @@ public class TasksController {
         if(user == null) return ResponseEntity.notFound().build();
 
         var createdTask = tasksService.createTask(taskDto, user);
+
+        logsService.log(LogType.CREATE_TASK, "User with id " + user.getId() + " created new task");
+
         return ResponseEntity.ok(new TaskDto(createdTask));
     }
 
@@ -54,6 +65,48 @@ public class TasksController {
     {
         Task task = tasksService.getTaskById(id);
         if(task == null) return ResponseEntity.notFound().build();
+
+        logsService.log(LogType.TASK_GET, "Task with id  " + task.getId() + " was selected");
+
         return ResponseEntity.ok(new TaskDto(task));
+    }
+
+    @GetMapping("current")
+    @PreAuthorize("hasAnyRole('ADMIN','BASIC','PRO')")
+    public ResponseEntity<?> getCurrentRunningTask(Authentication authentication)
+    {
+        User user = usersService.getAuthUser((UserDetails) authentication.getPrincipal());
+        if(user == null) return ResponseEntity.notFound().build();
+
+        Task task = tasksService.findRunningTask(user);
+        if(task == null)
+        {
+            return ResponseEntity.ok(null);
+        }
+        return ResponseEntity.ok(new TaskDto(task));
+    }
+
+    @PostMapping("start")
+    @PreAuthorize("hasAnyRole('ADMIN','BASIC','PRO')")
+    public ResponseEntity<?> startEmailSending(Authentication authentication, @RequestParam() Long id)
+    {
+        User user = usersService.getAuthUser((UserDetails) authentication.getPrincipal());
+        if(user == null) return ResponseEntity.notFound().build();
+        if(tasksService.startTask(id, user))
+        {
+            return ResponseEntity.ok().build();
+        }
+        return ResponseEntity.badRequest().body("Task failed to start");
+    }
+
+    @DeleteMapping()
+    @PreAuthorize("hasAnyRole('ADMIN','BASIC','PRO')")
+    public ResponseEntity<?> deleteTask(@RequestParam() Long id)
+    {
+        if(tasksService.deleteTask(id))
+        {
+            return ResponseEntity.ok().build();
+        }
+        return ResponseEntity.badRequest().build();
     }
 }

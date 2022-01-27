@@ -14,12 +14,14 @@ import wt.backend.auth.TokenProvider;
 import wt.backend.dtos.AuthToken;
 import wt.backend.dtos.LoginUser;
 import wt.backend.dtos.UserDto;
+import wt.backend.enums.LogType;
 import wt.backend.enums.UserRoles;
 import wt.backend.models.User;
+import wt.backend.services.LogsService;
 import wt.backend.services.UsersService;
 
 @RestController
-@CrossOrigin
+@CrossOrigin("*")
 @RequestMapping("/api/users")
 public class UsersController {
     @Autowired
@@ -30,6 +32,9 @@ public class UsersController {
 
     @Autowired
     private TokenProvider jwtTokenUtil;
+
+    @Autowired
+    private LogsService logsService;
 
     @GetMapping()
     @PreAuthorize("hasRole('ADMIN')")
@@ -44,6 +49,9 @@ public class UsersController {
     {
         User user = usersService.getAuthUser((UserDetails) authentication.getPrincipal());
         if(user == null) return ResponseEntity.notFound().build();
+
+        logsService.log(LogType.USER_DETAILS_GET, "Details about user with id  " + user.getId() + " are get");
+
         return ResponseEntity.ok(new UserDto(user));
     }
 
@@ -66,6 +74,10 @@ public class UsersController {
         {
             return ResponseEntity.badRequest().body("Email already exists");
         }
+
+        logsService.log(LogType.REGISTER_USER, "User with first name " + userDto.getFirstname() + " lastname "
+        + userDto.getLastname() + " email " + userDto.getEmail() + "was registered");
+
         return ResponseEntity.ok(new UserDto(usersService.createUser(userDto)));
     }
 

@@ -48,6 +48,13 @@ const TopBar = () => {
         "Instructions",
         { icon: <IntegrationInstructionsOutlined />, href: URI.INSTRUCTIONS },
       ],
+      [
+        "System Instructions",
+        {
+          icon: <IntegrationInstructionsOutlined />,
+          href: URI.SYSTEM_INSTRUCTIONS,
+        },
+      ],
     ])
   );
 
@@ -55,6 +62,13 @@ const TopBar = () => {
     new Map([
       ["Tasks", { icon: <TaskOutlined />, href: URI.TASKS }],
       ["See Plans", { icon: <SearchOutlined />, href: URI.PRICING }],
+      [
+        "System Instructions",
+        {
+          icon: <IntegrationInstructionsOutlined />,
+          href: URI.SYSTEM_INSTRUCTIONS,
+        },
+      ],
     ])
   );
 
@@ -62,6 +76,21 @@ const TopBar = () => {
     new Map([
       ["Tasks", { icon: <TaskOutlined />, href: URI.TASKS }],
       ["Lookup", { icon: <SearchOutlined />, href: URI.LOOKUP }],
+      [
+        "System Instructions",
+        {
+          icon: <IntegrationInstructionsOutlined />,
+          href: URI.SYSTEM_INSTRUCTIONS,
+        },
+      ],
+    ])
+  );
+
+  const adminTabs = useRef(
+    new Map([
+      ["Tasks", { icon: <TaskOutlined />, href: URI.TASKS }],
+      ["Lookup", { icon: <SearchOutlined />, href: URI.LOOKUP }],
+      ["Logs", { icon: <IntegrationInstructionsOutlined />, href: URI.LOGS }],
     ])
   );
 
@@ -69,7 +98,8 @@ const TopBar = () => {
     const role = window.localStorage.getItem("role");
     if (role === UserRoles.PUBLIC) return publicTabs;
     if (role === UserRoles.BASIC) return basicTabs;
-    if (role === UserRoles.PRO || UserRoles.ADMIN) return proTabs;
+    if (role === UserRoles.PRO) return proTabs;
+    if (role === UserRoles.ADMIN) return adminTabs;
   };
 
   const isPublic = () => {

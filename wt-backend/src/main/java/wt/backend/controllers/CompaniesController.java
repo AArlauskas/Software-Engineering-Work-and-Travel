@@ -6,6 +6,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 import wt.backend.dtos.BasicCompanyDto;
+import wt.backend.enums.LogType;
 import wt.backend.enums.UserRoles;
 import wt.backend.models.Company;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -15,13 +16,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import wt.backend.models.User;
 import wt.backend.services.CompaniesService;
+import wt.backend.services.LogsService;
 import wt.backend.services.UsersService;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@CrossOrigin
+@CrossOrigin("*")
 @RequestMapping("/api/companies")
 public class CompaniesController {
     @Autowired
@@ -29,6 +31,9 @@ public class CompaniesController {
 
     @Autowired
     private UsersService usersService;
+
+    @Autowired
+    private LogsService logsService;
 
     @GetMapping()
     @PreAuthorize("hasAnyRole('BASIC','ADMIN','PRO')")
@@ -45,6 +50,8 @@ public class CompaniesController {
             return ResponseEntity.ok(response);
         }
 
+        logsService.log(LogType.DATA_GET, "User with id of " + user.getId() + "fetched the full company list");
+
         return ResponseEntity.ok(companiesService.getAllCompanies());
     }
 
@@ -57,6 +64,9 @@ public class CompaniesController {
 
         List<BasicCompanyDto> result = companiesService.findUserCompanies(user)
                 .stream().map(BasicCompanyDto::new).collect(Collectors.toList());
+
+        logsService.log(LogType.DATA_GET, "User with id of " + user.getId() + "fetched the used companies");
+
         return ResponseEntity.ok(result);
     }
 
@@ -71,6 +81,11 @@ public class CompaniesController {
         if (company.getWorkType().isBlank()) return ResponseEntity.badRequest().body("Work type is blank");
 
         companiesService.saveOrUpdateCompany(company);
+
+        logsService.log(LogType.COMPANY_SIGNING_UP, "Company with name " + company.getName() + ", location "
+        + company.getLocation() + " Email " + company.getMail() + "signed up");
+
         return ResponseEntity.ok().build();
     }
+
 }
