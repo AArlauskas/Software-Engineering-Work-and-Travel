@@ -1,21 +1,26 @@
-Software Engineering Work and Travel
-Information about the project can be found in presentations folder
+# Introduction to Software Engineering project
 
-link to the template website: https://marvelapp.com/prototype/1682ebi4/screen/83939618
+## Work and Travel Emailer
+Project for University of Aveiro.
 
-docker command for database:
-docker run --name database-wt -e MYSQL_ROOT_PASSWORD=erasmus -e MYSQL_DATABASE=worktravel -e MYSQL_USER=erasmus -e MYSQL_PASSWORD=erasmus -p 3306:3306 -d mysql/mysql-server:5.7
-docker command for rabbitMq:
-docker run -it --rm --name rabbitmq -p 5672:5672 -p 15672:15672 rabbitmq:3.9-management
+Emailing system created with an idea to help out students to participate in the program **"Work and Travel"**. 
+The idea of project was to simplify the process of finding a job for the program by saving time and automating tasks required to find the best place to work at.
+Emailing system contains a list of companies with real credentials from USA companies that have provided their credentials. This information is always up-to-date as it is being synchronized through Google Places API. 
+Students can sign in into the system, create tasks (email sending) and automate the process of sending out emails. The amount of information provided to the user depends on the role that he has.
+## Launching the project
 
-How to launch:
+     - docker-compose build
+     - docker-compose up
 
-1. Start frontend with npm install, npm start
-2. Initialise database and start with docker start database-wt
-3. Start rabbitMq
-4. Start messageBroker by installing dependencies and starting it with python main.python
-5. Start backend
+## Links
 
-For Stripe:
-Provide private key in the backend StripeClientService.
-Run stripe CLI with the command: stripe listen --forward-to http://deti-engsoft-09/:8080/api/payments/webhook
+ - Jira board https://erasmus-it.atlassian.net/jira/software/projects/WTE/boards/1
+ - Deployed application http://deti-engsoft-09
+ - Marvel prototype app https://marvelapp.com/prototype/1682ebi4/screen/83939618
+
+## Members
+
+ - Team manager Ana Atanasova
+ - Product Owner Aurimas Arlauskas
+ - Architect Tanja Miloshoska
+ - DevOps Aleksandra Zdravkova
