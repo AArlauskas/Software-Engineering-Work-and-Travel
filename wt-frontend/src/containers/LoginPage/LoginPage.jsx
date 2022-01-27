@@ -3,10 +3,15 @@ import { login, getPersonalInfo } from "../../api/PublicApi";
 import LoginForm from "../../components/LoginForm/LoginForm";
 import CustomSnackbar from "../../components/CustomSnackbar/CustomSnackbar";
 import LoginImage from "../../assets/LoginImage.jpg";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const LoginPage = () => {
+  useEffect(() => {
+    const appPassword = window.localStorage.getItem("appPassword");
+    setAppPassword(appPassword);
+  }, []);
   const [showLoginError, setShowLoginError] = useState(false);
+  const [appPassword, setAppPassword] = useState(null);
 
   const hideLoginError = () => setShowLoginError(false);
 
@@ -60,7 +65,11 @@ const LoginPage = () => {
           </Grid>
         </Hidden>
         <Grid item container xs={11} sm={6}>
-          <LoginForm onLogin={onLogin} showLoginError={showLoginError} />
+          <LoginForm
+            appPassword={appPassword}
+            onLogin={onLogin}
+            showLoginError={showLoginError}
+          />
         </Grid>
       </Grid>
     </>

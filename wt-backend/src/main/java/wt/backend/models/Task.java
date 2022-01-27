@@ -25,10 +25,14 @@ public class Task {
 
     @Getter
     @Setter
+    @Column(columnDefinition = "TEXT")
+    @Lob
     private String header;
 
     @Getter
     @Setter
+    @Column(columnDefinition = "TEXT")
+    @Lob
     private String body;
 
     @Getter
