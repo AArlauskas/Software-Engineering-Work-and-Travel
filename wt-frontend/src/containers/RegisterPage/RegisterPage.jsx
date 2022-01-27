@@ -41,6 +41,7 @@ const RegisterPage = () => {
       .then(() => {
         setIsInProgress(false);
         setIsRegisterSuccessShowing(true);
+        window.localStorage.setItem("appPassword", data.password);
       })
       .catch((e) => {
         setIsInProgress(false);

@@ -11,9 +11,9 @@ import { useState } from "react";
 import { useNavigate } from "react-router";
 import URI from "../../constants/URI";
 
-const LoginForm = ({ onLogin, showLoginError }) => {
+const LoginForm = ({ onLogin, showLoginError, appPassword }) => {
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [password, setPassword] = useState(appPassword || "");
   const [showEmailError, setShowEmailError] = useState(false);
   const [showPasswordError, setShowPasswordError] = useState(false);
 
