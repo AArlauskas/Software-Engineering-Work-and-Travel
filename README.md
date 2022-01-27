@@ -3,6 +3,8 @@
 ## Work and Travel Emailer
 Project for University of Aveiro.
 
+## In the presentations folder, you can see a Demo video of the application
+
 Emailing system created with an idea to help out students to participate in the program **"Work and Travel"**. 
 The idea of project was to simplify the process of finding a job for the program by saving time and automating tasks required to find the best place to work at.
 Emailing system contains a list of companies with real credentials from USA companies that have provided their credentials. This information is always up-to-date as it is being synchronized through Google Places API. 
